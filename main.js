@@ -133,7 +133,23 @@ function doSubmit() {
       body: JSON.stringify(payload)
     }).catch(function(err) { console.warn('Webhook error:', err); });
   }
+function sendToWhatsApp() {
+  const name = document.getElementById("name")?.value || "";
+  const phone = document.getElementById("phone")?.value || "";
+  const postcode = document.getElementById("postcode")?.value || "";
+  const service = document.getElementById("service")?.value || "";
 
+  const message = `New quote request:%0A
+Name: ${name}%0A
+Phone: ${phone}%0A
+Postcode: ${postcode}%0A
+Service: ${service}`;
+
+  const whatsappNumber = "447700111222"; // replace with your number
+  const url = `https://wa.me/${whatsappNumber}?text=${message}`;
+
+  window.open(url, "_blank");
+}
   /* ── WhatsApp ping to owner ──────────────────────────────
      Every form submission opens a pre-filled WhatsApp
      message to 07459819603 with the full lead details.
