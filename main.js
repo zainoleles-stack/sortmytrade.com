@@ -23,7 +23,7 @@ const jobTypes = {
   manvan: [
     'Single item collection / delivery',
     'Studio or 1-bed move',
-    '2–3 bed property move',
+    '2-3 bed property move',
     'Student move',
     'IKEA / flat-pack delivery & assembly',
     'Rubbish or clearance removal',
@@ -106,22 +106,23 @@ function doSubmit() {
   var phone = document.getElementById('fphone').value.trim();
   var email = document.getElementById('femail').value.trim();
 
-  if (!name)                           { showToast('Please enter your full name'); return; }
-  if (phone.replace(/\s/g,'').length < 10) { showToast('Please enter a valid UK mobile number'); return; }
-  if (!email.includes('@'))            { showToast('Please enter a valid email address'); return; }
+  if (!name)                                { showToast('Please enter your full name'); return; }
+  if (phone.replace(/\s/g,'').length < 10)  { showToast('Please enter a valid UK mobile number'); return; }
+  if (!email.includes('@'))                 { showToast('Please enter a valid email address'); return; }
 
+  var svcEl = document.querySelector('input[name="svc"]:checked');
   var payload = {
-    service:  document.querySelector('input[name="svc"]:checked') ? document.querySelector('input[name="svc"]:checked').value : '',
-    jobType:  document.getElementById('job-type').value,
-    postcode: document.getElementById('postcode').value.trim(),
+    service:     svcEl ? svcEl.value : '',
+    jobType:     document.getElementById('job-type').value,
+    postcode:    document.getElementById('postcode').value.trim(),
     description: document.getElementById('job-desc').value.trim(),
-    timeline: document.getElementById('timeline').value,
-    budget:   document.getElementById('budget').value,
-    name:     name,
-    phone:    phone,
-    email:    email,
-    submitted: new Date().toISOString(),
-    source:   'sortmytrade.com'
+    timeline:    document.getElementById('timeline').value,
+    budget:      document.getElementById('budget').value,
+    name:        name,
+    phone:       phone,
+    email:       email,
+    submitted:   new Date().toISOString(),
+    source:      'sortmytrade.com'
   };
 
   /* Send to Zapier webhook */
@@ -130,10 +131,51 @@ function doSubmit() {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
-    }).catch(function(err) {
-      console.warn('Webhook error:', err);
-    });
+    }).catch(function(err) { console.warn('Webhook error:', err); });
   }
+
+  /* ── WhatsApp ping to owner ──────────────────────────────
+     Every form submission opens a pre-filled WhatsApp
+     message to 07459819603 with the full lead details.
+  ────────────────────────────────────────────────────────── */
+  var serviceLabels = {
+    electrician: 'Electrician',
+    manvan:      'Man & Van',
+    removals:    'Removals',
+    planning:    'Planning Drawings'
+  };
+  var budgetLabels = {
+    unsure:    'Not sure',
+    u200:      'Under 200',
+    '200-500': '200-500',
+    '500-2k':  '500-2k',
+    '2kplus':  '2k+'
+  };
+  var timelineLabels = {
+    asap:     'ASAP',
+    week:     'Within 1 week',
+    month:    'Within 1 month',
+    flexible: 'Flexible'
+  };
+
+  var waMsg = [
+    'NEW LEAD - SortMyTrade',
+    '',
+    'Service: ' + (serviceLabels[payload.service] || payload.service),
+    payload.jobType ? 'Job type: ' + payload.jobType : null,
+    'Postcode: ' + payload.postcode,
+    'Timeline: ' + (timelineLabels[payload.timeline] || payload.timeline),
+    'Budget: ' + (budgetLabels[payload.budget] || payload.budget),
+    '',
+    'Name: ' + payload.name,
+    'Phone: ' + payload.phone,
+    'Email: ' + payload.email,
+    '',
+    'Job description:',
+    payload.description
+  ].filter(function(l) { return l !== null; }).join('\n');
+
+  window.open('https://wa.me/447459819603?text=' + encodeURIComponent(waMsg), '_blank');
 
   /* Show success state */
   document.getElementById('fs3').classList.remove('active');
@@ -165,7 +207,7 @@ document.querySelectorAll('.achip').forEach(function(chip) {
 /* ─────────────────────────────────────────
    SMOOTH SCROLL
 ───────────────────────────────────────── */
-function scrollTo(id) {
+function scrollToSection(id) {
   var el = document.getElementById(id);
   if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
@@ -195,23 +237,13 @@ function showToast(msg) {
     t = document.createElement('div');
     t.id = 'smt-toast';
     t.style.cssText = [
-      'position:fixed',
-      'bottom:28px',
-      'left:50%',
+      'position:fixed','bottom:28px','left:50%',
       'transform:translateX(-50%) translateY(20px)',
-      'background:#ef4444',
-      'color:#fff',
-      'padding:12px 24px',
-      'border-radius:6px',
-      'font-family:Manrope,sans-serif',
-      'font-size:14px',
-      'font-weight:600',
-      'z-index:9999',
-      'opacity:0',
-      'transition:all .25s',
-      'pointer-events:none',
-      'white-space:nowrap',
-      'box-shadow:0 8px 32px rgba(0,0,0,.2)'
+      'background:#ef4444','color:#fff','padding:12px 24px',
+      'border-radius:6px','font-family:Manrope,sans-serif',
+      'font-size:14px','font-weight:600','z-index:9999',
+      'opacity:0','transition:all .25s','pointer-events:none',
+      'white-space:nowrap','box-shadow:0 8px 32px rgba(0,0,0,.2)'
     ].join(';');
     document.body.appendChild(t);
   }

@@ -10,7 +10,7 @@
 <meta property="og:url" content="https://sortmytrade.com">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
@@ -23,16 +23,16 @@
 <nav class="nav">
   <a href="#" class="nav-logo">Sort<span>MyTrade</span></a>
   <div class="nav-pills">
-    <span class="nav-pill" onclick="scrollTo('services')">Services</span>
-    <span class="nav-pill" onclick="scrollTo('how')">How It Works</span>
-    <span class="nav-pill" onclick="scrollTo('reviews')">Reviews</span>
-    <span class="nav-pill" onclick="scrollTo('faq')">FAQ</span>
+    <span class="nav-pill" onclick="scrollToSection('services')">Services</span>
+    <span class="nav-pill" onclick="scrollToSection('how')">How It Works</span>
+    <span class="nav-pill" onclick="scrollToSection('reviews')">Reviews</span>
+    <span class="nav-pill" onclick="scrollToSection('faq')">FAQ</span>
   </div>
   <div class="nav-right">
     <div class="nav-rating">
       <span class="nav-stars">★★★★★</span> 4.9/5 rated
     </div>
-    <button class="nav-btn" onclick="scrollTo('quote')">Get Free Quotes</button>
+    <button class="nav-btn" onclick="scrollToSection('quote')">Get Free Quotes</button>
   </div>
 </nav>
 
@@ -156,7 +156,68 @@
         <div class="fstep" id="fs2">
           <div class="field">
             <label>Describe the job <span class="ast">*</span></label>
-            <textarea class="ftextarea" id="job-desc" placeholder="A little detail helps trades give accurate quotes — e.g. '3-bed semi, need fuse box replaced and 2 new sockets...'"></textarea>
+            <textarea class="ftextarea" id="job-desc" placeholder="Describe the work needed — the more detail, the more accurate your quotes will be..."></textarea>
+            <p class="ai-note">💡 Not sure what to write?</p>
+            <button class="ai-assist-btn" id="ai-assist-btn" onclick="toggleAiPanel()" type="button">
+              <span class="ai-icon">✨</span>
+              <div class="ai-spinner"></div>
+              <span class="ai-btn-text">Help me describe my job with AI</span>
+            </button>
+
+            <!-- AI PANEL -->
+            <div class="ai-panel" id="ai-panel">
+              <div class="ai-panel-header">
+                <div class="ai-panel-title"><span>✨</span> AI Job Description Helper</div>
+                <button class="ai-close" onclick="closeAiPanel()" type="button">×</button>
+              </div>
+              <div class="ai-questions" id="ai-questions">
+                <div class="ai-question">
+                  <label>Property type</label>
+                  <select id="ai-property">
+                    <option value="">Select...</option>
+                    <option>Terraced house</option>
+                    <option>Semi-detached house</option>
+                    <option>Detached house</option>
+                    <option>Flat / apartment</option>
+                    <option>New build</option>
+                    <option>Commercial property</option>
+                  </select>
+                </div>
+                <div class="ai-question">
+                  <label>Number of bedrooms</label>
+                  <select id="ai-bedrooms">
+                    <option value="">Select...</option>
+                    <option>Studio</option>
+                    <option>1 bedroom</option>
+                    <option>2 bedrooms</option>
+                    <option>3 bedrooms</option>
+                    <option>4+ bedrooms</option>
+                    <option>Not applicable</option>
+                  </select>
+                </div>
+                <div class="ai-question">
+                  <label>Main problem or goal</label>
+                  <input type="text" id="ai-problem" placeholder="e.g. fuse keeps tripping, need EV charger fitted...">
+                </div>
+                <div class="ai-question">
+                  <label>Anything else? (optional)</label>
+                  <input type="text" id="ai-extra" placeholder="e.g. parking available, pets in house, tight access...">
+                </div>
+                <button class="ai-generate-btn" id="ai-generate-btn" onclick="generateDescription()" type="button">
+                  <div class="gen-spinner"></div>
+                  ✨ Write My Job Description
+                </button>
+              </div>
+              <div class="ai-result" id="ai-result">
+                <div class="ai-result-label">✨ AI-Generated Description</div>
+                <div class="ai-result-text" id="ai-result-text"></div>
+                <div class="ai-result-actions">
+                  <button class="ai-use-btn" onclick="useDescription()" type="button">Use This ✓</button>
+                  <button class="ai-retry-btn" onclick="generateDescription()" type="button">Try Again</button>
+                </div>
+              </div>
+              <div class="ai-error" id="ai-error">⚠️ Couldn't generate right now. Please type your description manually.</div>
+            </div>
           </div>
           <div class="field">
             <label>When do you need it done?</label>
@@ -271,7 +332,7 @@
     <h2>Three verticals. One platform.</h2>
     <p class="sec-sub">All covered by locally-based, independently vetted professionals.</p>
     <div class="svc-grid reveal">
-      <div class="svc-card" onclick="scrollTo('quote')">
+      <div class="svc-card" onclick="scrollToSection('quote')">
         <div class="svc-icon">⚡</div>
         <h3>Electricians</h3>
         <p>NICEIC-registered electricians for everything from emergency callouts to full rewires and EV charger installations. Available same day.</p>
@@ -281,7 +342,7 @@
           <span class="stag">Emergency Callouts</span><span class="stag">Fuse Boxes</span>
         </div>
       </div>
-      <div class="svc-card" onclick="scrollTo('quote')">
+      <div class="svc-card" onclick="scrollToSection('quote')">
         <div class="svc-icon">🚐</div>
         <h3>Man & Van / Removals</h3>
         <p>From a single item to a full house move. Fully insured, careful handling, competitive rates. Same-day availability.</p>
@@ -291,7 +352,7 @@
           <span class="stag">Student Moves</span><span class="stag">Office Removals</span>
         </div>
       </div>
-      <div class="svc-card" onclick="scrollTo('quote')">
+      <div class="svc-card" onclick="scrollToSection('quote')">
         <div class="svc-icon">📐</div>
         <h3>Planning Drawings</h3>
         <p>Professional architectural drawings for extensions, loft conversions and planning applications. Delivered in 5–10 working days.</p>
@@ -316,7 +377,7 @@
         <div class="uslot"><span class="udot"></span> 2 planning consultants available</div>
       </div>
     </div>
-    <button class="urgency-btn" onclick="scrollTo('quote')">Claim My Quotes →</button>
+    <button class="urgency-btn" onclick="scrollToSection('quote')">Claim My Quotes →</button>
   </div>
 </div>
 
@@ -400,7 +461,7 @@
     <div class="cta-eyebrow"><span class="pulse"></span>Ready to get started?</div>
     <h2>Get your trade sorted today.</h2>
     <p>60 seconds to submit. 3 vetted quotes back within 2 hours. Completely free, no obligation.</p>
-    <button class="cta-bigbtn" onclick="scrollTo('quote')">Sort My Trade — It's Free →</button>
+    <button class="cta-bigbtn" onclick="scrollToSection('quote')">Sort My Trade — It's Free →</button>
     <p class="cta-note">★★★★★ Rated 4.9 / 5 from 500+ homeowners across South Manchester</p>
   </div>
 </section>
@@ -443,5 +504,6 @@
 </footer>
 
 <script src="js/main.js"></script>
+<script src="js/ai-assistant.js"></script>
 </body>
 </html>
