@@ -46,9 +46,8 @@
           <div class="eyebrow">Trusted local trades, fast</div>
           <h1>Get 3 local quotes in under 2 hours.</h1>
           <p class="hero-sub">
-            South Manchester’s fast, free way to find vetted electricians,
-            removals, man &amp; van services and planning drawing support.
-          </p>
+  South Manchester’s fast, free way to get matched with vetted plumbers, electricians, removals and man &amp; van services.
+</p>
 
           <ul class="value-list">
             <li>3 local quotes</li>
@@ -56,13 +55,31 @@
             <li>No spam</li>
           </ul>
 
-          <div class="service-pills">
-            <span>Electricians</span>
-            <span>Man &amp; Van</span>
-            <span>Removals</span>
-            <span>Planning Drawings</span>
-          </div>
-        </div>
+          <div class="service-grid">
+  <article class="service-card">
+    <div class="service-icon">🔧</div>
+    <h3>Plumber</h3>
+    <p>Leaks, blocked drains, boiler issues, repairs and urgent callouts.</p>
+  </article>
+
+  <article class="service-card">
+    <div class="service-icon">⚡</div>
+    <h3>Electrician</h3>
+    <p>EV chargers, rewiring, sockets, lighting and urgent electrical callouts.</p>
+  </article>
+
+  <article class="service-card">
+    <div class="service-icon">🏠</div>
+    <h3>Removals</h3>
+    <p>House moves, office moves, packing and relocation help.</p>
+  </article>
+
+  <article class="service-card">
+    <div class="service-icon">🚚</div>
+    <h3>Man &amp; Van</h3>
+    <p>Single item moves, same-day help and local transport.</p>
+  </article>
+</div>
 
         <div class="form-card" id="quote-form">
           <div class="form-card-top">
@@ -85,13 +102,20 @@
 
             <label for="service">What do you need?</label>
             <select id="service" name="service" required>
-              <option value="">Select a service</option>
-              <option value="Electrician">Electrician</option>
-              <option value="Man & Van">Man &amp; Van</option>
-              <option value="Removals">Removals</option>
-              <option value="Planning Drawings">Planning Drawings</option>
-            </select>
-
+  <option value="">Select a service</option>
+  <option value="Plumber">Plumber</option>
+  <option value="Electrician">Electrician</option>
+  <option value="Removals">Removals</option>
+  <option value="Man & Van">Man &amp; Van</option>
+</select>
+<label for="urgency">How urgent is the job?</label>
+<select id="urgency" name="urgency" required>
+  <option value="">Select urgency</option>
+  <option value="Emergency / ASAP">Emergency / ASAP</option>
+  <option value="Within 48 hours">Within 48 hours</option>
+  <option value="Within 1 week">Within 1 week</option>
+  <option value="Within 1 month">Within 1 month</option>
+</select>
             <label for="phone">Phone number</label>
             <input
               id="phone"
@@ -173,39 +197,73 @@
           </article>
 
           <article class="service-card">
-            <div class="service-icon">📐</div>
-            <h3>Planning Drawings</h3>
-            <p>Extensions, lofts, layout plans and planning support.</p>
-          </article>
-        </div>
-      </div>
-    </section>
+            <div class="service-pills">
+  <span>Plumbers</span>
+  <span>Electricians</span>
+  <span>Removals</span>
+  <span>Man &amp; Van</span>
+</div>
+    <form id="leadForm" class="lead-form">
+  <label for="postcode">Postcode</label>
+  <input
+    id="postcode"
+    name="postcode"
+    type="text"
+    placeholder="e.g. M20 2AA"
+    required
+  />
 
-    <section class="how-it-works">
-      <div class="container">
-        <div class="section-head">
-          <p class="eyebrow">How it works</p>
-          <h2>Simple, fast, and built to get you sorted.</h2>
-        </div>
+  <label for="service">What do you need?</label>
+  <select id="service" name="service" required>
+    <option value="">Select a service</option>
+    <option value="Plumber">Plumber</option>
+    <option value="Electrician">Electrician</option>
+    <option value="Removals">Removals</option>
+    <option value="Man &amp; Van">Man &amp; Van</option>
+  </select>
 
-        <div class="steps">
-          <div class="step">
-            <span class="step-number">1</span>
-            <h3>Tell us what you need</h3>
-            <p>Enter your postcode, service and phone number.</p>
-          </div>
-          <div class="step">
-            <span class="step-number">2</span>
-            <h3>We match the request</h3>
-            <p>We route your enquiry to suitable local trades.</p>
-          </div>
-          <div class="step">
-            <span class="step-number">3</span>
-            <h3>You get quotes fast</h3>
-            <p>Choose the best option for your job and timing.</p>
-          </div>
-        </div>
-      </div>
+  <label for="urgency">How urgent is the job?</label>
+  <select id="urgency" name="urgency" required>
+    <option value="">Select urgency</option>
+    <option value="Emergency / ASAP">Emergency / ASAP</option>
+    <option value="Within 48 hours">Within 48 hours</option>
+    <option value="Within 1 week">Within 1 week</option>
+    <option value="Within 1 month">Within 1 month</option>
+  </select>
+
+  <label for="phone">Phone number</label>
+  <input
+    id="phone"
+    name="phone"
+    type="tel"
+    placeholder="Your phone number"
+    required
+  />
+
+  <label for="name">Your name</label>
+  <input
+    id="name"
+    name="name"
+    type="text"
+    placeholder="Your name"
+    required
+  />
+
+  <button type="submit" class="primary-btn">Get My Free Quotes</button>
+
+  <a
+    class="secondary-btn"
+    href="https://wa.me/447459819603?text=Hi%20SortMyTrade%2C%20I%27d%20like%20a%20quote."
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Prefer WhatsApp? Get a Quote on WhatsApp
+  </a>
+
+  <p class="form-note">
+    By continuing, you agree to be contacted about your quote request.
+  </p>
+</form>
     </section>
 
     <section class="cta-strip">
