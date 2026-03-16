@@ -66,139 +66,54 @@ document.querySelectorAll('input[name="svc"]').forEach(function(radio) {
 /* ─────────────────────────────────────────
    STEP NAVIGATION
 ───────────────────────────────────────── */
-function goNext(step) {
-  if (step === 1) {
-    var svc = document.querySelector('input[name="svc"]:checked');
-    var pc  = document.getElementById('postcode').value.trim();
-    if (!svc) { showToast('Please select a service type'); shake('fs1'); return; }
-    if (!pc)  { showToast('Please enter your postcode'); shake('fs1'); return; }
-  }
-  if (step === 2) {
-    var desc = document.getElementById('job-desc').value.trim();
-    if (desc.length < 15) { showToast('Please describe your job in a bit more detail'); shake('fs2'); return; }
-  }
-  document.getElementById('fs' + step).classList.remove('active');
-  document.getElementById('fs' + (step + 1)).classList.add('active');
-  setProgressStep(step + 1);
-  document.getElementById('quote').scrollIntoView({ behavior: 'smooth', block: 'center' });
-}
+(function () {
+  const form = document.getElementById("leadForm");
+  if (!form) return;
 
-function goBack(step) {
-  document.getElementById('fs' + step).classList.remove('active');
-  document.getElementById('fs' + (step - 1)).classList.add('active');
-  setProgressStep(step - 1);
-}
+  const whatsappNumber = "447459819603";
 
-function setProgressStep(n) {
-  [1, 2, 3].forEach(function(i) {
-    var el = document.getElementById('ps' + i);
-    el.classList.remove('active', 'done');
-    if (i < n)  el.classList.add('done');
-    if (i === n) el.classList.add('active');
+  function cleanValue(value) {
+    return String(value || "").trim();
+  }
+
+  function buildMessage(data) {
+    return [
+      "New SortMyTrade quote request",
+      "",
+      `Name: ${data.name}`,
+      `Phone: ${data.phone}`,
+      `Postcode: ${data.postcode}`,
+      `Service: ${data.service}`,
+      `Urgency: ${data.urgency}`
+    ].join("\n");
+  }
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const name = cleanValue(document.getElementById("name")?.value);
+    const phone = cleanValue(document.getElementById("phone")?.value);
+    const postcode = cleanValue(document.getElementById("postcode")?.value);
+    const service = cleanValue(document.getElementById("service")?.value);
+    const urgency = cleanValue(document.getElementById("urgency")?.value);
+
+    if (!name || !phone || !postcode || !service || !urgency) {
+      alert("Please complete all fields before requesting your quote.");
+      return;
+    }
+
+    const message = buildMessage({
+      name,
+      phone,
+      postcode,
+      service,
+      urgency
+    });
+
+    const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+    window.open(url, "_blank", "noopener,noreferrer");
   });
-}
-
-/* ─────────────────────────────────────────
-   FORM SUBMIT
-───────────────────────────────────────── */
-function doSubmit() {
-  var name  = document.getElementById('fname').value.trim();
-  var phone = document.getElementById('fphone').value.trim();
-  var email = document.getElementById('femail').value.trim();
-
-  if (!name)                                { showToast('Please enter your full name'); return; }
-  if (phone.replace(/\s/g,'').length < 10)  { showToast('Please enter a valid UK mobile number'); return; }
-  if (!email.includes('@'))                 { showToast('Please enter a valid email address'); return; }
-
-  var svcEl = document.querySelector('input[name="svc"]:checked');
-  var payload = {
-    service:     svcEl ? svcEl.value : '',
-    jobType:     document.getElementById('job-type').value,
-    postcode:    document.getElementById('postcode').value.trim(),
-    description: document.getElementById('job-desc').value.trim(),
-    timeline:    document.getElementById('timeline').value,
-    budget:      document.getElementById('budget').value,
-    name:        name,
-    phone:       phone,
-    email:       email,
-    submitted:   new Date().toISOString(),
-    source:      'sortmytrade.com'
-  };
-
-  /* Send to Zapier webhook */
-  if (ZAPIER_WEBHOOK_URL !== 'YOUR_ZAPIER_WEBHOOK_URL_HERE') {
-    fetch(ZAPIER_WEBHOOK_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
-    }).catch(function(err) { console.warn('Webhook error:', err); });
-  }
-function sendToWhatsApp() {
-  const name = document.getElementById("name")?.value || "";
-  const phone = document.getElementById("phone")?.value || "";
-  const postcode = document.getElementById("postcode")?.value || "";
-  const service = document.getElementById("service")?.value || "";
-
-  const message = `New quote request:%0A
-Name: ${name}%0A
-Phone: ${phone}%0A
-Postcode: ${postcode}%0A
-Service: ${service}`;
-
-  const whatsappNumber = "447700111222"; // replace with your number
-  const url = `https://wa.me/${whatsappNumber}?text=${message}`;
-
-  window.open(url, "_blank");
-}
-  /* ── WhatsApp ping to owner ──────────────────────────────
-     Every form submission opens a pre-filled WhatsApp
-     message to 07459819603 with the full lead details.
-  ────────────────────────────────────────────────────────── */
-  var serviceLabels = {
-    electrician: 'Electrician',
-    manvan:      'Man & Van',
-    removals:    'Removals',
-    planning:    'Planning Drawings'
-  };
-  var budgetLabels = {
-    unsure:    'Not sure',
-    u200:      'Under 200',
-    '200-500': '200-500',
-    '500-2k':  '500-2k',
-    '2kplus':  '2k+'
-  };
-  var timelineLabels = {
-    asap:     'ASAP',
-    week:     'Within 1 week',
-    month:    'Within 1 month',
-    flexible: 'Flexible'
-  };
-
-  var waMsg = [
-    'NEW LEAD - SortMyTrade',
-    '',
-    'Service: ' + (serviceLabels[payload.service] || payload.service),
-    payload.jobType ? 'Job type: ' + payload.jobType : null,
-    'Postcode: ' + payload.postcode,
-    'Timeline: ' + (timelineLabels[payload.timeline] || payload.timeline),
-    'Budget: ' + (budgetLabels[payload.budget] || payload.budget),
-    '',
-    'Name: ' + payload.name,
-    'Phone: ' + payload.phone,
-    'Email: ' + payload.email,
-    '',
-    'Job description:',
-    payload.description
-  ].filter(function(l) { return l !== null; }).join('\n');
-
-  window.open('https://wa.me/447459819603?text=' + encodeURIComponent(waMsg), '_blank');
-
-  /* Show success state */
-  document.getElementById('fs3').classList.remove('active');
-  document.querySelector('.progress-wrap').style.display = 'none';
-  document.getElementById('success-panel').style.display = 'block';
-  document.getElementById('quote').scrollIntoView({ behavior: 'smooth', block: 'center' });
-}
+})();p
 
 /* ─────────────────────────────────────────
    FAQ ACCORDION
