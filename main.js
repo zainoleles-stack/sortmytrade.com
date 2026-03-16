@@ -10,15 +10,16 @@ const ZAPIER_WEBHOOK_URL = 'YOUR_ZAPIER_WEBHOOK_URL_HERE';
    SERVICE SUB-TYPES
 ───────────────────────────────────────── */
 const jobTypes = {
-  electrician: [
-    'Emergency callout',
-    'EV charger installation',
-    'Full house rewire',
-    'Consumer unit / fuse box upgrade',
-    'New sockets or lighting',
-    'EICR electrical safety certificate',
-    'Electric shower installation',
-    'Other electrical work'
+    plumber: [
+    'Emergency leak repair',
+    'Blocked drain',
+    'Boiler issue',
+    'Tap or toilet repair',
+    'Radiator installation or repair',
+    'Pipe repair',
+    'Bathroom plumbing',
+    'Other plumbing work'
+  ],
   ],
   manvan: [
     'Single item collection / delivery',
@@ -47,7 +48,18 @@ const jobTypes = {
     'Permitted development advice',
     'Structural drawings only',
     'Other'
-  ]
+     ],
+   ],
+  electrician: [
+    'Emergency callout',
+    'EV charger installation',
+    'Full house rewire',
+    'Consumer unit / fuse box upgrade',
+    'New sockets or lighting',
+    'EICR electrical safety certificate',
+    'Electric shower installation',
+    'Other electrical work'
+  ],
 };
 
 document.querySelectorAll('input[name="svc"]').forEach(function(radio) {
@@ -113,7 +125,12 @@ document.querySelectorAll('input[name="svc"]').forEach(function(radio) {
     const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
     window.open(url, "_blank", "noopener,noreferrer");
   });
-})();p
+})();
+
+    const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+    window.open(url, "_blank", "noopener,noreferrer");
+  });
+})();
 
 /* ─────────────────────────────────────────
    FAQ ACCORDION
