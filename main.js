@@ -1,7 +1,6 @@
 /* ─────────────────────────────────────────
    SORTMYTRADE.COM — main.js
-   Replace ZAPIER_WEBHOOK_URL below with
-   your actual Zapier webhook to capture leads
+   Full launch version matched to current index.html
 ───────────────────────────────────────── */
 
 const ZAPIER_WEBHOOK_URL = 'YOUR_ZAPIER_WEBHOOK_URL_HERE';
@@ -10,6 +9,16 @@ const ZAPIER_WEBHOOK_URL = 'YOUR_ZAPIER_WEBHOOK_URL_HERE';
    SERVICE SUB-TYPES
 ───────────────────────────────────────── */
 const jobTypes = {
+  plumber: [
+    'Emergency leak repair',
+    'Blocked drain',
+    'Boiler issue',
+    'Tap or toilet repair',
+    'Radiator installation or repair',
+    'Pipe repair',
+    'Bathroom plumbing',
+    'Other plumbing work'
+  ],
   electrician: [
     'Emergency callout',
     'EV charger installation',
@@ -47,171 +56,299 @@ const jobTypes = {
     'Permitted development advice',
     'Structural drawings only',
     'Other'
-  ],
-  plumber: [
-    'Emergency leak',
-    'Boiler repair or service',
-    'Boiler replacement',
-    'Bathroom installation',
-    'Shower installation',
-    'Radiator fitting or replacement',
-    'Pipe repair or replacement',
-    'Outside tap fitting',
-    'Other plumbing work'
   ]
 };
 
-document.querySelectorAll('input[name="svc"]').forEach(function(radio) {
-  radio.addEventListener('change', function() {
-    var subField = document.getElementById('sub-field');
-    var sel = document.getElementById('job-type');
-    subField.style.display = 'block';
-    sel.innerHTML = '<option value="">Select job type...</option>';
-    var types = jobTypes[this.value] || [];
-    types.forEach(function(t) {
-      sel.innerHTML += '<option value="' + t + '">' + t + '</option>';
+/* ─────────────────────────────────────────
+   HELPERS
+───────────────────────────────────────── */
+function byId(id) {
+  return document.getElementById(id);
+}
+
+function cleanValue(value) {
+  return String(value || '').trim();
+}
+
+function selectedService() {
+  const checked = document.querySelector('input[name="svc"]:checked');
+  return checked ? checked.value : '';
+}
+
+function titleCaseService(value) {
+  const map = {
+    plumber: 'Plumber',
+    electrician: 'Electrician',
+    manvan: 'Man & Van',
+    removals: 'Removals',
+    planning: 'Planning Drawings'
+  };
+  return map[value] || value;
+}
+
+function currentFiles() {
+  const input = byId('job-photos');
+  return input && input.files ? Array.from(input.files) : [];
+}
+
+function photoNamesText() {
+  const files = currentFiles();
+  if (!files.length) return 'None';
+  return files.map(file => file.name).join(', ');
+}
+
+function looksLikeWebhookSet() {
+  return ZAPIER_WEBHOOK_URL && !ZAPIER_WEBHOOK_URL.includes('YOUR_ZAPIER_WEBHOOK_URL_HERE');
+}
+
+/* ─────────────────────────────────────────
+   SERVICE SUBTYPE POPULATION
+───────────────────────────────────────── */
+document.querySelectorAll('input[name="svc"]').forEach(function (radio) {
+  radio.addEventListener('change', function () {
+    const subField = byId('sub-field');
+    const sel = byId('job-type');
+    if (!subField || !sel) return;
+
+    const types = jobTypes[this.value] || [];
+    sel.innerHTML = '<option value="">Select...</option>';
+
+    types.forEach(function (t) {
+      const opt = document.createElement('option');
+      opt.value = t;
+      opt.textContent = t;
+      sel.appendChild(opt);
     });
+
+    subField.style.display = 'block';
   });
 });
 
 /* ─────────────────────────────────────────
    STEP NAVIGATION
 ───────────────────────────────────────── */
-function goNext(step) {
-  if (step === 1) {
-    var svc = document.querySelector('input[name="svc"]:checked');
-    var pc  = document.getElementById('postcode').value.trim();
-    if (!svc) { showToast('Please select a service type'); shake('fs1'); return; }
-    if (!pc)  { showToast('Please enter your postcode'); shake('fs1'); return; }
-  }
-  if (step === 2) {
-    var desc = document.getElementById('job-desc').value.trim();
-    if (desc.length < 15) { showToast('Please describe your job in a bit more detail'); shake('fs2'); return; }
-  }
-  document.getElementById('fs' + step).classList.remove('active');
-  document.getElementById('fs' + (step + 1)).classList.add('active');
-  setProgressStep(step + 1);
-  document.getElementById('quote').scrollIntoView({ behavior: 'smooth', block: 'center' });
-}
-
-function goBack(step) {
-  document.getElementById('fs' + step).classList.remove('active');
-  document.getElementById('fs' + (step - 1)).classList.add('active');
-  setProgressStep(step - 1);
-}
-
-function setProgressStep(n) {
-  [1, 2, 3].forEach(function(i) {
-    var el = document.getElementById('ps' + i);
+function setProgress(step) {
+  ['ps1', 'ps2', 'ps3'].forEach(function (id, index) {
+    const el = byId(id);
+    if (!el) return;
     el.classList.remove('active', 'done');
-    if (i < n)  el.classList.add('done');
-    if (i === n) el.classList.add('active');
+
+    const num = index + 1;
+    if (num < step) el.classList.add('done');
+    if (num === step) el.classList.add('active');
   });
 }
 
-/* ─────────────────────────────────────────
-   FORM SUBMIT
-───────────────────────────────────────── */
-function doSubmit() {
-  var name  = document.getElementById('fname').value.trim();
-  var phone = document.getElementById('fphone').value.trim();
-  var email = document.getElementById('femail').value.trim();
+function showStep(step) {
+  ['fs1', 'fs2', 'fs3'].forEach(function (id, index) {
+    const el = byId(id);
+    if (!el) return;
+    el.classList.remove('active');
+    if (index + 1 === step) el.classList.add('active');
+  });
 
-  if (!name)                                { showToast('Please enter your full name'); return; }
-  if (phone.replace(/\s/g,'').length < 10)  { showToast('Please enter a valid UK mobile number'); return; }
-  if (!email.includes('@'))                 { showToast('Please enter a valid email address'); return; }
+  setProgress(step);
+}
 
-  var svcEl = document.querySelector('input[name="svc"]:checked');
-  var payload = {
-    service:     svcEl ? svcEl.value : '',
-    jobType:     document.getElementById('job-type').value,
-    postcode:    document.getElementById('postcode').value.trim(),
-    description: document.getElementById('job-desc').value.trim(),
-    timeline:    document.getElementById('timeline').value,
-    budget:      document.getElementById('budget').value,
-    name:        name,
-    phone:       phone,
-    email:       email,
-    submitted:   new Date().toISOString(),
-    source:      'sortmytrade.com'
-  };
+function validateStep1() {
+  const service = selectedService();
+  const postcode = cleanValue(byId('postcode')?.value);
+  const subField = byId('sub-field');
+  const jobType = cleanValue(byId('job-type')?.value);
 
-  /* Send to Zapier webhook */
-  if (ZAPIER_WEBHOOK_URL !== 'YOUR_ZAPIER_WEBHOOK_URL_HERE') {
-    fetch(ZAPIER_WEBHOOK_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
-    }).catch(function(err) { console.warn('Webhook error:', err); });
+  if (!service) {
+    alert('Please select a service.');
+    return false;
   }
 
-  /* ── WhatsApp ping to owner ──────────────────────────────
-     Every form submission opens a pre-filled WhatsApp
-     message to 07459819603 with the full lead details.
-  ────────────────────────────────────────────────────────── */
-  var serviceLabels = {
-    electrician: 'Electrician',
-    manvan:      'Man & Van',
-    removals:    'Removals',
-    planning:    'Planning Drawings',
-    plumber:     'Plumber'
-  };
-  var budgetLabels = {
-    unsure:    'Not sure',
-    u200:      'Under 200',
-    '200-500': '200-500',
-    '500-2k':  '500-2k',
-    '2kplus':  '2k+'
-  };
-  var timelineLabels = {
-    asap:     'ASAP',
-    week:     'Within 1 week',
-    month:    'Within 1 month',
-    flexible: 'Flexible'
-  };
+  if (subField && subField.style.display !== 'none' && !jobType) {
+    alert('Please select the specific job type.');
+    return false;
+  }
 
-  var waMsg = [
-    'NEW LEAD - SortMyTrade',
+  if (!postcode) {
+    alert('Please enter your postcode.');
+    return false;
+  }
+
+  return true;
+}
+
+function validateStep2() {
+  const desc = cleanValue(byId('job-desc')?.value);
+
+  if (!desc) {
+    alert('Please describe the job.');
+    return false;
+  }
+
+  return true;
+}
+
+function validateStep3() {
+  const name = cleanValue(byId('fname')?.value);
+  const phone = cleanValue(byId('fphone')?.value);
+  const email = cleanValue(byId('femail')?.value);
+
+  if (!name) {
+    alert('Please enter your full name.');
+    return false;
+  }
+
+  if (!phone) {
+    alert('Please enter your mobile number.');
+    return false;
+  }
+
+  if (!email) {
+    alert('Please enter your email address.');
+    return false;
+  }
+
+  return true;
+}
+
+function goNext(step) {
+  if (step === 1 && !validateStep1()) return;
+  if (step === 2 && !validateStep2()) return;
+  showStep(step + 1);
+}
+
+function goBack(step) {
+  showStep(step - 1);
+}
+
+/* ─────────────────────────────────────────
+   BUILD LEAD DATA
+───────────────────────────────────────── */
+function buildLeadData() {
+  return {
+    service: titleCaseService(selectedService()),
+    jobType: cleanValue(byId('job-type')?.value),
+    postcode: cleanValue(byId('postcode')?.value),
+    description: cleanValue(byId('job-desc')?.value),
+    timeline: cleanValue(byId('timeline')?.value),
+    budget: cleanValue(byId('budget')?.value),
+    fullName: cleanValue(byId('fname')?.value),
+    phone: cleanValue(byId('fphone')?.value),
+    email: cleanValue(byId('femail')?.value),
+    photoNames: photoNamesText()
+  };
+}
+
+function buildWhatsAppMessage(data) {
+  return [
+    'New SortMyTrade quote request',
     '',
-    'Service: ' + (serviceLabels[payload.service] || payload.service),
-    payload.jobType ? 'Job type: ' + payload.jobType : null,
-    'Postcode: ' + payload.postcode,
-    'Timeline: ' + (timelineLabels[payload.timeline] || payload.timeline),
-    'Budget: ' + (budgetLabels[payload.budget] || payload.budget),
-    '',
-    'Name: ' + payload.name,
-    'Phone: ' + payload.phone,
-    'Email: ' + payload.email,
+    `Name: ${data.fullName}`,
+    `Phone: ${data.phone}`,
+    `Email: ${data.email}`,
+    `Postcode: ${data.postcode}`,
+    `Service: ${data.service}`,
+    `Job type: ${data.jobType || 'Not specified'}`,
+    `Timeline: ${data.timeline || 'Not specified'}`,
+    `Budget: ${data.budget || 'Not specified'}`,
+    `Photos: ${data.photoNames}`,
     '',
     'Job description:',
-    payload.description
-  ].filter(function(l) { return l !== null; }).join('\n');
+    data.description || 'Not provided'
+  ].join('\n');
+}
 
-  window.open('https://wa.me/447459819603?text=' + encodeURIComponent(waMsg), '_blank');
+/* ─────────────────────────────────────────
+   WEBHOOK SEND
+───────────────────────────────────────── */
+async function sendLeadToWebhook(data) {
+  if (!looksLikeWebhookSet()) return false;
 
-  /* Show success state */
-  document.getElementById('fs3').classList.remove('active');
-  document.querySelector('.progress-wrap').style.display = 'none';
-  document.getElementById('success-panel').style.display = 'block';
-  document.getElementById('quote').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  try {
+    const formData = new FormData();
+
+    formData.append('service', data.service);
+    formData.append('jobType', data.jobType);
+    formData.append('postcode', data.postcode);
+    formData.append('description', data.description);
+    formData.append('timeline', data.timeline);
+    formData.append('budget', data.budget);
+    formData.append('fullName', data.fullName);
+    formData.append('phone', data.phone);
+    formData.append('email', data.email);
+    formData.append('photoNames', data.photoNames);
+
+    currentFiles().forEach(function (file, index) {
+      formData.append(`photo_${index + 1}`, file);
+    });
+
+    const response = await fetch(ZAPIER_WEBHOOK_URL, {
+      method: 'POST',
+      body: formData
+    });
+
+    return response.ok;
+  } catch (error) {
+    console.error('Webhook send failed:', error);
+    return false;
+  }
+}
+
+/* ─────────────────────────────────────────
+   SUBMIT
+───────────────────────────────────────── */
+async function doSubmit() {
+  if (!validateStep3()) return;
+
+  const data = buildLeadData();
+  const whatsappNumber = '447459819603';
+
+  const submitBtn = document.querySelector('.btn-submit');
+  if (submitBtn) {
+    submitBtn.disabled = true;
+    submitBtn.style.opacity = '0.7';
+  }
+
+  await sendLeadToWebhook(data);
+
+  const message = buildWhatsAppMessage(data);
+  const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+  const fs3 = byId('fs3');
+  const successPanel = byId('success-panel');
+
+  if (fs3) fs3.classList.remove('active');
+  if (successPanel) successPanel.style.display = 'block';
+
+  setProgress(3);
+
+  window.open(url, '_blank', 'noopener,noreferrer');
+
+  if (submitBtn) {
+    submitBtn.disabled = false;
+    submitBtn.style.opacity = '1';
+  }
 }
 
 /* ─────────────────────────────────────────
    FAQ ACCORDION
 ───────────────────────────────────────── */
 function toggleFaq(btn) {
-  var item = btn.parentElement;
-  var isOpen = item.classList.contains('open');
-  document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); });
+  const item = btn.parentElement;
+  const isOpen = item.classList.contains('open');
+
+  document.querySelectorAll('.faq-item').forEach(function (i) {
+    i.classList.remove('open');
+  });
+
   if (!isOpen) item.classList.add('open');
 }
 
 /* ─────────────────────────────────────────
    AREA CHIPS
 ───────────────────────────────────────── */
-document.querySelectorAll('.achip').forEach(function(chip) {
-  chip.addEventListener('click', function() {
-    document.querySelectorAll('.achip').forEach(function(c) { c.classList.remove('on'); });
+document.querySelectorAll('.achip').forEach(function (chip) {
+  chip.addEventListener('click', function () {
+    document.querySelectorAll('.achip').forEach(function (c) {
+      c.classList.remove('on');
+    });
     this.classList.add('on');
   });
 });
@@ -220,15 +357,15 @@ document.querySelectorAll('.achip').forEach(function(chip) {
    SMOOTH SCROLL
 ───────────────────────────────────────── */
 function scrollToSection(id) {
-  var el = document.getElementById(id);
-  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  const el = byId(id);
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 /* ─────────────────────────────────────────
    SCROLL REVEAL
 ───────────────────────────────────────── */
-var revealObserver = new IntersectionObserver(function(entries) {
-  entries.forEach(function(e) {
+const revealObserver = new IntersectionObserver(function (entries) {
+  entries.forEach(function (e) {
     if (e.isIntersecting) {
       e.target.classList.add('visible');
       revealObserver.unobserve(e.target);
@@ -236,136 +373,74 @@ var revealObserver = new IntersectionObserver(function(entries) {
   });
 }, { threshold: 0.1 });
 
-document.querySelectorAll('.reveal').forEach(function(el) {
+document.querySelectorAll('.reveal').forEach(function (el) {
   revealObserver.observe(el);
 });
 
 /* ─────────────────────────────────────────
-   TOAST NOTIFICATION
+   TOAST
 ───────────────────────────────────────── */
 function showToast(msg) {
-  var t = document.getElementById('smt-toast');
+  let t = byId('smt-toast');
+
   if (!t) {
     t = document.createElement('div');
     t.id = 'smt-toast';
     t.style.cssText = [
-      'position:fixed','bottom:28px','left:50%',
+      'position:fixed',
+      'bottom:28px',
+      'left:50%',
       'transform:translateX(-50%) translateY(20px)',
-      'background:#ef4444','color:#fff','padding:12px 24px',
-      'border-radius:6px','font-family:Manrope,sans-serif',
-      'font-size:14px','font-weight:600','z-index:9999',
-      'opacity:0','transition:all .25s','pointer-events:none',
-      'white-space:nowrap','box-shadow:0 8px 32px rgba(0,0,0,.2)'
+      'background:#ef4444',
+      'color:#fff',
+      'padding:12px 24px',
+      'border-radius:6px',
+      'font-family:Manrope,sans-serif',
+      'font-size:14px',
+      'font-weight:600',
+      'z-index:9999',
+      'opacity:0',
+      'transition:all .25s',
+      'pointer-events:none',
+      'white-space:nowrap',
+      'box-shadow:0 8px 32px rgba(0,0,0,.2)'
     ].join(';');
     document.body.appendChild(t);
   }
+
   t.textContent = msg;
   t.style.opacity = '1';
   t.style.transform = 'translateX(-50%) translateY(0)';
+
   clearTimeout(t._timer);
-  t._timer = setTimeout(function() {
+  t._timer = setTimeout(function () {
     t.style.opacity = '0';
     t.style.transform = 'translateX(-50%) translateY(10px)';
   }, 3000);
 }
 
 /* ─────────────────────────────────────────
-   SHAKE ANIMATION
+   SHAKE
 ───────────────────────────────────────── */
 function shake(id) {
-  var el = document.getElementById(id);
-  var i = 0;
+  const el = byId(id);
+  if (!el) return;
+
+  let i = 0;
+
   function step() {
     el.style.transform = i % 2 ? 'translateX(-5px)' : 'translateX(5px)';
     i++;
     if (i < 6) setTimeout(step, 70);
     else el.style.transform = '';
   }
+
   step();
 }
 
 /* ─────────────────────────────────────────
-   URL PARAMETER AUTO-FILL
-   Pre-fills the form if lead data is passed
-   via URL e.g. ?service=plumber&postcode=M20
+   INITIAL STATE
 ───────────────────────────────────────── */
-(function() {
-  var params = new URLSearchParams(window.location.search);
-
-  // Map URL service values to our radio values
-  var serviceMap = {
-    'electrician':      'electrician',
-    'electric':         'electrician',
-    'man & van':        'manvan',
-    'manvan':           'manvan',
-    'man and van':      'manvan',
-    'removals':         'removals',
-    'removal':          'removals',
-    'planning':         'planning',
-    'planning drawings':'planning',
-    'plumber':          'plumber',
-    'plumbing':         'plumber'
-  };
-
-  var service  = (params.get('service')  || '').toLowerCase().trim();
-  var postcode = params.get('postcode')  || '';
-  var name     = params.get('name')      || '';
-  var phone    = params.get('phone')     || '';
-  var email    = params.get('email')     || '';
-  var urgency  = params.get('urgency')   || '';
-  var desc     = params.get('desc')      || params.get('description') || '';
-
-  var mappedService = serviceMap[service] || null;
-
-  if (mappedService) {
-    var radio = document.querySelector('input[name="svc"][value="' + mappedService + '"]');
-    if (radio) {
-      radio.checked = true;
-      radio.dispatchEvent(new Event('change'));
-    }
-  }
-
-  if (postcode) {
-    var pcField = document.getElementById('postcode');
-    if (pcField) pcField.value = postcode;
-  }
-
-  if (name) {
-    var nameField = document.getElementById('fname');
-    if (nameField) nameField.value = name;
-  }
-
-  if (phone) {
-    var phoneField = document.getElementById('fphone');
-    if (phoneField) phoneField.value = phone;
-  }
-
-  if (email) {
-    var emailField = document.getElementById('femail');
-    if (emailField) emailField.value = email;
-  }
-
-  if (desc) {
-    var descField = document.getElementById('job-desc');
-    if (descField) descField.value = desc;
-  }
-
-  if (urgency) {
-    var tl = document.getElementById('timeline');
-    if (tl) {
-      var u = urgency.toLowerCase();
-      if (u.includes('asap') || u.includes('emergency')) tl.value = 'asap';
-      else if (u.includes('week')) tl.value = 'week';
-      else if (u.includes('month')) tl.value = 'month';
-      else tl.value = 'flexible';
-    }
-  }
-
-  // If any params found, scroll to the form automatically
-  if (mappedService || postcode || name) {
-    setTimeout(function() {
-      var quoteEl = document.getElementById('quote');
-      if (quoteEl) quoteEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }, 600);
-  }
-})();
+document.addEventListener('DOMContentLoaded', function () {
+  showStep(1);
+});
