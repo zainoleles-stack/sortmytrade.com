@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SortMyTrade | Get 3 trusted local trades in under 2 hours</title>
-  <meta name="description" content="Get 3 vetted quotes from local plumbers, electricians, removals and man & van services across South Manchester. Free to use. No spam. No obligation.">
+  <meta name="description" content="Get 3 vetted quotes from local plumbers, electricians, removals and man & van services across South Manchester. Upload photos for faster, more accurate quotes. Free to use. No spam. No obligation.">
   <meta property="og:title" content="SortMyTrade — South Manchester's Trusted Trades Platform">
   <meta property="og:description" content="Get 3 vetted local quotes in under 2 hours. Plumbers, electricians, removals and man & van across South Manchester.">
   <meta property="og:url" content="https://sortmytrade.com">
@@ -55,7 +55,7 @@
         </h1>
 
         <p class="hero-sub">
-          South Manchester’s fastest way to find trusted plumbers, electricians, removals and man &amp; van services. Free to use. No spam. No obligation.
+          South Manchester’s fastest way to find trusted plumbers, electricians, removals and man &amp; van services. Upload photos for faster, more accurate quotes. Free to use. No spam. No obligation.
         </p>
 
         <p class="hero-areas">
@@ -65,7 +65,7 @@
         <div class="trust-strip">
           <div class="trust-item">✔ Vetted local trades</div>
           <div class="trust-item">✔ 3 quotes max</div>
-          <div class="trust-item">✔ No spam</div>
+          <div class="trust-item">✔ Photo-assisted quotes</div>
           <div class="trust-item">✔ Free to use</div>
         </div>
 
@@ -268,6 +268,12 @@
             </div>
 
             <div class="field">
+              <label>Upload photos (optional)</label>
+              <input type="file" class="finput" id="job-photos" accept="image/*" multiple>
+              <p class="step-hint">Add photos of damage, access, or items to move for faster, more accurate quotes.</p>
+            </div>
+
+            <div class="field">
               <label>When do you need it done?</label>
               <select class="fselect" id="timeline">
                 <option value="asap">As soon as possible</option>
@@ -344,10 +350,10 @@
   <!-- TRUST BAR -->
   <div class="trust-bar">
     <div class="trust-bar-inner">
-      <div class="ti"><div class="ti-icon">⚡</div>NICEIC Registered Electricians</div>
-      <div class="ti"><div class="ti-icon">🛡</div>Fully Insured Trades</div>
-      <div class="ti"><div class="ti-icon">✓</div>ID Verified Before Listing</div>
-      <div class="ti"><div class="ti-icon">⭐</div>4.9/5 rated experience</div>
+      <div class="ti"><div class="ti-icon">⚡</div>Qualified local trades</div>
+      <div class="ti"><div class="ti-icon">🛡</div>Fully insured providers</div>
+      <div class="ti"><div class="ti-icon">📦</div>Goods-in-transit insured removals</div>
+      <div class="ti"><div class="ti-icon">⭐</div>Photo-assisted quotes</div>
       <div class="ti"><div class="ti-icon">📍</div>Local to South Manchester</div>
     </div>
   </div>
@@ -387,7 +393,7 @@
         <div class="svc-card" onclick="scrollToSection('quote')">
           <div class="svc-icon">🎓</div>
           <h3>Students</h3>
-          <p>Moving house or need help shifting furniture? Get affordable local man &amp; van services trusted by students across South Manchester.</p>
+          <p>Moving house or need help shifting furniture? Upload photos of what needs moving and get faster, more accurate man &amp; van quotes.</p>
           <div class="svc-tags">
             <span class="stag">Student Moves</span>
             <span class="stag">Same-Day Van</span>
@@ -422,19 +428,19 @@
       <div class="how-card">
         <div class="how-number">1</div>
         <h3>Tell us the job</h3>
-        <p>Submit your request in 60 seconds.</p>
+        <p>Choose the service and tell us what you need.</p>
       </div>
 
       <div class="how-card">
         <div class="how-number">2</div>
-        <h3>We match local trades</h3>
-        <p>We notify trusted trades in your area.</p>
+        <h3>Add details or photos</h3>
+        <p>Upload photos to help trades quote faster and more accurately.</p>
       </div>
 
       <div class="how-card">
         <div class="how-number">3</div>
         <h3>Get quotes fast</h3>
-        <p>Compare quotes and choose the best one.</p>
+        <p>We match your request with up to 3 trusted local trades.</p>
       </div>
     </div>
   </section>
@@ -472,22 +478,22 @@
         <div class="svc-card" onclick="scrollToSection('quote')">
           <div class="svc-icon">🚐</div>
           <h3>Man &amp; Van</h3>
-          <p>Same-day van help for student moves, furniture collections, small jobs and local transport.</p>
+          <p>Same-day van help for student moves, furniture collections, small jobs and local transport. All matched providers are insured.</p>
           <div class="svc-from">→ Fast local quotes</div>
           <div class="svc-tags">
             <span class="stag">Same Day</span><span class="stag">Student Moves</span>
-            <span class="stag">Collections</span><span class="stag">Local Jobs</span>
+            <span class="stag">Insured</span><span class="stag">Local Jobs</span>
           </div>
         </div>
 
         <div class="svc-card" onclick="scrollToSection('quote')">
           <div class="svc-icon">🏠</div>
           <h3>Removals</h3>
-          <p>House moves, office moves and relocation help from trusted local removal teams.</p>
+          <p>House moves, office moves and relocation help from trusted local removal teams. All matched providers carry goods-in-transit insurance.</p>
           <div class="svc-from">→ Fast local quotes</div>
           <div class="svc-tags">
             <span class="stag">House Moves</span><span class="stag">Office Moves</span>
-            <span class="stag">Packing</span><span class="stag">Transport</span>
+            <span class="stag">Goods Insured</span><span class="stag">Transport</span>
           </div>
         </div>
 
@@ -553,7 +559,7 @@
 
         <div class="rv-card">
           <div class="rv-stars">★★★★★</div>
-          <p class="rv-text">"Perfect for moving house. Got van quotes the same day and booked without the usual hassle."</p>
+          <p class="rv-text">"Perfect for moving house. The photo upload idea made it easier to explain exactly what needed moving."</p>
           <div class="rv-person">
             <div class="rv-av">MK</div>
             <div>
@@ -600,8 +606,13 @@
         </div>
 
         <div class="faq-item">
-          <button class="faq-q" onclick="toggleFaq(this)">How do you vet the trades?<span class="faq-icon">+</span></button>
-          <div class="faq-a">We focus on trusted local trades and keep the platform curated. Jobs are not blasted out to everyone.</div>
+          <button class="faq-q" onclick="toggleFaq(this)">Can I upload photos of the job?<span class="faq-icon">+</span></button>
+          <div class="faq-a">Yes. Photos help trades understand the job faster and usually lead to quicker, more accurate quotes, especially for removals, man &amp; van jobs and visible damage.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Are removals and man &amp; van providers insured?<span class="faq-icon">+</span></button>
+          <div class="faq-a">Yes. We match removal and man &amp; van jobs with insured providers, including goods-in-transit cover where required.</div>
         </div>
 
         <div class="faq-item">
@@ -613,11 +624,6 @@
           <button class="faq-q" onclick="toggleFaq(this)">How quickly will I hear back?<span class="faq-icon">+</span></button>
           <div class="faq-a">Fast local jobs often get responses quickly. Timing depends on the service and area, but the goal is speed and relevance.</div>
         </div>
-
-        <div class="faq-item">
-          <button class="faq-q" onclick="toggleFaq(this)">What if I do not like the quotes?<span class="faq-icon">+</span></button>
-          <div class="faq-a">No problem. There is no pressure to proceed with any quote.</div>
-        </div>
       </div>
     </div>
   </section>
@@ -627,7 +633,7 @@
     <div class="cta-inner">
       <div class="cta-eyebrow"><span class="pulse"></span>Ready to get started?</div>
       <h2>Get 3 trusted local quotes today.</h2>
-      <p>60 seconds to submit. Fast local matching. Free to use.</p>
+      <p>60 seconds to submit. Add photos for faster, more accurate quotes. Free to use.</p>
       <button class="cta-bigbtn" onclick="scrollToSection('quote')">Get My 3 Quotes →</button>
       <p class="cta-note">Only 3 trades receive each job</p>
     </div>
