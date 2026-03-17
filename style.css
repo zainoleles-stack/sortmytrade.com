@@ -736,4 +736,3 @@ footer { background: var(--ink); border-top: 1px solid rgba(255,255,255,.05); pa
   .hero-h1 { font-size: 38px; }
   .f-links { flex-direction: column; gap: 10px; }
 }
-
