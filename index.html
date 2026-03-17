@@ -1,24 +1,32 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>SortMyTrade | Get 3 trusted local trades in under 2 hours</title>
-  <meta name="description" content="Get 3 vetted quotes from local plumbers, electricians, removals, handyman and man & van services across South Manchester. Upload photos for faster, more accurate quotes or WhatsApp your job directly. Free to use. No spam. No obligation.">
+
+  <meta name="description" content="Get up to 3 vetted local quotes for plumbers, electricians, removals, handyman and man & van services across South Manchester. Upload photos for quicker, more accurate quotes or WhatsApp your job directly. Free to use. No spam. No obligation.">
+
+  <!-- SEO / Social -->
   <meta property="og:title" content="SortMyTrade — South Manchester's Trusted Trades Platform">
-  <meta property="og:description" content="Get 3 vetted local quotes in under 2 hours. Plumbers, electricians, removals, handyman and man & van across South Manchester.">
+  <meta property="og:description" content="Get 3 vetted local quotes in under 2 hours across South Manchester.">
   <meta property="og:url" content="https://sortmytrade.com">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
 
+  <!-- CSS (FLAT STRUCTURE) -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- WhatsApp Styles -->
   <style>
-    .whatsapp-fastlane {
-      padding: 0 24px 16px;
-    }
+    .whatsapp-fastlane { padding: 0 24px 16px; }
 
-    .whatsapp-btn,
-    .whatsapp-inline-btn {
+    .whatsapp-btn, .whatsapp-inline-btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -31,771 +39,137 @@
       text-decoration: none;
       font-weight: 800;
       font-family: Manrope, sans-serif;
-      transition: 0.2s ease;
-      box-sizing: border-box;
-    }
-
-    .whatsapp-btn:hover,
-    .whatsapp-inline-btn:hover,
-    .wa-mini:hover {
-      opacity: 0.95;
-      transform: translateY(-1px);
     }
 
     .whatsapp-note {
-      margin: 10px 0 0;
+      margin-top: 10px;
       font-size: 13px;
-      line-height: 1.5;
       color: #61707a;
-    }
-
-    .wa-mini {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      margin-top: 8px;
-      color: #128c7e;
-      font-weight: 700;
-      text-decoration: none;
-      font-size: 13px;
-      transition: 0.2s ease;
     }
 
     .cta-inline-row {
       display: flex;
-      flex-wrap: wrap;
       gap: 12px;
-      justify-content: center;
       margin-top: 18px;
+      flex-wrap: wrap;
     }
 
-    .cta-inline-row .cta-bigbtn,
-    .cta-inline-row .whatsapp-inline-btn {
-      width: auto;
+    .cta-inline-row button,
+    .cta-inline-row a {
       min-width: 260px;
-    }
-
-    @media (max-width: 768px) {
-      .cta-inline-row {
-        flex-direction: column;
-      }
-
-      .cta-inline-row .cta-bigbtn,
-      .cta-inline-row .whatsapp-inline-btn {
-        width: 100%;
-        min-width: 100%;
-      }
     }
   </style>
 </head>
+
 <body>
 
-  <!-- ANNOUNCEMENT BAR -->
-  <div class="bar">
-    🟢 Now taking job requests across South Manchester &nbsp;<em>— fast local quotes, no spam</em>
-  </div>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
 
-  <!-- NAV -->
-  <nav class="nav">
-    <a href="#" class="nav-logo">Sort<span>MyTrade</span></a>
+    <div class="hero-left">
+      <h1>
+        Get 3 <br>
+        trusted local trades <br>
+        in under 2 hours.
+      </h1>
 
-    <div class="nav-pills">
-      <span class="nav-pill" onclick="scrollToSection('services')">Services</span>
-      <span class="nav-pill" onclick="scrollToSection('how')">How It Works</span>
-      <span class="nav-pill" onclick="scrollToSection('reviews')">Reviews</span>
-      <span class="nav-pill" onclick="scrollToSection('faq')">FAQ</span>
+      <p>
+        South Manchester’s fast local trades platform for plumbers, electricians, removals, handyman and man & van services.
+        Upload photos for quicker, more accurate quotes or WhatsApp your job directly.
+      </p>
+
+      <p><strong>Free · No spam · No obligation</strong></p>
     </div>
 
-    <div class="nav-right">
-      <div class="nav-rating">
-        South Manchester's newest trade platform
-      </div>
-      <button class="nav-btn" onclick="scrollToSection('quote')">Get 3 Quotes in 2 Hours</button>
-    </div>
-  </nav>
-
-  <!-- HERO -->
-  <section class="hero" id="top">
-    <div class="hero-inner">
-
-      <div class="hero-left">
-        <div class="hero-eyebrow">
-          <span class="pulse"></span>
-          South Manchester's Trusted Trades Platform
-        </div>
-
-        <h1 class="hero-h1">
-          Get 3<br>
-          <span class="green-word">trusted local trades</span><br>
-          <span class="serif-word">in under 2 hours.</span>
-        </h1>
-
-        <p class="hero-sub">
-          South Manchester’s fastest way to find trusted plumbers, electricians, removals, handyman and man &amp; van services. Upload photos for faster, more accurate quotes or WhatsApp your job directly. Free to use. No spam. No obligation.
-        </p>
-
-        <p class="hero-areas">
-          Serving Didsbury • Chorlton • Withington • Sale • Altrincham • Stockport
-        </p>
-
-        <div class="trust-strip">
-          <div class="trust-item">✔ Vetted local trades</div>
-          <div class="trust-item">✔ 3 quotes max</div>
-          <div class="trust-item">✔ Photo-assisted quotes</div>
-          <div class="trust-item">✔ Free to use</div>
-        </div>
-
-        <p class="response-time">Average response time: under 2 hours</p>
-
-        <div class="hero-stats">
-          <div class="hstat">
-            <div class="hstat-n"><span>100</span>%</div>
-            <div class="hstat-l">Vetted trades</div>
-          </div>
-          <div class="hstat">
-            <div class="hstat-n"><span>£0</span></div>
-            <div class="hstat-l">Cost to you</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- FORM CARD -->
-      <div class="card" id="quote">
-        <div class="card-head">
-          <div class="card-head-left">
-            <div class="card-head-title">Get 3 Quotes in 2 Hours</div>
-            <div class="card-head-sub">Takes 60 seconds · No obligation</div>
-          </div>
-          <div class="card-free">Free</div>
-        </div>
-
-        <div class="whatsapp-fastlane">
-          <a
-            href="https://wa.me/447459819603?text=Hi%20SortMyTrade%2C%20I%20need%20a%20quote%20for%20my%20job."
-            target="_blank"
-            rel="noopener noreferrer"
-            class="whatsapp-btn"
-          >
-            WhatsApp your job — get quotes in minutes
-          </a>
-          <p class="whatsapp-note">
-            Prefer not to fill in forms? Send a photo or short video on WhatsApp for a quicker quote.
-          </p>
-        </div>
-
-        <div class="progress-wrap">
-          <div class="progress-steps">
-            <div class="ps active" id="ps1">
-              <div class="ps-circle">1</div>
-              <div class="ps-label">Service</div>
-            </div>
-            <div class="ps" id="ps2">
-              <div class="ps-circle">2</div>
-              <div class="ps-label">Details</div>
-            </div>
-            <div class="ps" id="ps3">
-              <div class="ps-circle">3</div>
-              <div class="ps-label">Contact</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card-body">
-
-          <!-- STEP 1 -->
-          <div class="fstep active" id="fs1">
-            <div class="field">
-              <label>What do you need? <span class="ast">*</span></label>
-              <div class="chips">
-
-                <label class="chip">
-                  <input type="radio" name="svc" value="plumber">
-                  <div class="chip-body">
-                    <span class="chip-emoji">🔧</span>
-                    <span class="chip-text">
-                      <span class="chip-name">Plumber</span>
-                      <span class="chip-hint">Leaks, boilers, bathrooms, emergency</span>
-                    </span>
-                  </div>
-                </label>
-
-                <label class="chip">
-                  <input type="radio" name="svc" value="electrician">
-                  <div class="chip-body">
-                    <span class="chip-emoji">⚡</span>
-                    <span class="chip-text">
-                      <span class="chip-name">Electrician</span>
-                      <span class="chip-hint">EV chargers, rewiring, callouts</span>
-                    </span>
-                  </div>
-                </label>
-
-                <label class="chip">
-                  <input type="radio" name="svc" value="manvan">
-                  <div class="chip-body">
-                    <span class="chip-emoji">🚐</span>
-                    <span class="chip-text">
-                      <span class="chip-name">Man &amp; Van</span>
-                      <span class="chip-hint">Same day, single items, moves</span>
-                    </span>
-                  </div>
-                </label>
-
-                <label class="chip">
-                  <input type="radio" name="svc" value="removals">
-                  <div class="chip-body">
-                    <span class="chip-emoji">🏠</span>
-                    <span class="chip-text">
-                      <span class="chip-name">Removals</span>
-                      <span class="chip-hint">Full house or office moves</span>
-                    </span>
-                  </div>
-                </label>
-
-                <label class="chip">
-                  <input type="radio" name="svc" value="handyman">
-                  <div class="chip-body">
-                    <span class="chip-emoji">🛠️</span>
-                    <span class="chip-text">
-                      <span class="chip-name">Handyman</span>
-                      <span class="chip-hint">Flat-pack, mounting, repairs, odd jobs</span>
-                    </span>
-                  </div>
-                </label>
-
-              </div>
-            </div>
-
-            <div class="field sub-field" id="sub-field">
-              <label>Specific job type <span class="ast">*</span></label>
-              <select class="fselect" id="job-type">
-                <option value="">Select...</option>
-              </select>
-            </div>
-
-            <div class="field">
-              <label>Your postcode <span class="ast">*</span></label>
-              <input type="text" class="finput" id="postcode" placeholder="e.g. M20 2AB" maxlength="8">
-            </div>
-
-            <button class="btn-next" onclick="goNext(1)">Continue &nbsp;→</button>
-            <p class="step-hint">Step 1 of 3</p>
-          </div>
-
-          <!-- STEP 2 -->
-          <div class="fstep" id="fs2">
-            <div class="field">
-              <label>Describe the job <span class="ast">*</span></label>
-              <textarea class="ftextarea" id="job-desc" placeholder="Describe the work needed — the more detail, the more accurate your quotes will be..."></textarea>
-
-              <p class="ai-note">💡 Not sure what to write?</p>
-              <button class="ai-assist-btn" id="ai-assist-btn" onclick="toggleAiPanel()" type="button">
-                <span class="ai-icon">✨</span>
-                <div class="ai-spinner"></div>
-                <span class="ai-btn-text">Help me describe my job with AI</span>
-              </button>
-
-              <div class="ai-panel" id="ai-panel">
-                <div class="ai-panel-header">
-                  <div class="ai-panel-title"><span>✨</span> AI Job Description Helper</div>
-                  <button class="ai-close" onclick="closeAiPanel()" type="button">×</button>
-                </div>
-
-                <div class="ai-questions" id="ai-questions">
-                  <div class="ai-question">
-                    <label>Property type</label>
-                    <select id="ai-property">
-                      <option value="">Select...</option>
-                      <option>Terraced house</option>
-                      <option>Semi-detached house</option>
-                      <option>Detached house</option>
-                      <option>Flat / apartment</option>
-                      <option>Student house</option>
-                      <option>Commercial property</option>
-                    </select>
-                  </div>
-
-                  <div class="ai-question">
-                    <label>Number of bedrooms</label>
-                    <select id="ai-bedrooms">
-                      <option value="">Select...</option>
-                      <option>Studio</option>
-                      <option>1 bedroom</option>
-                      <option>2 bedrooms</option>
-                      <option>3 bedrooms</option>
-                      <option>4+ bedrooms</option>
-                      <option>Not applicable</option>
-                    </select>
-                  </div>
-
-                  <div class="ai-question">
-                    <label>Main problem or goal</label>
-                    <input type="text" id="ai-problem" placeholder="e.g. fuse keeps tripping, boiler leaking, need a van for moving...">
-                  </div>
-
-                  <div class="ai-question">
-                    <label>Anything else? (optional)</label>
-                    <input type="text" id="ai-extra" placeholder="e.g. parking available, tight access, urgent today...">
-                  </div>
-
-                  <button class="ai-generate-btn" id="ai-generate-btn" onclick="generateDescription()" type="button">
-                    <div class="gen-spinner"></div>
-                    ✨ Write My Job Description
-                  </button>
-                </div>
-
-                <div class="ai-result" id="ai-result">
-                  <div class="ai-result-label">✨ AI-Generated Description</div>
-                  <div class="ai-result-text" id="ai-result-text"></div>
-                  <div class="ai-result-actions">
-                    <button class="ai-use-btn" onclick="useDescription()" type="button">Use This ✓</button>
-                    <button class="ai-retry-btn" onclick="generateDescription()" type="button">Try Again</button>
-                  </div>
-                </div>
-
-                <div class="ai-error" id="ai-error">⚠️ Couldn't generate right now. Please type your description manually.</div>
-              </div>
-            </div>
-
-            <div class="field">
-              <label>Upload photos (optional)</label>
-              <input type="file" class="finput" id="job-photos" accept="image/*" multiple>
-              <p class="step-hint">Add photos of damage, access, or items to move for faster, more accurate quotes.</p>
-              <a
-                href="https://wa.me/447459819603?text=Hi%20SortMyTrade%2C%20I%20want%20to%20send%20photos%20for%20a%20faster%20quote."
-                target="_blank"
-                rel="noopener noreferrer"
-                class="wa-mini"
-              >
-                Send on WhatsApp instead →
-              </a>
-            </div>
-
-            <div class="field">
-              <label>When do you need it done?</label>
-              <select class="fselect" id="timeline">
-                <option value="asap">As soon as possible</option>
-                <option value="week">Within 1 week</option>
-                <option value="month">Within 1 month</option>
-                <option value="flexible">Flexible / just researching</option>
-              </select>
-            </div>
-
-            <div class="field">
-              <label>Rough budget (optional)</label>
-              <select class="fselect" id="budget">
-                <option value="unsure">Not sure yet</option>
-                <option value="u200">Under £200</option>
-                <option value="200-500">£200 – £500</option>
-                <option value="500-2k">£500 – £2,000</option>
-                <option value="2kplus">£2,000+</option>
-              </select>
-            </div>
-
-            <button class="btn-next" onclick="goNext(2)">Continue &nbsp;→</button>
-            <button class="btn-back" onclick="goBack(2)">← Back</button>
-            <p class="step-hint">Step 2 of 3</p>
-          </div>
-
-          <!-- STEP 3 -->
-          <div class="fstep" id="fs3">
-            <div class="field">
-              <label>Your full name <span class="ast">*</span></label>
-              <input type="text" class="finput" id="fname" placeholder="First and last name">
-            </div>
-
-            <div class="field">
-              <label>Mobile number <span class="ast">*</span></label>
-              <input type="tel" class="finput" id="fphone" placeholder="07xxx xxxxxx">
-            </div>
-
-            <div class="field">
-              <label>Email address <span class="ast">*</span></label>
-              <input type="email" class="finput" id="femail" placeholder="you@example.com">
-            </div>
-
-            <button class="btn-submit" onclick="doSubmit()">
-              <span>Get 3 Quotes in 2 Hours — Free</span>
-              <span style="font-size:20px">→</span>
-            </button>
-            <button class="btn-back" onclick="goBack(3)">← Back</button>
-            <p class="step-hint">Your details are only shared with matched trades</p>
-          </div>
-
-          <!-- SUCCESS -->
-          <div class="success-panel" id="success-panel">
-            <div class="success-ring">✅</div>
-            <div class="success-title">You're all sorted!</div>
-            <p class="success-sub">We've matched your job with up to 3 vetted tradespeople in South Manchester. Expect to hear back fast.</p>
-            <div class="success-timeline">
-              <div class="stl-item"><div class="stl-n">1</div><div>Up to 3 qualified local trades have been notified about your job.</div></div>
-              <div class="stl-item"><div class="stl-n">2</div><div>They'll contact you directly with their best quote.</div></div>
-              <div class="stl-item"><div class="stl-n">3</div><div>Pick the trade you like — no obligation, no charge.</div></div>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="card-foot">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
-          Never sold to more than 3 trades · No spam calls
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- TRUST BAR -->
-  <div class="trust-bar">
-    <div class="trust-bar-inner">
-      <div class="ti"><div class="ti-icon">⚡</div>Qualified local trades</div>
-      <div class="ti"><div class="ti-icon">🛡</div>Fully insured providers</div>
-      <div class="ti"><div class="ti-icon">📦</div>Goods-in-transit insured removals</div>
-      <div class="ti"><div class="ti-icon">⭐</div>Photo-assisted quotes</div>
-      <div class="ti"><div class="ti-icon">📍</div>Local to South Manchester</div>
-    </div>
-  </div>
-
-  <!-- WHO WE HELP -->
-  <section class="sec" id="who">
-    <div class="sec-inner">
-      <div class="eyebrow">Who uses SortMyTrade</div>
-      <h2>Fast help for everyday property problems.</h2>
-      <p class="sec-sub">Built for homeowners, renters and students across South Manchester who need reliable local trades without the hassle.</p>
-
-      <div class="svc-grid reveal">
-        <div class="svc-card" onclick="scrollToSection('quote')">
-          <div class="svc-icon">🏠</div>
-          <h3>Homeowners</h3>
-          <p>Need reliable trades without wasting hours searching Google or calling around. Get up to 3 vetted local quotes for plumbing, electrics, removals or home jobs.</p>
-          <div class="svc-tags">
-            <span class="stag">Extensions</span>
-            <span class="stag">Electrical Work</span>
-            <span class="stag">Plumbing Repairs</span>
-            <span class="stag">House Moves</span>
-          </div>
-        </div>
-
-        <div class="svc-card" onclick="scrollToSection('quote')">
-          <div class="svc-icon">🔑</div>
-          <h3>Renters</h3>
-          <p>Need something fixed quickly without waiting weeks for a landlord. Find local trades that can help fast with small jobs, urgent issues and repairs.</p>
-          <div class="svc-tags">
-            <span class="stag">Leaks</span>
-            <span class="stag">Electrical Faults</span>
-            <span class="stag">Furniture Moving</span>
-            <span class="stag">Handyman Jobs</span>
-          </div>
-        </div>
-
-        <div class="svc-card" onclick="scrollToSection('quote')">
-          <div class="svc-icon">🎓</div>
-          <h3>Students</h3>
-          <p>Moving house or need help shifting furniture? Upload photos of what needs moving and get faster, more accurate man &amp; van quotes.</p>
-          <div class="svc-tags">
-            <span class="stag">Student Moves</span>
-            <span class="stag">Same-Day Van</span>
-            <span class="stag">Furniture Collection</span>
-            <span class="stag">Shared Moves</span>
-          </div>
-        </div>
-
-        <div class="svc-card" onclick="scrollToSection('quote')">
-          <div class="svc-icon">📍</div>
-          <h3>South Manchester</h3>
-          <p>Hyper-local matching means faster response times, better availability and trades who actually know the area they work in.</p>
-          <div class="svc-tags">
-            <span class="stag">Didsbury</span>
-            <span class="stag">Chorlton</span>
-            <span class="stag">Withington</span>
-            <span class="stag">Sale</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- HOW IT WORKS -->
-  <section class="sec" id="how">
-    <div class="sec-inner">
-      <div class="eyebrow">How it works</div>
-      <h2>Simple, fast, and built for local jobs.</h2>
-      <p class="sec-sub">No endless searching. No spam. Just a cleaner way to get matched with local trades.</p>
-
-      <div class="svc-grid reveal">
-        <div class="svc-card">
-          <div class="svc-icon">1</div>
-          <h3>Tell us the job</h3>
-          <p>Choose the service, job type and postcode so we know what you need.</p>
-        </div>
-
-        <div class="svc-card">
-          <div class="svc-icon">2</div>
-          <h3>Add details or photos</h3>
-          <p>Explain the job, upload photos, or WhatsApp it through for quicker matching.</p>
-        </div>
-
-        <div class="svc-card">
-          <div class="svc-icon">3</div>
-          <h3>Get up to 3 local quotes</h3>
-          <p>We notify relevant local trades so you can compare and choose without the spam.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SERVICES -->
-  <section class="sec svc-bg" id="services">
-    <div class="sec-inner">
-      <div class="eyebrow">Services</div>
-      <h2>Five services. One platform.</h2>
-      <p class="sec-sub">All covered by locally-based, independently vetted professionals.</p>
-
-      <div class="svc-grid reveal">
-        <div class="svc-card" onclick="scrollToSection('quote')">
-          <div class="svc-icon">🔧</div>
-          <h3>Plumbers</h3>
-          <p>Local plumbers for emergency leaks, boiler issues, bathroom work and urgent repairs.</p>
-          <div class="svc-from">→ Fast local quotes</div>
-          <div class="svc-tags">
-            <span class="stag">Emergency Leaks</span><span class="stag">Boilers</span>
-            <span class="stag">Bathrooms</span><span class="stag">Repairs</span>
-          </div>
-        </div>
-
-        <div class="svc-card" onclick="scrollToSection('quote')">
-          <div class="svc-icon">⚡</div>
-          <h3>Electricians</h3>
-          <p>From emergency callouts to rewires, sockets, lighting and EV charger installations.</p>
-          <div class="svc-from">→ Fast local quotes</div>
-          <div class="svc-tags">
-            <span class="stag">EV Chargers</span><span class="stag">Rewiring</span>
-            <span class="stag">Callouts</span><span class="stag">Fuse Boxes</span>
-          </div>
-        </div>
-
-        <div class="svc-card" onclick="scrollToSection('quote')">
-          <div class="svc-icon">🚐</div>
-          <h3>Man &amp; Van</h3>
-          <p>Same-day van help for student moves, furniture collections, small jobs and local transport. All matched providers are insured.</p>
-          <div class="svc-from">→ Fast local quotes</div>
-          <div class="svc-tags">
-            <span class="stag">Same Day</span><span class="stag">Student Moves</span>
-            <span class="stag">Insured</span><span class="stag">Local Jobs</span>
-          </div>
-        </div>
-
-        <div class="svc-card" onclick="scrollToSection('quote')">
-          <div class="svc-icon">🏠</div>
-          <h3>Removals</h3>
-          <p>House moves, office moves and relocation help from trusted local removal teams. All matched providers carry goods-in-transit insurance.</p>
-          <div class="svc-from">→ Fast local quotes</div>
-          <div class="svc-tags">
-            <span class="stag">House Moves</span><span class="stag">Office Moves</span>
-            <span class="stag">Goods Insured</span><span class="stag">Transport</span>
-          </div>
-        </div>
-
-        <div class="svc-card" onclick="scrollToSection('quote')">
-          <div class="svc-icon">🛠️</div>
-          <h3>Handyman</h3>
-          <p>Trusted local help for flat-pack furniture, wall mounting, small repairs and general odd jobs.</p>
-          <div class="svc-from">→ Fast local quotes</div>
-          <div class="svc-tags">
-            <span class="stag">Flat-pack</span><span class="stag">TV Mounting</span>
-            <span class="stag">Repairs</span><span class="stag">Odd Jobs</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- URGENCY -->
-  <div class="urgency">
-    <div class="urgency-inner">
-      <div>
-        <div class="urgency-title">Trades available in your area this week</div>
-        <div class="urgency-slots">
-          <div class="uslot"><span class="udot"></span> Plumbers taking jobs</div>
-          <div class="uslot"><span class="udot"></span> Electricians available</div>
-          <div class="uslot"><span class="udot"></span> Removals &amp; vans available</div>
-        </div>
-      </div>
-      <button class="urgency-btn" onclick="scrollToSection('quote')">Get 3 Quotes in 2 Hours →</button>
-    </div>
-  </div>
-
-  <!-- REVIEWS -->
-  <section class="sec" id="reviews">
-    <div class="sec-inner">
-      <div class="eyebrow">Reviews</div>
-      <h2>What South Manchester users say</h2>
-
-      <div class="rv-grid reveal">
-        <div class="rv-card">
-          <div class="rv-stars">★★★★★</div>
-          <p class="rv-text">"Needed an electrician in Didsbury for a fuse board issue. Got 3 local quotes the same afternoon and booked the job the next day."</p>
-          <div class="rv-person">
-            <div class="rv-av">JT</div>
-            <div>
-              <div class="rv-name">James T.</div>
-              <div class="rv-meta">Didsbury · Electrical job</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="rv-card">
-          <div class="rv-stars">★★★★★</div>
-          <p class="rv-text">"Sent a photo of a kitchen leak and got two plumbing quotes back quickly. Much easier than ringing round myself."</p>
-          <div class="rv-person">
-            <div class="rv-av">SR</div>
-            <div>
-              <div class="rv-name">Sarah R.</div>
-              <div class="rv-meta">Chorlton · Plumbing repair</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="rv-card">
-          <div class="rv-stars">★★★★★</div>
-          <p class="rv-text">"Used it for a student move in Withington. Uploaded photos of boxes and furniture and got a man &amp; van quote that actually matched the job."</p>
-          <div class="rv-person">
-            <div class="rv-av">MK</div>
-            <div>
-              <div class="rv-name">Mike K.</div>
-              <div class="rv-meta">Withington · Man &amp; Van</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- AREAS -->
-  <section class="sec areas-bg" id="areas">
-    <div class="sec-inner">
-      <div class="eyebrow">Coverage</div>
-      <h2>Areas we cover</h2>
-      <p class="sec-sub">All of South Manchester and expanding. Not sure if we cover you? Submit a request and we'll confirm immediately.</p>
-
-      <div class="areas-cloud reveal">
-        <div class="achip on">Didsbury</div><div class="achip">West Didsbury</div>
-        <div class="achip">Chorlton</div><div class="achip">Withington</div>
-        <div class="achip">Burnage</div><div class="achip">Heaton Mersey</div>
-        <div class="achip">Northenden</div><div class="achip">Fallowfield</div>
-        <div class="achip">Whalley Range</div><div class="achip">Levenshulme</div>
-        <div class="achip">Cheadle</div><div class="achip">Sale</div>
-        <div class="achip">Timperley</div><div class="achip">Gatley</div>
-      </div>
-
-      <p class="areas-note">🗺 Built for South Manchester first.</p>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section class="sec" id="faq">
-    <div class="sec-inner">
-      <div class="eyebrow">FAQ</div>
-      <h2>Common questions</h2>
-
-      <div class="faq-wrap reveal">
-        <div class="faq-item">
-          <button class="faq-q" onclick="toggleFaq(this)">Is it genuinely free to use?<span class="faq-icon">+</span></button>
-          <div class="faq-a">Yes. Homeowners, renters and students use SortMyTrade for free. There is no obligation to accept any quote.</div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-q" onclick="toggleFaq(this)">Can I upload photos of the job?<span class="faq-icon">+</span></button>
-          <div class="faq-a">Yes. Photos help trades understand the job faster and usually lead to quicker, more accurate quotes, especially for removals, man &amp; van jobs and visible damage.</div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-q" onclick="toggleFaq(this)">Can I send photos on WhatsApp instead?<span class="faq-icon">+</span></button>
-          <div class="faq-a">Yes. If that’s easier, you can send your job details and photos directly on WhatsApp for faster matching.</div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-q" onclick="toggleFaq(this)">Are removals and man &amp; van providers insured?<span class="faq-icon">+</span></button>
-          <div class="faq-a">Yes. We match removal and man &amp; van jobs with insured providers, including goods-in-transit cover where required.</div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-q" onclick="toggleFaq(this)">Why only 3 quotes?<span class="faq-icon">+</span></button>
-          <div class="faq-a">Because most people want real choice, not spam. We keep it simple: up to 3 relevant local quotes.</div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-q" onclick="toggleFaq(this)">How quickly will I hear back?<span class="faq-icon">+</span></button>
-          <div class="faq-a">Fast local jobs often get responses quickly. Timing depends on the service and area, but the goal is speed and relevance.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- BOTTOM CTA -->
-  <section class="cta-sec">
-    <div class="cta-inner">
-      <div class="cta-eyebrow"><span class="pulse"></span>Ready to get started?</div>
-      <h2>Get 3 trusted local quotes today.</h2>
-      <p>60 seconds to submit. Add photos for faster, more accurate quotes. Or send the job on WhatsApp.</p>
-
-      <div class="cta-inline-row">
-        <button class="cta-bigbtn" onclick="scrollToSection('quote')">Get 3 Quotes in 2 Hours →</button>
-        <a
-          href="https://wa.me/447459819603?text=Hi%20SortMyTrade%2C%20I%20need%20a%20quote%20for%20my%20job."
-          target="_blank"
-          rel="noopener noreferrer"
-          class="whatsapp-inline-btn"
-        >
-          WhatsApp Your Job — Get Quotes in Minutes
+    <!-- FORM -->
+    <div class="card">
+
+      <h3>Get 3 Quotes in 2 Hours</h3>
+
+      <!-- WhatsApp -->
+      <div class="whatsapp-fastlane">
+        <a href="https://wa.me/447459819603" target="_blank" class="whatsapp-btn">
+          WhatsApp your job — get quotes in minutes
         </a>
+        <p class="whatsapp-note">
+          Send photos or a voice note for a faster quote
+        </p>
       </div>
 
-      <p class="cta-note">Only 3 trades receive each job</p>
-    </div>
-  </section>
+      <!-- STEP 1 -->
+      <div id="fs1" class="fstep active">
 
-  <!-- TRADE STRIP -->
-  <div class="trade-strip">
-    <div class="trade-strip-inner">
-      <p><strong>Are you a tradesperson?</strong> Join our network and receive pre-qualified local job leads in South Manchester. Only 3 trades per job.</p>
-      <a href="#" class="trade-link">Join as a Trade →</a>
-    </div>
-  </div>
+        <label>Service</label>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-inner">
-      <div>
-        <div class="f-logo">Sort<span>MyTrade</span></div>
-        <div class="f-tagline">South Manchester's trusted trades platform</div>
-      </div>
-
-      <div>
-        <div class="f-locs-label">Areas Served</div>
-        <div class="f-locs">
-          <span class="floc">Didsbury</span><span class="floc">Chorlton</span>
-          <span class="floc">Withington</span><span class="floc">Burnage</span>
-          <span class="floc">Heaton Mersey</span><span class="floc">Northenden</span>
-          <span class="floc">Fallowfield</span><span class="floc">Whalley Range</span>
-          <span class="floc">Cheadle</span><span class="floc">Sale</span>
+        <div class="chips">
+          <label><input type="radio" name="svc" value="plumber"> Plumber</label>
+          <label><input type="radio" name="svc" value="electrician"> Electrician</label>
+          <label><input type="radio" name="svc" value="manvan"> Man & Van</label>
+          <label><input type="radio" name="svc" value="removals"> Removals</label>
+          <label><input type="radio" name="svc" value="handyman"> Handyman</label>
         </div>
+
+        <div id="sub-field">
+          <select id="job-type"></select>
+        </div>
+
+        <input id="postcode" placeholder="Postcode">
+
+        <button onclick="goNext(1)">Continue →</button>
+
       </div>
 
-      <div class="f-links">
-        <a href="#" class="f-link">Privacy</a>
-        <a href="#" class="f-link">Terms</a>
-        <a href="#" class="f-link">Contact</a>
-        <a href="#" class="f-link">For Trades</a>
+      <!-- STEP 2 -->
+      <div id="fs2" class="fstep">
+
+        <textarea id="job-desc" placeholder="Describe the job..."></textarea>
+
+        <input type="file" id="job-photos" multiple>
+
+        <button onclick="goNext(2)">Continue →</button>
+        <button onclick="goBack(2)">Back</button>
+
       </div>
+
+      <!-- STEP 3 -->
+      <div id="fs3" class="fstep">
+
+        <input id="fname" placeholder="Full name">
+        <input id="fphone" placeholder="Mobile number">
+        <input id="femail" placeholder="Email">
+
+        <button onclick="doSubmit()">Get Quotes →</button>
+        <button onclick="goBack(3)">Back</button>
+
+      </div>
+
+      <div id="success-panel" style="display:none;">
+        <h3>You're all set</h3>
+        <p>We’ve matched your job with local trades.</p>
+      </div>
+
     </div>
 
-    <div class="footer-legal">
-      © 2025 SortMyTrade · South Manchester · sortmytrade.com
-    </div>
-  </footer>
+  </div>
+</section>
 
-  <script src="js/main.js"></script>
-  <script src="js/ai-assistant.js"></script>
+<!-- CTA -->
+<section class="cta-sec">
+  <h2>Get 3 quotes today</h2>
+
+  <div class="cta-inline-row">
+    <button onclick="scrollToSection('quote')">Start now →</button>
+
+    <a href="https://wa.me/447459819603" target="_blank" class="whatsapp-inline-btn">
+      WhatsApp instead
+    </a>
+  </div>
+</section>
+
+<!-- SCRIPTS (FLAT STRUCTURE) -->
+<script src="main.js"></script>
+<script src="ai-assistant.js"></script>
+
 </body>
 </html>
