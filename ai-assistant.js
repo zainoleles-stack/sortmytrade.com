@@ -124,20 +124,3 @@ function useDescription() {
   closeAiPanel();
   textarea.scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
-function sendToWhatsApp() {
-  const name = document.getElementById("name")?.value || "";
-  const phone = document.getElementById("phone")?.value || "";
-  const postcode = document.getElementById("postcode")?.value || "";
-  const service = document.getElementById("service")?.value || "";
-
-  const message = `New quote request:%0A
-Name: ${name}%0A
-Phone: ${phone}%0A
-Postcode: ${postcode}%0A
-Service: ${service}`;
-
-  const whatsappNumber = "447459819603"; // replace with your number
-  const url = `https://wa.me/${whatsappNumber}?text=${message}`;
-
-  window.open(url, "_blank");
-}
