@@ -1,9 +1,10 @@
 /* ─────────────────────────────────────────
    SORTMYTRADE.COM — main.js
-   Full launch version matched to current index.html
+   Updated launch version
 ───────────────────────────────────────── */
 
 const ZAPIER_WEBHOOK_URL = 'YOUR_ZAPIER_WEBHOOK_URL_HERE';
+const WHATSAPP_NUMBER = '447459819603';
 
 /* ─────────────────────────────────────────
    SERVICE SUB-TYPES
@@ -48,14 +49,15 @@ const jobTypes = {
     'Storage needed',
     'Other'
   ],
-  planning: [
-    'Single-storey extension drawings',
-    'Double-storey extension drawings',
-    'Loft conversion drawings',
-    'Planning permission application',
-    'Permitted development advice',
-    'Structural drawings only',
-    'Other'
+  handyman: [
+    'Flat-pack furniture assembly',
+    'TV mounting',
+    'Curtain pole or blind fitting',
+    'Wall hanging / shelves',
+    'Minor repairs',
+    'Painting touch-ups',
+    'General odd jobs',
+    'Other handyman work'
   ]
 };
 
@@ -81,7 +83,7 @@ function titleCaseService(value) {
     electrician: 'Electrician',
     manvan: 'Man & Van',
     removals: 'Removals',
-    planning: 'Planning Drawings'
+    handyman: 'Handyman'
   };
   return map[value] || value;
 }
@@ -101,28 +103,99 @@ function looksLikeWebhookSet() {
   return ZAPIER_WEBHOOK_URL && !ZAPIER_WEBHOOK_URL.includes('YOUR_ZAPIER_WEBHOOK_URL_HERE');
 }
 
+function isValidEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+function isValidUkMobile(phone) {
+  const cleaned = phone.replace(/\s+/g, '');
+  return /^(?:\+44|0)7\d{9}$/.test(cleaned);
+}
+
+/* ─────────────────────────────────────────
+   TOAST
+───────────────────────────────────────── */
+function showToast(msg, type = 'error') {
+  let t = byId('smt-toast');
+
+  if (!t) {
+    t = document.createElement('div');
+    t.id = 'smt-toast';
+    t.style.cssText = [
+      'position:fixed',
+      'bottom:28px',
+      'left:50%',
+      'transform:translateX(-50%) translateY(20px)',
+      'color:#fff',
+      'padding:12px 24px',
+      'border-radius:10px',
+      'font-family:Manrope,sans-serif',
+      'font-size:14px',
+      'font-weight:700',
+      'z-index:9999',
+      'opacity:0',
+      'transition:all .25s ease',
+      'pointer-events:none',
+      'white-space:nowrap',
+      'box-shadow:0 12px 32px rgba(0,0,0,.18)'
+    ].join(';');
+    document.body.appendChild(t);
+  }
+
+  t.style.background = type === 'success' ? '#16a34a' : '#ef4444';
+  t.textContent = msg;
+  t.style.opacity = '1';
+  t.style.transform = 'translateX(-50%) translateY(0)';
+
+  clearTimeout(t._timer);
+  t._timer = setTimeout(function () {
+    t.style.opacity = '0';
+    t.style.transform = 'translateX(-50%) translateY(10px)';
+  }, 2800);
+}
+
+/* ─────────────────────────────────────────
+   SHAKE
+───────────────────────────────────────── */
+function shake(id) {
+  const el = byId(id);
+  if (!el) return;
+
+  let i = 0;
+
+  function step() {
+    el.style.transform = i % 2 ? 'translateX(-5px)' : 'translateX(5px)';
+    i += 1;
+    if (i < 6) {
+      setTimeout(step, 65);
+    } else {
+      el.style.transform = '';
+    }
+  }
+
+  step();
+}
+
 /* ─────────────────────────────────────────
    SERVICE SUBTYPE POPULATION
 ───────────────────────────────────────── */
-document.querySelectorAll('input[name="svc"]').forEach(function (radio) {
-  radio.addEventListener('change', function () {
-    const subField = byId('sub-field');
-    const sel = byId('job-type');
-    if (!subField || !sel) return;
+function populateJobTypes(serviceValue) {
+  const subField = byId('sub-field');
+  const sel = byId('job-type');
+  if (!subField || !sel) return;
 
-    const types = jobTypes[this.value] || [];
-    sel.innerHTML = '<option value="">Select...</option>';
+  const types = jobTypes[serviceValue] || [];
+  sel.innerHTML = '<option value="">Select...</option>';
 
-    types.forEach(function (t) {
-      const opt = document.createElement('option');
-      opt.value = t;
-      opt.textContent = t;
-      sel.appendChild(opt);
-    });
-
-    subField.style.display = 'block';
+  types.forEach(function (t) {
+    const opt = document.createElement('option');
+    opt.value = t;
+    opt.textContent = t;
+    sel.appendChild(opt);
   });
-});
+
+  subField.style.display = types.length ? 'block' : 'none';
+}
 
 /* ─────────────────────────────────────────
    STEP NAVIGATION
@@ -131,6 +204,7 @@ function setProgress(step) {
   ['ps1', 'ps2', 'ps3'].forEach(function (id, index) {
     const el = byId(id);
     if (!el) return;
+
     el.classList.remove('active', 'done');
 
     const num = index + 1;
@@ -143,6 +217,7 @@ function showStep(step) {
   ['fs1', 'fs2', 'fs3'].forEach(function (id, index) {
     const el = byId(id);
     if (!el) return;
+
     el.classList.remove('active');
     if (index + 1 === step) el.classList.add('active');
   });
@@ -153,21 +228,24 @@ function showStep(step) {
 function validateStep1() {
   const service = selectedService();
   const postcode = cleanValue(byId('postcode')?.value);
-  const subField = byId('sub-field');
   const jobType = cleanValue(byId('job-type')?.value);
+  const subField = byId('sub-field');
 
   if (!service) {
-    alert('Please select a service.');
+    showToast('Please select a service.');
+    shake('fs1');
     return false;
   }
 
   if (subField && subField.style.display !== 'none' && !jobType) {
-    alert('Please select the specific job type.');
+    showToast('Please select the specific job type.');
+    shake('job-type');
     return false;
   }
 
   if (!postcode) {
-    alert('Please enter your postcode.');
+    showToast('Please enter your postcode.');
+    shake('postcode');
     return false;
   }
 
@@ -178,7 +256,8 @@ function validateStep2() {
   const desc = cleanValue(byId('job-desc')?.value);
 
   if (!desc) {
-    alert('Please describe the job.');
+    showToast('Please describe the job.');
+    shake('job-desc');
     return false;
   }
 
@@ -191,17 +270,32 @@ function validateStep3() {
   const email = cleanValue(byId('femail')?.value);
 
   if (!name) {
-    alert('Please enter your full name.');
+    showToast('Please enter your full name.');
+    shake('fname');
     return false;
   }
 
   if (!phone) {
-    alert('Please enter your mobile number.');
+    showToast('Please enter your mobile number.');
+    shake('fphone');
+    return false;
+  }
+
+  if (!isValidUkMobile(phone)) {
+    showToast('Please enter a valid UK mobile number.');
+    shake('fphone');
     return false;
   }
 
   if (!email) {
-    alert('Please enter your email address.');
+    showToast('Please enter your email address.');
+    shake('femail');
+    return false;
+  }
+
+  if (!isValidEmail(email)) {
+    showToast('Please enter a valid email address.');
+    shake('femail');
     return false;
   }
 
@@ -232,7 +326,8 @@ function buildLeadData() {
     fullName: cleanValue(byId('fname')?.value),
     phone: cleanValue(byId('fphone')?.value),
     email: cleanValue(byId('femail')?.value),
-    photoNames: photoNamesText()
+    photoNames: photoNamesText(),
+    submittedAt: new Date().toISOString()
   };
 }
 
@@ -274,6 +369,7 @@ async function sendLeadToWebhook(data) {
     formData.append('phone', data.phone);
     formData.append('email', data.email);
     formData.append('photoNames', data.photoNames);
+    formData.append('submittedAt', data.submittedAt);
 
     currentFiles().forEach(function (file, index) {
       formData.append(`photo_${index + 1}`, file);
@@ -298,32 +394,41 @@ async function doSubmit() {
   if (!validateStep3()) return;
 
   const data = buildLeadData();
-  const whatsappNumber = '447459819603';
-
   const submitBtn = document.querySelector('.btn-submit');
+
   if (submitBtn) {
     submitBtn.disabled = true;
     submitBtn.style.opacity = '0.7';
+    submitBtn.style.cursor = 'not-allowed';
   }
 
-  await sendLeadToWebhook(data);
-
+  const webhookOk = await sendLeadToWebhook(data);
   const message = buildWhatsAppMessage(data);
-  const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+  const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 
   const fs3 = byId('fs3');
   const successPanel = byId('success-panel');
 
   if (fs3) fs3.classList.remove('active');
-  if (successPanel) successPanel.style.display = 'block';
+  if (successPanel) {
+    successPanel.style.display = 'block';
+    successPanel.classList.add('active');
+  }
 
   setProgress(3);
+
+  if (webhookOk) {
+    showToast('Request submitted. Opening WhatsApp now...', 'success');
+  } else {
+    showToast('Opening WhatsApp to finish your request...', 'success');
+  }
 
   window.open(url, '_blank', 'noopener,noreferrer');
 
   if (submitBtn) {
     submitBtn.disabled = false;
     submitBtn.style.opacity = '1';
+    submitBtn.style.cursor = 'pointer';
   }
 }
 
@@ -344,14 +449,16 @@ function toggleFaq(btn) {
 /* ─────────────────────────────────────────
    AREA CHIPS
 ───────────────────────────────────────── */
-document.querySelectorAll('.achip').forEach(function (chip) {
-  chip.addEventListener('click', function () {
-    document.querySelectorAll('.achip').forEach(function (c) {
-      c.classList.remove('on');
+function bindAreaChips() {
+  document.querySelectorAll('.achip').forEach(function (chip) {
+    chip.addEventListener('click', function () {
+      document.querySelectorAll('.achip').forEach(function (c) {
+        c.classList.remove('on');
+      });
+      chip.classList.add('on');
     });
-    this.classList.add('on');
   });
-});
+}
 
 /* ─────────────────────────────────────────
    SMOOTH SCROLL
@@ -364,83 +471,38 @@ function scrollToSection(id) {
 /* ─────────────────────────────────────────
    SCROLL REVEAL
 ───────────────────────────────────────── */
-const revealObserver = new IntersectionObserver(function (entries) {
-  entries.forEach(function (e) {
-    if (e.isIntersecting) {
-      e.target.classList.add('visible');
-      revealObserver.unobserve(e.target);
-    }
+function initReveal() {
+  if (!('IntersectionObserver' in window)) return;
+
+  const revealObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal').forEach(function (el) {
+    revealObserver.observe(el);
   });
-}, { threshold: 0.1 });
-
-document.querySelectorAll('.reveal').forEach(function (el) {
-  revealObserver.observe(el);
-});
-
-/* ─────────────────────────────────────────
-   TOAST
-───────────────────────────────────────── */
-function showToast(msg) {
-  let t = byId('smt-toast');
-
-  if (!t) {
-    t = document.createElement('div');
-    t.id = 'smt-toast';
-    t.style.cssText = [
-      'position:fixed',
-      'bottom:28px',
-      'left:50%',
-      'transform:translateX(-50%) translateY(20px)',
-      'background:#ef4444',
-      'color:#fff',
-      'padding:12px 24px',
-      'border-radius:6px',
-      'font-family:Manrope,sans-serif',
-      'font-size:14px',
-      'font-weight:600',
-      'z-index:9999',
-      'opacity:0',
-      'transition:all .25s',
-      'pointer-events:none',
-      'white-space:nowrap',
-      'box-shadow:0 8px 32px rgba(0,0,0,.2)'
-    ].join(';');
-    document.body.appendChild(t);
-  }
-
-  t.textContent = msg;
-  t.style.opacity = '1';
-  t.style.transform = 'translateX(-50%) translateY(0)';
-
-  clearTimeout(t._timer);
-  t._timer = setTimeout(function () {
-    t.style.opacity = '0';
-    t.style.transform = 'translateX(-50%) translateY(10px)';
-  }, 3000);
 }
 
 /* ─────────────────────────────────────────
-   SHAKE
-───────────────────────────────────────── */
-function shake(id) {
-  const el = byId(id);
-  if (!el) return;
-
-  let i = 0;
-
-  function step() {
-    el.style.transform = i % 2 ? 'translateX(-5px)' : 'translateX(5px)';
-    i++;
-    if (i < 6) setTimeout(step, 70);
-    else el.style.transform = '';
-  }
-
-  step();
-}
-
-/* ─────────────────────────────────────────
-   INITIAL STATE
+   INIT
 ───────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', function () {
   showStep(1);
+
+  const subField = byId('sub-field');
+  if (subField) subField.style.display = 'none';
+
+  document.querySelectorAll('input[name="svc"]').forEach(function (radio) {
+    radio.addEventListener('change', function () {
+      populateJobTypes(this.value);
+    });
+  });
+
+  bindAreaChips();
+  initReveal();
 });
