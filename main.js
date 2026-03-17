@@ -10,16 +10,15 @@ const ZAPIER_WEBHOOK_URL = 'YOUR_ZAPIER_WEBHOOK_URL_HERE';
    SERVICE SUB-TYPES
 ───────────────────────────────────────── */
 const jobTypes = {
-    plumber: [
-    'Emergency leak repair',
-    'Blocked drain',
-    'Boiler issue',
-    'Tap or toilet repair',
-    'Radiator installation or repair',
-    'Pipe repair',
-    'Bathroom plumbing',
-    'Other plumbing work'
-  ],
+  electrician: [
+    'Emergency callout',
+    'EV charger installation',
+    'Full house rewire',
+    'Consumer unit / fuse box upgrade',
+    'New sockets or lighting',
+    'EICR electrical safety certificate',
+    'Electric shower installation',
+    'Other electrical work'
   ],
   manvan: [
     'Single item collection / delivery',
@@ -48,18 +47,18 @@ const jobTypes = {
     'Permitted development advice',
     'Structural drawings only',
     'Other'
-     ],
-   ],
-  electrician: [
-    'Emergency callout',
-    'EV charger installation',
-    'Full house rewire',
-    'Consumer unit / fuse box upgrade',
-    'New sockets or lighting',
-    'EICR electrical safety certificate',
-    'Electric shower installation',
-    'Other electrical work'
   ],
+  plumber: [
+    'Emergency leak',
+    'Boiler repair or service',
+    'Boiler replacement',
+    'Bathroom installation',
+    'Shower installation',
+    'Radiator fitting or replacement',
+    'Pipe repair or replacement',
+    'Outside tap fitting',
+    'Other plumbing work'
+  ]
 };
 
 document.querySelectorAll('input[name="svc"]').forEach(function(radio) {
@@ -78,59 +77,124 @@ document.querySelectorAll('input[name="svc"]').forEach(function(radio) {
 /* ─────────────────────────────────────────
    STEP NAVIGATION
 ───────────────────────────────────────── */
-(function () {
-  const form = document.getElementById("leadForm");
-  if (!form) return;
+function goNext(step) {
+  if (step === 1) {
+    var svc = document.querySelector('input[name="svc"]:checked');
+    var pc  = document.getElementById('postcode').value.trim();
+    if (!svc) { showToast('Please select a service type'); shake('fs1'); return; }
+    if (!pc)  { showToast('Please enter your postcode'); shake('fs1'); return; }
+  }
+  if (step === 2) {
+    var desc = document.getElementById('job-desc').value.trim();
+    if (desc.length < 15) { showToast('Please describe your job in a bit more detail'); shake('fs2'); return; }
+  }
+  document.getElementById('fs' + step).classList.remove('active');
+  document.getElementById('fs' + (step + 1)).classList.add('active');
+  setProgressStep(step + 1);
+  document.getElementById('quote').scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
 
-  const whatsappNumber = "447459819603";
+function goBack(step) {
+  document.getElementById('fs' + step).classList.remove('active');
+  document.getElementById('fs' + (step - 1)).classList.add('active');
+  setProgressStep(step - 1);
+}
 
-  function cleanValue(value) {
-    return String(value || "").trim();
+function setProgressStep(n) {
+  [1, 2, 3].forEach(function(i) {
+    var el = document.getElementById('ps' + i);
+    el.classList.remove('active', 'done');
+    if (i < n)  el.classList.add('done');
+    if (i === n) el.classList.add('active');
+  });
+}
+
+/* ─────────────────────────────────────────
+   FORM SUBMIT
+───────────────────────────────────────── */
+function doSubmit() {
+  var name  = document.getElementById('fname').value.trim();
+  var phone = document.getElementById('fphone').value.trim();
+  var email = document.getElementById('femail').value.trim();
+
+  if (!name)                                { showToast('Please enter your full name'); return; }
+  if (phone.replace(/\s/g,'').length < 10)  { showToast('Please enter a valid UK mobile number'); return; }
+  if (!email.includes('@'))                 { showToast('Please enter a valid email address'); return; }
+
+  var svcEl = document.querySelector('input[name="svc"]:checked');
+  var payload = {
+    service:     svcEl ? svcEl.value : '',
+    jobType:     document.getElementById('job-type').value,
+    postcode:    document.getElementById('postcode').value.trim(),
+    description: document.getElementById('job-desc').value.trim(),
+    timeline:    document.getElementById('timeline').value,
+    budget:      document.getElementById('budget').value,
+    name:        name,
+    phone:       phone,
+    email:       email,
+    submitted:   new Date().toISOString(),
+    source:      'sortmytrade.com'
+  };
+
+  /* Send to Zapier webhook */
+  if (ZAPIER_WEBHOOK_URL !== 'YOUR_ZAPIER_WEBHOOK_URL_HERE') {
+    fetch(ZAPIER_WEBHOOK_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    }).catch(function(err) { console.warn('Webhook error:', err); });
   }
 
-  function buildMessage(data) {
-    return [
-      "New SortMyTrade quote request",
-      "",
-      `Name: ${data.name}`,
-      `Phone: ${data.phone}`,
-      `Postcode: ${data.postcode}`,
-      `Service: ${data.service}`,
-      `Urgency: ${data.urgency}`
-    ].join("\n");
-  }
+  /* ── WhatsApp ping to owner ──────────────────────────────
+     Every form submission opens a pre-filled WhatsApp
+     message to 07459819603 with the full lead details.
+  ────────────────────────────────────────────────────────── */
+  var serviceLabels = {
+    electrician: 'Electrician',
+    manvan:      'Man & Van',
+    removals:    'Removals',
+    planning:    'Planning Drawings',
+    plumber:     'Plumber'
+  };
+  var budgetLabels = {
+    unsure:    'Not sure',
+    u200:      'Under 200',
+    '200-500': '200-500',
+    '500-2k':  '500-2k',
+    '2kplus':  '2k+'
+  };
+  var timelineLabels = {
+    asap:     'ASAP',
+    week:     'Within 1 week',
+    month:    'Within 1 month',
+    flexible: 'Flexible'
+  };
 
-  form.addEventListener("submit", function (event) {
-    event.preventDefault();
+  var waMsg = [
+    'NEW LEAD - SortMyTrade',
+    '',
+    'Service: ' + (serviceLabels[payload.service] || payload.service),
+    payload.jobType ? 'Job type: ' + payload.jobType : null,
+    'Postcode: ' + payload.postcode,
+    'Timeline: ' + (timelineLabels[payload.timeline] || payload.timeline),
+    'Budget: ' + (budgetLabels[payload.budget] || payload.budget),
+    '',
+    'Name: ' + payload.name,
+    'Phone: ' + payload.phone,
+    'Email: ' + payload.email,
+    '',
+    'Job description:',
+    payload.description
+  ].filter(function(l) { return l !== null; }).join('\n');
 
-    const name = cleanValue(document.getElementById("name")?.value);
-    const phone = cleanValue(document.getElementById("phone")?.value);
-    const postcode = cleanValue(document.getElementById("postcode")?.value);
-    const service = cleanValue(document.getElementById("service")?.value);
-    const urgency = cleanValue(document.getElementById("urgency")?.value);
+  window.open('https://wa.me/447459819603?text=' + encodeURIComponent(waMsg), '_blank');
 
-    if (!name || !phone || !postcode || !service || !urgency) {
-      alert("Please complete all fields before requesting your quote.");
-      return;
-    }
-
-    const message = buildMessage({
-      name,
-      phone,
-      postcode,
-      service,
-      urgency
-    });
-
-    const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
-    window.open(url, "_blank", "noopener,noreferrer");
-  });
-})();
-
-    const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
-    window.open(url, "_blank", "noopener,noreferrer");
-  });
-})();
+  /* Show success state */
+  document.getElementById('fs3').classList.remove('active');
+  document.querySelector('.progress-wrap').style.display = 'none';
+  document.getElementById('success-panel').style.display = 'block';
+  document.getElementById('quote').scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
 
 /* ─────────────────────────────────────────
    FAQ ACCORDION
@@ -219,3 +283,89 @@ function shake(id) {
   }
   step();
 }
+
+/* ─────────────────────────────────────────
+   URL PARAMETER AUTO-FILL
+   Pre-fills the form if lead data is passed
+   via URL e.g. ?service=plumber&postcode=M20
+───────────────────────────────────────── */
+(function() {
+  var params = new URLSearchParams(window.location.search);
+
+  // Map URL service values to our radio values
+  var serviceMap = {
+    'electrician':      'electrician',
+    'electric':         'electrician',
+    'man & van':        'manvan',
+    'manvan':           'manvan',
+    'man and van':      'manvan',
+    'removals':         'removals',
+    'removal':          'removals',
+    'planning':         'planning',
+    'planning drawings':'planning',
+    'plumber':          'plumber',
+    'plumbing':         'plumber'
+  };
+
+  var service  = (params.get('service')  || '').toLowerCase().trim();
+  var postcode = params.get('postcode')  || '';
+  var name     = params.get('name')      || '';
+  var phone    = params.get('phone')     || '';
+  var email    = params.get('email')     || '';
+  var urgency  = params.get('urgency')   || '';
+  var desc     = params.get('desc')      || params.get('description') || '';
+
+  var mappedService = serviceMap[service] || null;
+
+  if (mappedService) {
+    var radio = document.querySelector('input[name="svc"][value="' + mappedService + '"]');
+    if (radio) {
+      radio.checked = true;
+      radio.dispatchEvent(new Event('change'));
+    }
+  }
+
+  if (postcode) {
+    var pcField = document.getElementById('postcode');
+    if (pcField) pcField.value = postcode;
+  }
+
+  if (name) {
+    var nameField = document.getElementById('fname');
+    if (nameField) nameField.value = name;
+  }
+
+  if (phone) {
+    var phoneField = document.getElementById('fphone');
+    if (phoneField) phoneField.value = phone;
+  }
+
+  if (email) {
+    var emailField = document.getElementById('femail');
+    if (emailField) emailField.value = email;
+  }
+
+  if (desc) {
+    var descField = document.getElementById('job-desc');
+    if (descField) descField.value = desc;
+  }
+
+  if (urgency) {
+    var tl = document.getElementById('timeline');
+    if (tl) {
+      var u = urgency.toLowerCase();
+      if (u.includes('asap') || u.includes('emergency')) tl.value = 'asap';
+      else if (u.includes('week')) tl.value = 'week';
+      else if (u.includes('month')) tl.value = 'month';
+      else tl.value = 'flexible';
+    }
+  }
+
+  // If any params found, scroll to the form automatically
+  if (mappedService || postcode || name) {
+    setTimeout(function() {
+      var quoteEl = document.getElementById('quote');
+      if (quoteEl) quoteEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 600);
+  }
+})();
