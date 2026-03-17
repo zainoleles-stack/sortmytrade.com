@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SortMyTrade | Trusted Local Tradespeople in South Manchester</title>
-  <meta name="description" content="Get 3 quotes from vetted local tradespeople in Didsbury, Chorlton & South Manchester in under 2 hours. Plumbers, electricians, man & van, removals and planning drawings. Free, no obligation.">
+  <title>SortMyTrade | Get 3 trusted local trades in under 2 hours</title>
+  <meta name="description" content="Get 3 vetted quotes from local plumbers, electricians, removals and man & van services across South Manchester. Free to use. No spam. No obligation.">
   <meta property="og:title" content="SortMyTrade — South Manchester's Trusted Trades Platform">
-  <meta property="og:description" content="Vetted local plumbers, electricians, removal companies & planning consultants. 3 quotes in 2 hours. Free for homeowners, renters and students.">
+  <meta property="og:description" content="Get 3 vetted local quotes in under 2 hours. Plumbers, electricians, removals and man & van across South Manchester.">
   <meta property="og:url" content="https://sortmytrade.com">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
@@ -16,18 +16,20 @@
 
   <!-- ANNOUNCEMENT BAR -->
   <div class="bar">
-    🟢 Now taking job requests across South Manchester &nbsp;<em>— 2 hour response guaranteed</em>
+    🟢 Now taking job requests across South Manchester &nbsp;<em>— fast local quotes, no spam</em>
   </div>
 
   <!-- NAV -->
   <nav class="nav">
     <a href="#" class="nav-logo">Sort<span>MyTrade</span></a>
+
     <div class="nav-pills">
       <span class="nav-pill" onclick="scrollToSection('services')">Services</span>
       <span class="nav-pill" onclick="scrollToSection('how')">How It Works</span>
       <span class="nav-pill" onclick="scrollToSection('reviews')">Reviews</span>
       <span class="nav-pill" onclick="scrollToSection('faq')">FAQ</span>
     </div>
+
     <div class="nav-right">
       <div class="nav-rating">
         <span class="nav-stars">★★★★★</span> 4.9/5 rated
@@ -53,7 +55,7 @@
         </h1>
 
         <p class="hero-sub">
-          South Manchester’s fastest way to find trusted plumbers, electricians, removals, man &amp; van services and planning drawings. Free to use. No spam. No obligation.
+          South Manchester’s fastest way to find trusted plumbers, electricians, removals and man &amp; van services. Free to use. No spam. No obligation.
         </p>
 
         <p class="hero-areas">
@@ -93,9 +95,18 @@
 
         <div class="progress-wrap">
           <div class="progress-steps">
-            <div class="ps active" id="ps1"><div class="ps-circle">1</div><div class="ps-label">Service</div></div>
-            <div class="ps" id="ps2"><div class="ps-circle">2</div><div class="ps-label">Details</div></div>
-            <div class="ps" id="ps3"><div class="ps-circle">3</div><div class="ps-label">Contact</div></div>
+            <div class="ps active" id="ps1">
+              <div class="ps-circle">1</div>
+              <div class="ps-label">Service</div>
+            </div>
+            <div class="ps" id="ps2">
+              <div class="ps-circle">2</div>
+              <div class="ps-label">Details</div>
+            </div>
+            <div class="ps" id="ps3">
+              <div class="ps-circle">3</div>
+              <div class="ps-label">Contact</div>
+            </div>
           </div>
         </div>
 
@@ -106,6 +117,7 @@
             <div class="field">
               <label>What do you need? <span class="ast">*</span></label>
               <div class="chips">
+
                 <label class="chip">
                   <input type="radio" name="svc" value="plumber">
                   <div class="chip-body">
@@ -160,6 +172,7 @@
                     </span>
                   </div>
                 </label>
+
               </div>
             </div>
 
@@ -184,6 +197,7 @@
             <div class="field">
               <label>Describe the job <span class="ast">*</span></label>
               <textarea class="ftextarea" id="job-desc" placeholder="Describe the work needed — the more detail, the more accurate your quotes will be..."></textarea>
+
               <p class="ai-note">💡 Not sure what to write?</p>
               <button class="ai-assist-btn" id="ai-assist-btn" onclick="toggleAiPanel()" type="button">
                 <span class="ai-icon">✨</span>
@@ -308,7 +322,7 @@
           <div class="success-panel" id="success-panel">
             <div class="success-ring">✅</div>
             <div class="success-title">You're all sorted!</div>
-            <p class="success-sub">We've matched your job with 3 vetted tradespeople in South Manchester. Expect to hear back within 2 hours.</p>
+            <p class="success-sub">We've matched your job with 3 vetted tradespeople in South Manchester. Expect to hear back fast.</p>
             <div class="success-timeline">
               <div class="stl-item"><div class="stl-n">1</div><div>3 qualified local trades have been notified about your job.</div></div>
               <div class="stl-item"><div class="stl-n">2</div><div>They'll contact you directly with their best quote.</div></div>
@@ -333,8 +347,8 @@
       <div class="ti"><div class="ti-icon">⚡</div>NICEIC Registered Electricians</div>
       <div class="ti"><div class="ti-icon">🛡</div>Fully Insured Trades</div>
       <div class="ti"><div class="ti-icon">✓</div>ID Verified Before Listing</div>
-      <div class="ti"><div class="ti-icon">⭐</div>4.9/5 from 500+ Reviews</div>
-      <div class="ti"><div class="ti-icon">📍</div>Local to M19 – M23</div>
+      <div class="ti"><div class="ti-icon">⭐</div>4.9/5 rated experience</div>
+      <div class="ti"><div class="ti-icon">📍</div>Local to South Manchester</div>
     </div>
   </div>
 
@@ -361,7 +375,7 @@
         <div class="svc-card" onclick="scrollToSection('quote')">
           <div class="svc-icon">🔑</div>
           <h3>Renters</h3>
-          <p>Need something fixed quickly without waiting weeks for a landlord. Find local trades that can help fast with small jobs, emergency issues and urgent repairs.</p>
+          <p>Need something fixed quickly without waiting weeks for a landlord. Find local trades that can help fast with small jobs, urgent issues and repairs.</p>
           <div class="svc-tags">
             <span class="stag">Leaks</span>
             <span class="stag">Electrical Faults</span>
@@ -436,44 +450,55 @@
         <div class="svc-card" onclick="scrollToSection('quote')">
           <div class="svc-icon">🔧</div>
           <h3>Plumbers</h3>
-          <p>Gas Safe and fully insured plumbers for emergency callouts, boiler repairs, bathroom installations and everything in between.</p>
-          <div class="svc-from">→ From £75 per job</div>
+          <p>Local plumbers for emergency leaks, boiler issues, bathroom work and urgent repairs.</p>
+          <div class="svc-from">→ Fast local quotes</div>
           <div class="svc-tags">
-            <span class="stag">Emergency Leaks</span><span class="stag">Boiler Repair</span>
-            <span class="stag">Bathrooms</span><span class="stag">Gas Safe</span>
+            <span class="stag">Emergency Leaks</span><span class="stag">Boilers</span>
+            <span class="stag">Bathrooms</span><span class="stag">Repairs</span>
           </div>
         </div>
 
         <div class="svc-card" onclick="scrollToSection('quote')">
           <div class="svc-icon">⚡</div>
           <h3>Electricians</h3>
-          <p>NICEIC-registered electricians for everything from emergency callouts to full rewires and EV charger installations. Available same day.</p>
-          <div class="svc-from">→ From £85 per job</div>
+          <p>From emergency callouts to rewires, sockets, lighting and EV charger installations.</p>
+          <div class="svc-from">→ Fast local quotes</div>
           <div class="svc-tags">
             <span class="stag">EV Chargers</span><span class="stag">Rewiring</span>
-            <span class="stag">Emergency Callouts</span><span class="stag">Fuse Boxes</span>
+            <span class="stag">Callouts</span><span class="stag">Fuse Boxes</span>
           </div>
         </div>
 
         <div class="svc-card" onclick="scrollToSection('quote')">
           <div class="svc-icon">🚐</div>
-          <h3>Man &amp; Van / Removals</h3>
-          <p>From a single item to a full house move. Fully insured, careful handling, competitive rates. Same-day availability.</p>
-          <div class="svc-from">→ From £60/hour</div>
+          <h3>Man &amp; Van</h3>
+          <p>Same-day van help for student moves, furniture collections, small jobs and local transport.</p>
+          <div class="svc-from">→ Fast local quotes</div>
           <div class="svc-tags">
-            <span class="stag">Same Day</span><span class="stag">House Moves</span>
-            <span class="stag">Student Moves</span><span class="stag">Office Removals</span>
+            <span class="stag">Same Day</span><span class="stag">Student Moves</span>
+            <span class="stag">Collections</span><span class="stag">Local Jobs</span>
+          </div>
+        </div>
+
+        <div class="svc-card" onclick="scrollToSection('quote')">
+          <div class="svc-icon">🏠</div>
+          <h3>Removals</h3>
+          <p>House moves, office moves and relocation help from trusted local removal teams.</p>
+          <div class="svc-from">→ Fast local quotes</div>
+          <div class="svc-tags">
+            <span class="stag">House Moves</span><span class="stag">Office Moves</span>
+            <span class="stag">Packing</span><span class="stag">Transport</span>
           </div>
         </div>
 
         <div class="svc-card" onclick="scrollToSection('quote')">
           <div class="svc-icon">📐</div>
           <h3>Planning Drawings</h3>
-          <p>Professional architectural drawings for extensions, loft conversions and planning applications. Delivered in 5–10 working days.</p>
-          <div class="svc-from">→ From £395 per project</div>
+          <p>Professional drawings for extensions, loft conversions and planning applications.</p>
+          <div class="svc-from">→ Fast local quotes</div>
           <div class="svc-tags">
-            <span class="stag">Extensions</span><span class="stag">Loft Conversions</span>
-            <span class="stag">Planning Apps</span><span class="stag">Structural Drawings</span>
+            <span class="stag">Extensions</span><span class="stag">Lofts</span>
+            <span class="stag">Planning Apps</span><span class="stag">Layouts</span>
           </div>
         </div>
       </div>
@@ -486,12 +511,12 @@
       <div>
         <div class="urgency-title">Trades available in your area this week</div>
         <div class="urgency-slots">
-          <div class="uslot"><span class="udot"></span> 4 electricians accepting jobs</div>
-          <div class="uslot"><span class="udot"></span> 3 removal firms available</div>
-          <div class="uslot"><span class="udot"></span> 3 plumbers available</div>
+          <div class="uslot"><span class="udot"></span> Plumbers taking jobs</div>
+          <div class="uslot"><span class="udot"></span> Electricians available</div>
+          <div class="uslot"><span class="udot"></span> Removals &amp; vans available</div>
         </div>
       </div>
-      <button class="urgency-btn" onclick="scrollToSection('quote')">Claim My Quotes →</button>
+      <button class="urgency-btn" onclick="scrollToSection('quote')">Get My 3 Quotes →</button>
     </div>
   </div>
 
@@ -499,24 +524,43 @@
   <section class="sec" id="reviews">
     <div class="sec-inner">
       <div class="eyebrow">Reviews</div>
-      <h2>What South Manchester homeowners say</h2>
+      <h2>What South Manchester users say</h2>
+
       <div class="rv-grid reveal">
         <div class="rv-card">
           <div class="rv-stars">★★★★★</div>
-          <p class="rv-text">"Had 3 EV charger quotes within 90 minutes, all from local trades. Went with the middle price, job done perfectly next morning. Couldn't have been simpler."</p>
-          <div class="rv-person"><div class="rv-av">JT</div><div><div class="rv-name">James T.</div><div class="rv-meta">Didsbury · EV Charger Install</div></div></div>
+          <p class="rv-text">"Had 3 quotes back quickly and didn't get spammed by loads of trades. Simple and useful."</p>
+          <div class="rv-person">
+            <div class="rv-av">JT</div>
+            <div>
+              <div class="rv-name">James T.</div>
+              <div class="rv-meta">Didsbury · Electrical job</div>
+            </div>
+          </div>
         </div>
 
         <div class="rv-card">
           <div class="rv-stars">★★★★★</div>
-          <p class="rv-text">"I'd been let down by two electricians before finding SortMyTrade. Someone actually turned up on time, did the work properly and charged a fair price. Brilliant."</p>
-          <div class="rv-person"><div class="rv-av">SR</div><div><div class="rv-name">Sarah R.</div><div class="rv-meta">Chorlton · Consumer Unit Replacement</div></div></div>
+          <p class="rv-text">"Needed help quickly and got local options fast. Much easier than messaging people one by one."</p>
+          <div class="rv-person">
+            <div class="rv-av">SR</div>
+            <div>
+              <div class="rv-name">Sarah R.</div>
+              <div class="rv-meta">Chorlton · Plumbing repair</div>
+            </div>
+          </div>
         </div>
 
         <div class="rv-card">
           <div class="rv-stars">★★★★★</div>
-          <p class="rv-text">"Needed to move on short notice. Got 3 man &amp; van quotes the same evening, booked for next morning. Spot on — no faff, no hidden charges whatsoever."</p>
-          <div class="rv-person"><div class="rv-av">MK</div><div><div class="rv-name">Mike K.</div><div class="rv-meta">Withington · House Move</div></div></div>
+          <p class="rv-text">"Perfect for moving house. Got van quotes the same day and booked without the usual hassle."</p>
+          <div class="rv-person">
+            <div class="rv-av">MK</div>
+            <div>
+              <div class="rv-name">Mike K.</div>
+              <div class="rv-meta">Withington · Man &amp; Van</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -539,7 +583,7 @@
         <div class="achip">Timperley</div><div class="achip">Gatley</div>
       </div>
 
-      <p class="areas-note">🗺 Expanding into North Manchester, Stockport and Greater Manchester throughout 2025.</p>
+      <p class="areas-note">🗺 Built for South Manchester first.</p>
     </div>
   </section>
 
@@ -551,28 +595,28 @@
 
       <div class="faq-wrap reveal">
         <div class="faq-item">
-          <button class="faq-q" onclick="toggleFaq(this)">Is it genuinely free for homeowners?<span class="faq-icon">+</span></button>
-          <div class="faq-a">100% free — always. Tradespeople pay us a small fee to receive job leads. You will never be charged anything, ever. There's also no obligation to accept any quote you receive.</div>
+          <button class="faq-q" onclick="toggleFaq(this)">Is it genuinely free to use?<span class="faq-icon">+</span></button>
+          <div class="faq-a">Yes. Homeowners, renters and students use SortMyTrade for free. There is no obligation to accept any quote.</div>
         </div>
 
         <div class="faq-item">
-          <button class="faq-q" onclick="toggleFaq(this)">How do you vet the tradespeople?<span class="faq-icon">+</span></button>
-          <div class="faq-a">Every trade completes our full onboarding checklist: photo ID, proof of public liability insurance, relevant registrations, and a minimum quality threshold before they receive leads.</div>
+          <button class="faq-q" onclick="toggleFaq(this)">How do you vet the trades?<span class="faq-icon">+</span></button>
+          <div class="faq-a">We focus on trusted local trades and keep the platform curated. Jobs are not blasted out to everyone.</div>
         </div>
 
         <div class="faq-item">
           <button class="faq-q" onclick="toggleFaq(this)">Why only 3 quotes?<span class="faq-icon">+</span></button>
-          <div class="faq-a">Most platforms send your details to too many trades and you get bombarded. We cap every job at exactly 3 quotes — real choice without the harassment.</div>
+          <div class="faq-a">Because most people want real choice, not spam. We keep it simple: up to 3 relevant local quotes.</div>
         </div>
 
         <div class="faq-item">
-          <button class="faq-q" onclick="toggleFaq(this)">How quickly will trades contact me?<span class="faq-icon">+</span></button>
-          <div class="faq-a">Our target is a response within 2 hours during normal operating times. For urgent callouts, responses are often much faster.</div>
+          <button class="faq-q" onclick="toggleFaq(this)">How quickly will I hear back?<span class="faq-icon">+</span></button>
+          <div class="faq-a">Fast local jobs often get responses quickly. Timing depends on the service and area, but the goal is speed and relevance.</div>
         </div>
 
         <div class="faq-item">
-          <button class="faq-q" onclick="toggleFaq(this)">What if I'm not happy with the quotes?<span class="faq-icon">+</span></button>
-          <div class="faq-a">No problem at all — there is zero obligation. If none of the 3 quotes suit you, simply don't proceed.</div>
+          <button class="faq-q" onclick="toggleFaq(this)">What if I do not like the quotes?<span class="faq-icon">+</span></button>
+          <div class="faq-a">No problem. There is no pressure to proceed with any quote.</div>
         </div>
       </div>
     </div>
@@ -582,17 +626,17 @@
   <section class="cta-sec">
     <div class="cta-inner">
       <div class="cta-eyebrow"><span class="pulse"></span>Ready to get started?</div>
-      <h2>Get your trade sorted today.</h2>
-      <p>60 seconds to submit. 3 vetted quotes back within 2 hours. Completely free, no obligation.</p>
+      <h2>Get 3 trusted local quotes today.</h2>
+      <p>60 seconds to submit. Fast local matching. Free to use.</p>
       <button class="cta-bigbtn" onclick="scrollToSection('quote')">Get My 3 Quotes →</button>
-      <p class="cta-note">★★★★★ Rated 4.9 / 5 by South Manchester homeowners</p>
+      <p class="cta-note">Only 3 trades receive each job</p>
     </div>
   </section>
 
   <!-- TRADE STRIP -->
   <div class="trade-strip">
     <div class="trade-strip-inner">
-      <p><strong>Are you a tradesperson?</strong> Join our network and receive pre-qualified job leads in South Manchester. Only 3 trades per job — your time is never wasted.</p>
+      <p><strong>Are you a tradesperson?</strong> Join our network and receive pre-qualified local job leads in South Manchester. Only 3 trades per job.</p>
       <a href="#" class="trade-link">Join as a Trade →</a>
     </div>
   </div>
@@ -625,7 +669,7 @@
     </div>
 
     <div class="footer-legal">
-      © 2025 SortMyTrade · Registered in England &amp; Wales · All trades independently vetted · sortmytrade.com
+      © 2025 SortMyTrade · South Manchester · sortmytrade.com
     </div>
   </footer>
 
