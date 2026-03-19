@@ -1,88 +1,29 @@
-@@ -3,173 +3,706 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>SortMyTrade | Get 3 trusted local trades in under 2 hours</title>
-
   <meta name="description" content="Get up to 3 vetted local quotes for plumbers, electricians, removals, handyman and man & van services across South Manchester. Upload photos for quicker, more accurate quotes or WhatsApp your job directly. Free to use. No spam. No obligation.">
-
-  <!-- SEO / Social -->
   <meta property="og:title" content="SortMyTrade — South Manchester's Trusted Trades Platform">
-  <meta property="og:description" content="Get 3 vetted local quotes in under 2 hours across South Manchester.">
   <meta property="og:description" content="Get up to 3 vetted local quotes in under 2 hours across South Manchester.">
   <meta property="og:url" content="https://sortmytrade.com">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-
-  <!-- CSS (FLAT STRUCTURE) -->
   <link rel="stylesheet" href="style.css">
-
-  <!-- WhatsApp Styles -->
-  <style>
-    .whatsapp-fastlane { padding: 0 24px 16px; }
-
-    .whatsapp-btn, .whatsapp-inline-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      min-height: 52px;
-      padding: 14px 18px;
-      border-radius: 14px;
-      background: #25d366;
-      color: #ffffff;
-      text-decoration: none;
-      font-weight: 800;
-      font-family: Manrope, sans-serif;
-    }
-
-    .whatsapp-note {
-      margin-top: 10px;
-      font-size: 13px;
-      color: #61707a;
-    }
-
-    .cta-inline-row {
-      display: flex;
-      gap: 12px;
-      margin-top: 18px;
-      flex-wrap: wrap;
-    }
-
-    .cta-inline-row button,
-    .cta-inline-row a {
-      min-width: 260px;
-    }
-  </style>
 </head>
-
 <body>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-inner">
   <div class="bar">
     🟢 Now taking job requests across South Manchester &nbsp;<em>— fast local quotes, no spam</em>
   </div>
 
-    <div class="hero-left">
-      <h1>
-        Get 3 <br>
-        trusted local trades <br>
-        in under 2 hours.
-      </h1>
   <nav class="nav">
     <a href="#" class="nav-logo">Sort<span>MyTrade</span></a>
 
-      <p>
-        South Manchester’s fast local trades platform for plumbers, electricians, removals, handyman and man & van services.
-        Upload photos for quicker, more accurate quotes or WhatsApp your job directly.
-      </p>
     <div class="nav-pills">
       <span class="nav-pill" onclick="scrollToSection('services')">Services</span>
       <span class="nav-pill" onclick="scrollToSection('how')">How It Works</span>
@@ -90,32 +31,21 @@
       <span class="nav-pill" onclick="scrollToSection('faq')">FAQ</span>
     </div>
 
-      <p><strong>Free · No spam · No obligation</strong></p>
     <div class="nav-right">
       <div class="nav-rating">Built for South Manchester jobs</div>
       <button class="nav-btn" onclick="scrollToSection('quote')">Get 3 Quotes in 2 Hours</button>
     </div>
   </nav>
 
-    <!-- FORM -->
-    <div class="card">
   <section class="hero" id="top">
     <div class="hero-inner">
 
-      <h3>Get 3 Quotes in 2 Hours</h3>
       <div class="hero-left">
         <div class="hero-eyebrow">
           <span class="pulse"></span>
           South Manchester's Trusted Trades Platform
         </div>
 
-      <!-- WhatsApp -->
-      <div class="whatsapp-fastlane">
-        <a href="https://wa.me/447459819603" target="_blank" class="whatsapp-btn">
-          WhatsApp your job — get quotes in minutes
-        </a>
-        <p class="whatsapp-note">
-          Send photos or a voice note for a faster quote
         <h1 class="hero-h1">
           Get 3<br>
           <span class="green-word">trusted local trades</span><br>
@@ -125,10 +55,7 @@
         <p class="hero-sub">
           South Manchester’s fast local trades platform for plumbers, electricians, removals, handyman and man &amp; van services. Upload photos for quicker, more accurate quotes or WhatsApp your job directly. Free to use. No spam. No obligation.
         </p>
-      </div>
 
-      <!-- STEP 1 -->
-      <div id="fs1" class="fstep active">
         <p class="hero-areas">
           Serving Didsbury • Chorlton • Withington • Sale • Altrincham • Stockport
         </p>
@@ -154,7 +81,6 @@
         </div>
       </div>
 
-        <label>Service</label>
       <div class="card" id="quote">
         <div class="card-head">
           <div class="card-head-left">
@@ -164,12 +90,6 @@
           <div class="card-free">Free</div>
         </div>
 
-        <div class="chips">
-          <label><input type="radio" name="svc" value="plumber"> Plumber</label>
-          <label><input type="radio" name="svc" value="electrician"> Electrician</label>
-          <label><input type="radio" name="svc" value="manvan"> Man & Van</label>
-          <label><input type="radio" name="svc" value="removals"> Removals</label>
-          <label><input type="radio" name="svc" value="handyman"> Handyman</label>
         <div class="whatsapp-fastlane">
           <a
             href="https://wa.me/447459819603?text=Hi%20SortMyTrade%2C%20I%20need%20a%20quote%20for%20my%20job."
@@ -184,8 +104,6 @@
           </p>
         </div>
 
-        <div id="sub-field">
-          <select id="job-type"></select>
         <div class="progress-wrap">
           <div class="progress-steps">
             <div class="ps active" id="ps1">
@@ -203,7 +121,6 @@
           </div>
         </div>
 
-        <input id="postcode" placeholder="Postcode">
         <div class="card-body">
 
           <div class="fstep active" id="fs1">
@@ -434,7 +351,6 @@
             </div>
           </div>
 
-        <button onclick="goNext(1)">Continue →</button>
         </div>
 
         <div class="card-foot">
@@ -443,8 +359,6 @@
         </div>
       </div>
 
-      <!-- STEP 2 -->
-      <div id="fs2" class="fstep">
     </div>
   </section>
 
@@ -458,7 +372,6 @@
     </div>
   </div>
 
-        <textarea id="job-desc" placeholder="Describe the job..."></textarea>
   <section class="sec" id="who">
     <div class="sec-inner">
       <div class="eyebrow">Who uses SortMyTrade</div>
@@ -478,7 +391,6 @@
           </div>
         </div>
 
-        <input type="file" id="job-photos" multiple>
         <div class="svc-card" onclick="scrollToSection('quote')">
           <div class="svc-icon">🔑</div>
           <h3>Renters</h3>
@@ -491,8 +403,6 @@
           </div>
         </div>
 
-        <button onclick="goNext(2)">Continue →</button>
-        <button onclick="goBack(2)">Back</button>
         <div class="svc-card" onclick="scrollToSection('quote')">
           <div class="svc-icon">🎓</div>
           <h3>Students</h3>
@@ -520,8 +430,6 @@
     </div>
   </section>
 
-      <!-- STEP 3 -->
-      <div id="fs3" class="fstep">
   <section id="how" class="how sec">
     <div class="sec-inner">
       <div class="section-head">
@@ -529,9 +437,6 @@
         <h2>Simple, fast, and built for local jobs.</h2>
       </div>
 
-        <input id="fname" placeholder="Full name">
-        <input id="fphone" placeholder="Mobile number">
-        <input id="femail" placeholder="Email">
       <div class="how-grid">
         <div class="how-card">
           <div class="how-number">1</div>
@@ -539,8 +444,6 @@
           <p>Choose the service, job type and postcode so we know what you need.</p>
         </div>
 
-        <button onclick="doSubmit()">Get Quotes →</button>
-        <button onclick="goBack(3)">Back</button>
         <div class="how-card">
           <div class="how-number">2</div>
           <h3>Add details or photos</h3>
@@ -585,9 +488,6 @@
           </div>
         </div>
 
-      <div id="success-panel" style="display:none;">
-        <h3>You're all set</h3>
-        <p>We’ve matched your job with local trades.</p>
         <div class="svc-card" onclick="scrollToSection('quote')">
           <div class="svc-icon">🚐</div>
           <h3>Man &amp; Van</h3>
@@ -699,8 +599,6 @@
         <div class="achip">Timperley</div><div class="achip">Gatley</div>
       </div>
 
-  </div>
-</section>
       <p class="areas-note">🗺 Built for South Manchester first.</p>
     </div>
   </section>
@@ -716,16 +614,11 @@
           <div class="faq-a">Yes. Homeowners, renters and students use SortMyTrade for free. There is no obligation to accept any quote.</div>
         </div>
 
-<!-- CTA -->
-<section class="cta-sec">
-  <h2>Get 3 quotes today</h2>
         <div class="faq-item">
           <button class="faq-q" onclick="toggleFaq(this)">Can I upload photos of the job?<span class="faq-icon">+</span></button>
           <div class="faq-a">Yes. Photos help trades understand the job faster and usually lead to quicker, more accurate quotes, especially for removals, man &amp; van jobs and visible damage.</div>
         </div>
 
-  <div class="cta-inline-row">
-    <button onclick="scrollToSection('quote')">Start now →</button>
         <div class="faq-item">
           <button class="faq-q" onclick="toggleFaq(this)">Can I send photos on WhatsApp instead?<span class="faq-icon">+</span></button>
           <div class="faq-a">Yes. If that’s easier, you can send your job details and photos directly on WhatsApp for faster matching.</div>
@@ -736,9 +629,6 @@
           <div class="faq-a">Yes. We match removal and man &amp; van jobs with insured providers, including goods-in-transit cover where required.</div>
         </div>
 
-    <a href="https://wa.me/447459819603" target="_blank" class="whatsapp-inline-btn">
-      WhatsApp instead
-    </a>
         <div class="faq-item">
           <button class="faq-q" onclick="toggleFaq(this)">Why only 3 quotes?<span class="faq-icon">+</span></button>
           <div class="faq-a">Because most people want real choice, not spam. We keep it simple: up to 3 relevant local quotes.</div>
@@ -780,11 +670,7 @@
       <a href="#" class="trade-link">Join as a Trade →</a>
     </div>
   </div>
-</section>
 
-<!-- SCRIPTS (FLAT STRUCTURE) -->
-<script src="main.js"></script>
-<script src="ai-assistant.js"></script>
   <footer>
     <div class="footer-inner">
       <div>
