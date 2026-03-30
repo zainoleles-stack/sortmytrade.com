@@ -825,3 +825,25 @@ footer { background: var(--ink); border-top: 1px solid rgba(255,255,255,.05); pa
   .hero-h1 { font-size: 38px; }
   .f-links { flex-direction: column; gap: 10px; }
 }
+.hero-coverage {
+  margin: 10px 0 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #9ca3af;
+}
+
+.footer-areas-list {
+  margin: 8px 0 0;
+  font-size: 14px;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.72);
+}
+.footer-areas-list span,
+.footer-areas-list a,
+.footer-areas-list button {
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  color: inherit !important;
+}
