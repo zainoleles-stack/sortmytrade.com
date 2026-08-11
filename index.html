@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SortMyTrade | Trusted Local Trades in South Manchester — 3 Quotes in 2 Hours</title>
-<meta name="description" content="Get 3 vetted quotes from local plumbers, electricians, removals and man & van services across South Manchester. Free. No spam. Quotes in under 2 hours.">
-<meta property="og:title" content="SortMyTrade — South Manchester's Trusted Trades Platform">
-<meta property="og:description" content="3 vetted local quotes in under 2 hours. Plumbers, electricians, removals, man & van. Free for homeowners.">
+<title>SortMyTrade | Trusted Home Improvements & Trades — South Manchester & Cheshire</title>
+<meta name="description" content="One trusted team for every job in your home. Vetted, insured tradespeople across South Manchester & Cheshire — bathrooms, kitchens, plumbing, electrics, renovations and more. One point of contact, one fixed price.">
+<meta property="og:title" content="SortMyTrade — One Trusted Team for Every Job in Your Home">
+<meta property="og:description" content="Vetted, insured trades across South Manchester & Cheshire. We coordinate the whole job — one contact, one fixed price, no juggling tradespeople.">
 <meta property="og:url" content="https://sortmytrade.com">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800;900&family=Fraunces:ital,wght@0,400;1,300;1,400;1,600&display=swap" rel="stylesheet">
@@ -65,10 +65,10 @@ img{display:block;max-width:100%;}
 .hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(0,194,122,.1);border:1px solid rgba(0,194,122,.22);color:var(--green);font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:7px 14px;border-radius:20px;margin-bottom:26px;}
 .pulse{width:7px;height:7px;border-radius:50%;background:var(--green);animation:blink 2s ease-in-out infinite;}
 @keyframes blink{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.3;transform:scale(.7);}}
-.hero-h1{font-size:clamp(44px,5.5vw,80px);font-weight:900;line-height:.95;letter-spacing:-.035em;color:#fff;margin-bottom:26px;}
+.hero-h1{font-size:clamp(42px,5.2vw,74px);font-weight:900;line-height:.98;letter-spacing:-.035em;color:#fff;margin-bottom:26px;}
 .hero-h1 .italic-word{font-family:'Fraunces',serif;font-style:italic;font-weight:300;color:rgba(255,255,255,.65);font-size:.9em;}
 .hero-h1 .green-word{color:var(--green);}
-.hero-sub{font-size:17px;font-weight:300;color:rgba(255,255,255,.5);line-height:1.75;max-width:460px;margin-bottom:32px;}
+.hero-sub{font-size:17px;font-weight:300;color:rgba(255,255,255,.5);line-height:1.75;max-width:470px;margin-bottom:32px;}
 .hero-sub strong{color:rgba(255,255,255,.8);font-weight:600;}
 
 /* ── LIVE PROOF STRIP ── */
@@ -130,7 +130,7 @@ img{display:block;max-width:100%;}
 .chips{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:3px;}
 .chip{cursor:pointer;}
 .chip input{display:none;}
-.chip-body{display:flex;align-items:center;gap:9px;padding:11px 13px;border:1.5px solid var(--border);border-radius:var(--r);font-size:13px;font-weight:500;color:var(--muted);transition:all .15s;}
+.chip-body{display:flex;align-items:center;padding:12px 14px;border:1.5px solid var(--border);border-radius:var(--r);font-size:13px;font-weight:500;color:var(--muted);transition:all .15s;}
 .chip-body:hover{border-color:#b0bec5;color:var(--txt);}
 .chip input:checked + .chip-body{border-color:var(--green);background:var(--green-pale);color:#006b42;}
 .chip-emoji{font-size:18px;line-height:1;}
@@ -177,7 +177,14 @@ img{display:block;max-width:100%;}
 .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--green);margin-bottom:14px;}
 .eyebrow::before{content:'';display:block;width:20px;height:2px;background:var(--green);}
 h2{font-size:clamp(28px,3.8vw,48px);font-weight:900;letter-spacing:-.028em;color:var(--txt);line-height:1.05;margin-bottom:12px;}
-.sec-sub{font-size:17px;font-weight:300;color:var(--muted);line-height:1.75;max-width:520px;margin-bottom:52px;}
+.sec-sub{font-size:17px;font-weight:300;color:var(--muted);line-height:1.75;max-width:560px;margin-bottom:52px;}
+
+/* ── PROBLEM SECTION ── */
+.problem-bg{background:var(--ink);}
+.problem-bg .eyebrow{color:var(--green);}
+.problem-bg h2{color:#fff;max-width:820px;}
+.problem-lead{font-size:19px;font-weight:300;color:rgba(255,255,255,.55);line-height:1.7;max-width:640px;margin-top:20px;}
+.problem-lead strong{color:#fff;font-weight:600;}
 
 /* ── HOW IT WORKS ── */
 .hiw-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--border);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;}
@@ -189,16 +196,16 @@ h2{font-size:clamp(28px,3.8vw,48px);font-weight:900;letter-spacing:-.028em;color
 
 /* ── SERVICES ── */
 .svc-bg{background:var(--surface);}
-.svc-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;}
-.svc-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:24px 20px;cursor:pointer;transition:box-shadow .2s,transform .2s,border-color .2s;position:relative;overflow:hidden;}
+.svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+.svc-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:26px 20px;cursor:pointer;transition:box-shadow .2s,transform .2s,border-color .2s;position:relative;overflow:hidden;}
 .svc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--green);opacity:0;transition:opacity .2s;}
 .svc-card:hover{box-shadow:var(--shadow);transform:translateY(-3px);border-color:#cdd5e0;}
 .svc-card:hover::before{opacity:1;}
-.svc-icon{font-size:24px;margin-bottom:14px;}
-.svc-card h3{font-size:15px;font-weight:800;color:var(--txt);margin-bottom:7px;}
-.svc-card p{font-size:12px;color:var(--muted);line-height:1.6;margin-bottom:14px;}
-.svc-tags{display:flex;flex-wrap:wrap;gap:4px;}
-.stag{font-size:10px;font-weight:500;padding:3px 8px;border-radius:20px;background:var(--surface);color:var(--muted);border:1px solid var(--border);}
+.svc-icon{font-size:24px;margin-bottom:12px;}
+.svc-card h3{font-size:15px;font-weight:800;color:var(--txt);margin-bottom:6px;}
+.svc-card p{font-size:12px;color:var(--muted);line-height:1.55;}
+.svc-note{text-align:center;margin-top:32px;font-size:15px;font-weight:300;color:var(--muted);font-style:italic;}
+.svc-note strong{font-weight:600;color:var(--txt);font-style:normal;}
 
 /* ── REVIEWS ── */
 .rv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
@@ -213,6 +220,8 @@ h2{font-size:clamp(28px,3.8vw,48px);font-weight:900;letter-spacing:-.028em;color
 .rv-name{font-size:13px;font-weight:700;color:var(--txt);}
 .rv-meta{font-size:11px;color:var(--muted);margin-top:2px;}
 .rv-verified{display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:600;color:var(--green);margin-top:4px;}
+.rv-featured{border:1.5px solid rgba(0,194,122,.35);position:relative;}
+.rv-badge{position:absolute;top:-1px;right:16px;background:var(--green);color:#fff;font-size:9px;font-weight:700;padding:3px 10px;border-radius:0 0 6px 6px;letter-spacing:.08em;text-transform:uppercase;}
 
 /* ── URGENCY STRIP ── */
 .urgency{background:linear-gradient(135deg,#0f1923 0%,#0b0f14 100%);border-top:1px solid rgba(0,194,122,.15);border-bottom:1px solid rgba(0,194,122,.15);padding:26px 48px;}
@@ -239,7 +248,7 @@ h2{font-size:clamp(28px,3.8vw,48px);font-weight:900;letter-spacing:-.028em;color
 .faq-icon{font-size:20px;color:var(--green);transition:transform .25s;flex-shrink:0;}
 .faq-item.open .faq-icon{transform:rotate(45deg);}
 .faq-a{font-size:14px;color:var(--muted);line-height:1.75;max-height:0;overflow:hidden;transition:max-height .35s ease,padding-bottom .25s;}
-.faq-item.open .faq-a{max-height:250px;padding-bottom:18px;}
+.faq-item.open .faq-a{max-height:300px;padding-bottom:18px;}
 
 /* ── BOTTOM CTA ── */
 .cta-sec{background:var(--ink);padding:96px 48px;text-align:center;position:relative;overflow:hidden;}
@@ -290,12 +299,75 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.05);padding:
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease;}
 .reveal.visible{opacity:1;transform:translateY(0);}
 
+/* ── GUARANTEE BAND ── */
+.guarantee{background:var(--green-pale);border-top:1px solid rgba(0,194,122,.2);border-bottom:1px solid rgba(0,194,122,.2);padding:44px 48px;}
+.guarantee-inner{max-width:900px;margin:0 auto;display:flex;align-items:center;gap:28px;}
+.guarantee-shield{width:64px;height:64px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 6px 20px rgba(0,194,122,.3);}
+.guarantee-shield svg{width:32px;height:32px;stroke:#fff;}
+.guarantee-txt h3{font-size:22px;font-weight:900;color:var(--ink);letter-spacing:-.02em;margin-bottom:6px;}
+.guarantee-txt p{font-size:15px;color:#2a5a44;line-height:1.6;font-weight:500;}
+
+/* ── HOME SORT BUNDLE ── */
+.bundle-bg{background:var(--ink);position:relative;overflow:hidden;}
+.bundle-bg::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 50% 60% at 80% 30%,rgba(0,194,122,.1) 0%,transparent 70%);}
+.bundle-inner{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
+.bundle-left .eyebrow{color:var(--green);}
+.bundle-left h2{color:#fff;margin-bottom:16px;}
+.bundle-left p{font-size:16px;font-weight:300;color:rgba(255,255,255,.55);line-height:1.7;margin-bottom:26px;}
+.bundle-left p strong{color:#fff;font-weight:600;}
+.bundle-card{background:#fff;border-radius:14px;padding:34px;box-shadow:var(--shadow-lg);}
+.bundle-card-head{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin-bottom:8px;}
+.bundle-card h3{font-size:26px;font-weight:900;color:var(--ink);letter-spacing:-.02em;margin-bottom:18px;}
+.bundle-list{list-style:none;margin-bottom:24px;}
+.bundle-list li{display:flex;align-items:flex-start;gap:11px;padding:9px 0;font-size:14px;color:var(--txt);line-height:1.5;border-bottom:1px solid var(--surface);}
+.bundle-list li:last-child{border:none;}
+.bundle-check{width:20px;height:20px;border-radius:50%;background:var(--green-pale);color:var(--green-d);font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+.bundle-btn{width:100%;background:var(--green);color:#fff;border:none;padding:15px;border-radius:var(--r);font-family:'Manrope',sans-serif;font-size:15px;font-weight:800;cursor:pointer;transition:background .15s;}
+.bundle-btn:hover{background:var(--green-d);}
+
+/* ── TIERS ── */
+.tiers-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px;}
+.tier{background:#fff;border:1px solid var(--border);border-radius:12px;padding:30px 26px;transition:box-shadow .2s,transform .2s,border-color .2s;position:relative;}
+.tier:hover{box-shadow:var(--shadow);transform:translateY(-3px);}
+.tier.featured{border-color:var(--green);box-shadow:0 8px 30px rgba(0,194,122,.12);}
+.tier-tag{position:absolute;top:-11px;left:26px;background:var(--green);color:#fff;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border-radius:20px;}
+.tier-name{font-size:20px;font-weight:900;color:var(--ink);letter-spacing:-.02em;margin-bottom:6px;}
+.tier-for{font-size:13px;color:var(--green-d);font-weight:700;margin-bottom:16px;}
+.tier-desc{font-size:14px;color:var(--muted);line-height:1.65;margin-bottom:18px;}
+.tier-eg{font-size:12px;color:var(--light);line-height:1.6;padding-top:14px;border-top:1px solid var(--surface);}
+.tier-eg strong{color:var(--txt);font-weight:600;}
+
+/* ── LEAD MAGNET ── */
+.magnet{background:var(--surface);padding:72px 48px;}
+.magnet-inner{max-width:920px;margin:0 auto;background:#fff;border:1px solid var(--border);border-radius:16px;overflow:hidden;display:grid;grid-template-columns:1.2fr 1fr;box-shadow:var(--shadow);}
+.magnet-left{padding:44px;}
+.magnet-badge{display:inline-block;background:var(--green-pale);color:var(--green-d);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:6px 12px;border-radius:20px;margin-bottom:16px;}
+.magnet-left h3{font-size:26px;font-weight:900;color:var(--ink);letter-spacing:-.025em;line-height:1.1;margin-bottom:12px;}
+.magnet-left p{font-size:14px;color:var(--muted);line-height:1.65;margin-bottom:22px;}
+.magnet-form{display:flex;flex-direction:column;gap:10px;}
+.magnet-input{padding:13px 15px;border:1.5px solid var(--border);border-radius:var(--r);font-family:'Manrope',sans-serif;font-size:15px;color:var(--txt);outline:none;transition:border-color .15s,box-shadow .15s;}
+.magnet-input:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(0,194,122,.1);}
+.magnet-btn{background:var(--ink);color:#fff;border:none;padding:14px;border-radius:var(--r);font-family:'Manrope',sans-serif;font-size:15px;font-weight:800;cursor:pointer;transition:background .15s;}
+.magnet-btn:hover{background:#1a2535;}
+.magnet-note{font-size:11px;color:var(--light);text-align:center;margin-top:4px;}
+.magnet-right{background:linear-gradient(150deg,#0f1923,#0b0f14);display:flex;align-items:center;justify-content:center;padding:44px;position:relative;overflow:hidden;}
+.magnet-right::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 50% 40%,rgba(0,194,122,.14) 0%,transparent 70%);}
+.magnet-guide{position:relative;z-index:1;text-align:center;}
+.magnet-guide-icon{font-size:15px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin-bottom:14px;}
+.magnet-guide h4{font-family:'Fraunces',serif;font-style:italic;font-size:26px;font-weight:400;color:#fff;line-height:1.25;}
+.magnet-success{display:none;text-align:center;padding:20px 0;}
+.magnet-success .ms-tick{font-size:36px;margin-bottom:10px;}
+.magnet-success p{font-size:15px;color:var(--txt);font-weight:600;}
+
 /* ── RESPONSIVE ── */
 @media(max-width:1024px){
   .hero-inner{grid-template-columns:1fr;}
   .hero{padding:60px 28px;min-height:auto;}
   .svc-grid{grid-template-columns:repeat(3,1fr);}
   .footer-inner{grid-template-columns:1fr;}
+  .bundle-inner{grid-template-columns:1fr;gap:36px;}
+  .magnet-inner{grid-template-columns:1fr;}
+  .magnet-right{display:none;}
 }
 @media(max-width:768px){
   .sec{padding:60px 24px;}
@@ -313,9 +385,13 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.05);padding:
   body{padding-bottom:80px;}
   .proof-strip{width:100%;justify-content:stretch;}
   .ps-item{flex:1;}
+  .guarantee{padding:32px 24px;}
+  .guarantee-inner{flex-direction:column;text-align:center;gap:18px;}
+  .tiers-grid{grid-template-columns:1fr;}
+  .magnet-left{padding:32px 24px;}
 }
 @media(max-width:480px){
-  .hero-h1{font-size:38px;}
+  .hero-h1{font-size:36px;}
   .svc-grid{grid-template-columns:1fr 1fr;}
   .f-links{flex-direction:column;gap:8px;}
 }
@@ -324,93 +400,60 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.05);padding:
 <body>
 
 <!-- ANNOUNCEMENT -->
-<div class="bar">
-  🟢 Trades available across Cheshire &amp; South Manchester &nbsp;<em>— SK · WA · M postcodes covered</em>
-</div>
+<div class="bar">🟢 Covering Cheshire &amp; South Manchester <em>— SK · WA · M postcodes</em></div>
 
 <!-- NAV -->
 <nav class="nav">
-  <a href="#" class="nav-logo">Sort<span>MyTrade</span></a>
+  <div class="nav-logo">Sort<span>My</span>Trade</div>
   <div class="nav-pills">
-    <span class="nav-pill" onclick="scrollToSection('services')">Services</span>
-    <span class="nav-pill" onclick="scrollToSection('how')">How It Works</span>
-    <span class="nav-pill" onclick="scrollToSection('reviews')">Reviews</span>
-    <span class="nav-pill" onclick="scrollToSection('faq')">FAQ</span>
+    <div class="nav-pill" onclick="scrollTo2('services')">Services</div>
+    <div class="nav-pill" onclick="scrollTo2('how')">How It Works</div>
+    <div class="nav-pill" onclick="scrollTo2('reviews')">Reviews</div>
+    <div class="nav-pill" onclick="scrollTo2('faq')">FAQ</div>
   </div>
   <div class="nav-right">
-    <div class="nav-trust">
-      <span class="nav-stars">★★★★★</span>
-      <span>Verified reviews</span>
-    </div>
-    <button class="nav-btn" onclick="scrollToSection('quote')">Get 3 Quotes Free</button>
+    <div class="nav-trust"><span class="nav-stars">★★★★★</span> 5.0 Google</div>
+    <button class="nav-btn" onclick="scrollTo2('top')">Get a Quote</button>
   </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero" id="top">
   <div class="hero-inner">
-
     <div class="hero-left">
-      <div class="hero-eyebrow"><span class="pulse"></span>Cheshire &amp; South Manchester's Trades Platform</div>
-      <h1 class="hero-h1">
-        Get your job<br>
-        <span class="green-word">sorted today</span><br>
-        <span class="italic-word">in under 2 hours.</span>
-      </h1>
-      <p class="hero-sub">
-        Trusted plumbers, electricians, removals & man and van across Cheshire and South Manchester. <strong>3 vetted quotes maximum — no spam, no timewasters.</strong> Free for homeowners forever.
-      </p>
-
-      <!-- LIVE PROOF STRIP -->
+      <div class="hero-eyebrow"><span class="pulse"></span> Cheshire &amp; South Manchester's trades coordinator</div>
+      <h1 class="hero-h1">One trusted team for <span class="green-word">every job</span> in your <span class="italic-word">home.</span></h1>
+      <p class="hero-sub">From a dripping tap to a full extension — we coordinate vetted, insured tradespeople so you don't have to. <strong>One point of contact. One fixed price. Sorted properly.</strong></p>
       <div class="proof-strip">
-        <div class="ps-item">
-          <div class="ps-num"><span>12</span></div>
-          <div class="ps-lbl">Active trades</div>
-        </div>
-        <div class="ps-item">
-          <div class="ps-num"><span>3</span> max</div>
-          <div class="ps-lbl">Quotes per job</div>
-        </div>
-        <div class="ps-item">
-          <div class="ps-num"><span>2</span>hr</div>
-          <div class="ps-lbl">Response target</div>
-        </div>
-        <div class="ps-item">
-          <div class="ps-num"><span>£0</span></div>
-          <div class="ps-lbl">Cost to you</div>
-        </div>
+        <div class="ps-item"><div class="ps-num">★ <span>5.0</span></div><div class="ps-lbl">Google rating</div></div>
+        <div class="ps-item"><div class="ps-num"><span>20</span>+</div><div class="ps-lbl">5-star reviews</div></div>
+        <div class="ps-item"><div class="ps-num"><span>1</span></div><div class="ps-lbl">Point of contact</div></div>
+        <div class="ps-item"><div class="ps-num">Fixed</div><div class="ps-lbl">Price upfront</div></div>
       </div>
-
-      <p class="hero-areas">Didsbury · West Didsbury · Chorlton · Sale · Altrincham · Lymm · Cheadle · Warrington</p>
+      <div class="hero-areas">Didsbury · Chorlton · Sale · Altrincham · Hale · Bramhall · Wilmslow · Stockport · Cheadle · Knutsford · Warrington</div>
     </div>
 
     <!-- FORM CARD -->
-    <div class="card" id="quote">
+    <div class="card" id="quoteCard">
       <div class="card-head">
         <div>
-          <div class="card-head-title">Get 3 Free Quotes</div>
-          <div class="card-head-sub">60 seconds · No obligation · No spam</div>
+          <div class="card-head-title">Get a Free Quote</div>
+          <div class="card-head-sub">60 seconds · No obligation</div>
         </div>
         <div class="card-free">Free</div>
       </div>
 
-      <!-- URGENCY BANNER -->
-      <div class="urgency-banner">
-        <span class="ub-dot"></span>
-        Submit today and get your first quote by tonight — guaranteed.
-      </div>
+      <div class="urgency-banner"><span class="ub-dot"></span> Tell us today &amp; we'll come back to you fast — often within the hour.</div>
 
-      <!-- WHATSAPP SHORTCUT -->
       <div class="wa-bar">
-        <a href="https://wa.me/447459819603?text=Hi%20SortMyTrade%2C%20I%20need%20a%20quote%20for%20my%20job." target="_blank" rel="noopener" class="wa-btn-full">
-          <svg class="wa-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        <a class="wa-btn-full" href="https://wa.me/447459819603?text=Hi%20SortMyTrade%2C%20I%20need%20a%20quote%20for%20my%20job." target="_blank" rel="noopener">
+          <svg class="wa-icon" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
           WhatsApp your job — fastest quotes
         </a>
-        <p class="wa-note">Send a photo or voice note for even faster, more accurate quotes. Opens WhatsApp.</p>
+        <div class="wa-note">Send a photo or voice note for even faster, more accurate quotes. Opens WhatsApp.</div>
       </div>
 
-      <!-- PROGRESS -->
-      <div class="progress-wrap">
+      <div class="progress-wrap" id="progressWrap">
         <div class="progress-steps">
           <div class="ps active" id="ps1"><div class="ps-circle">1</div><div class="ps-label">Service</div></div>
           <div class="ps" id="ps2"><div class="ps-circle">2</div><div class="ps-label">Details</div></div>
@@ -418,148 +461,154 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.05);padding:
         </div>
       </div>
 
-      <div class="card-body">
-
+      <div class="card-body" id="cardBody">
         <!-- STEP 1 -->
-        <div class="fstep active" id="fs1">
+        <div class="fstep active" id="step1">
           <div class="field">
             <label>What do you need? <span class="ast">*</span></label>
             <div class="chips">
-              <label class="chip"><input type="radio" name="svc" value="plumber"><div class="chip-body"><span class="chip-emoji">🔧</span><span class="chip-text"><span class="chip-name">Plumber</span><span class="chip-hint">Leaks, boilers, bathrooms</span></span></div></label>
-              <label class="chip"><input type="radio" name="svc" value="electrician"><div class="chip-body"><span class="chip-emoji">⚡</span><span class="chip-text"><span class="chip-name">Electrician</span><span class="chip-hint">EV chargers, rewiring, faults</span></span></div></label>
-              <label class="chip"><input type="radio" name="svc" value="removals"><div class="chip-body"><span class="chip-emoji">🚛</span><span class="chip-text"><span class="chip-name">Removals</span><span class="chip-hint">Full house or office moves</span></span></div></label>
-              <label class="chip"><input type="radio" name="svc" value="manvan"><div class="chip-body"><span class="chip-emoji">🚐</span><span class="chip-text"><span class="chip-name">Man & Van</span><span class="chip-hint">Same day, items, small moves</span></span></div></label>
-              <label class="chip"><input type="radio" name="svc" value="handyman"><div class="chip-body"><span class="chip-emoji">🛠</span><span class="chip-text"><span class="chip-name">Handyman</span><span class="chip-hint">Assembly, mounting, repairs</span></span></div></label>
+              <label class="chip"><input type="radio" name="svc" value="Bathroom / Kitchen"><span class="chip-body"><span><span class="chip-name">Bathroom / Kitchen</span><span class="chip-hint">Fits, refurbs, wet rooms</span></span></span></label>
+              <label class="chip"><input type="radio" name="svc" value="Plumber"><span class="chip-body"><span><span class="chip-name">Plumber</span><span class="chip-hint">Leaks, boilers, taps</span></span></span></label>
+              <label class="chip"><input type="radio" name="svc" value="Electrician"><span class="chip-body"><span><span class="chip-name">Electrician</span><span class="chip-hint">Rewires, EICR, faults</span></span></span></label>
+              <label class="chip"><input type="radio" name="svc" value="Renovation / Extension"><span class="chip-body"><span><span class="chip-name">Renovation</span><span class="chip-hint">Extensions, full projects</span></span></span></label>
+              <label class="chip"><input type="radio" name="svc" value="Plastering / Decorating"><span class="chip-body"><span><span class="chip-name">Plaster / Paint</span><span class="chip-hint">Skim, decorate, walls</span></span></span></label>
+              <label class="chip"><input type="radio" name="svc" value="Flooring / Joinery"><span class="chip-body"><span><span class="chip-name">Flooring / Joinery</span><span class="chip-hint">LVT, tiling, doors</span></span></span></label>
+              <label class="chip"><input type="radio" name="svc" value="Garden / Driveway"><span class="chip-body"><span><span class="chip-name">Garden / Drive</span><span class="chip-hint">Landscaping, paving</span></span></span></label>
+              <label class="chip"><input type="radio" name="svc" value="Roofing / Guttering"><span class="chip-body"><span><span class="chip-name">Roofing</span><span class="chip-hint">Repairs, guttering</span></span></span></label>
+              <label class="chip"><input type="radio" name="svc" value="Removals / Man & Van"><span class="chip-body"><span><span class="chip-name">Removals</span><span class="chip-hint">Moves, man &amp; van</span></span></span></label>
+              <label class="chip"><input type="radio" name="svc" value="Handyman / Other"><span class="chip-body"><span><span class="chip-name">Handyman / Other</span><span class="chip-hint">Assembly, repairs</span></span></span></label>
             </div>
-          </div>
-          <div class="field sub-field" id="sub-field">
-            <label>Job type <span class="ast">*</span></label>
-            <select class="fselect" id="job-type"><option value="">Select...</option></select>
           </div>
           <div class="field">
             <label>Your postcode <span class="ast">*</span></label>
-            <input type="text" class="finput" id="postcode" placeholder="e.g. M20 2AB" maxlength="8">
+            <input class="finput" type="text" id="postcode" placeholder="e.g. M20 2LU" autocomplete="postal-code">
           </div>
-          <button class="btn-next" onclick="goNext(1)">Continue &nbsp;→</button>
-          <p class="step-hint">Step 1 of 3 — 60 seconds total</p>
+          <button class="btn-next" onclick="goStep(2)">Continue →</button>
+          <div class="step-hint">Step 1 of 3 — 60 seconds total</div>
         </div>
 
         <!-- STEP 2 -->
-        <div class="fstep" id="fs2">
+        <div class="fstep" id="step2">
           <div class="field">
             <label>Describe the job <span class="ast">*</span></label>
-            <textarea class="ftextarea" id="job-desc" placeholder="More detail = more accurate quotes. e.g. '3-bed semi, boiler making banging noise, no hot water since yesterday...'"></textarea>
-            <p style="font-size:11px;color:var(--light);margin-top:5px;">💡 Or <a href="https://wa.me/447459819603?text=Hi%20SortMyTrade%2C%20I%20want%20to%20send%20a%20photo%20for%20a%20faster%20quote." style="color:var(--green);font-weight:600;">send a photo on WhatsApp</a> for a faster, more accurate quote</p>
-          </div>
-          <div class="field">
-            <label>Upload photos (optional)</label>
-            <input type="file" class="finput" id="job-photos" accept="image/*,video/*" multiple style="padding:8px 14px;">
-            <p style="font-size:11px;color:var(--light);margin-top:4px;">Helps trades quote faster — especially for removals, damage or access issues</p>
+            <textarea class="ftextarea" id="jobdesc" placeholder="Tell us what needs doing — the more detail, the more accurate your quote."></textarea>
           </div>
           <div class="field">
             <label>When do you need it?</label>
             <select class="fselect" id="timeline">
-              <option value="asap">Today or as soon as possible</option>
-              <option value="week">Within 1 week</option>
-              <option value="month">Within 1 month</option>
-              <option value="flexible">Flexible / just researching</option>
+              <option>Today or as soon as possible</option>
+              <option>Within 1 week</option>
+              <option>Within 1 month</option>
+              <option>Flexible / just researching</option>
             </select>
           </div>
           <div class="field">
             <label>Rough budget (optional)</label>
             <select class="fselect" id="budget">
-              <option value="unsure">Not sure yet</option>
-              <option value="u200">Under £200</option>
-              <option value="200-500">£200 – £500</option>
-              <option value="500-2k">£500 – £2,000</option>
-              <option value="2kplus">£2,000+</option>
+              <option>Not sure yet</option>
+              <option>Under £200</option>
+              <option>£200 – £500</option>
+              <option>£500 – £2,000</option>
+              <option>£2,000+</option>
             </select>
           </div>
-          <button class="btn-next" onclick="goNext(2)">Continue &nbsp;→</button>
-          <button class="btn-back" onclick="goBack(2)">← Back</button>
-          <p class="step-hint">Step 2 of 3</p>
+          <button class="btn-next" onclick="goStep(3)">Continue →</button>
+          <button class="btn-back" onclick="goStep(1)">← Back</button>
         </div>
 
         <!-- STEP 3 -->
-        <div class="fstep" id="fs3">
+        <div class="fstep" id="step3">
           <div class="field">
             <label>Your full name <span class="ast">*</span></label>
-            <input type="text" class="finput" id="fname" placeholder="First and last name">
+            <input class="finput" type="text" id="fullname" placeholder="First and last name" autocomplete="name">
           </div>
           <div class="field">
             <label>Mobile number <span class="ast">*</span></label>
-            <input type="tel" class="finput" id="fphone" placeholder="07xxx xxxxxx">
+            <input class="finput" type="tel" id="mobile" placeholder="07…" autocomplete="tel">
           </div>
           <div class="field">
             <label>Email address <span class="ast">*</span></label>
-            <input type="email" class="finput" id="femail" placeholder="you@example.com">
+            <input class="finput" type="email" id="email" placeholder="you@email.com" autocomplete="email">
           </div>
-          <button class="btn-submit" onclick="doSubmit()">
-            <span>Get My 3 Free Quotes →</span>
-          </button>
-          <div class="submit-guarantee">
-            <strong>Submit today and get your first quote by tonight</strong> — or we'll find someone for you personally.
-          </div>
-          <button class="btn-back" onclick="goBack(3)">← Back</button>
-          <p class="step-hint">Details only shared with matched trades · No spam</p>
+          <button class="btn-submit" onclick="submitForm()">Get My Free Quote →</button>
+          <div class="submit-guarantee"><strong>Tell us today and we'll come back to you fast</strong> — one clear quote, one point of contact.</div>
+          <button class="btn-back" onclick="goStep(2)">← Back</button>
         </div>
-
-        <!-- SUCCESS -->
-        <div class="success-panel" id="success-panel">
-          <div class="success-ring">✅</div>
-          <div class="success-title">You're all sorted!</div>
-          <p class="success-sub">3 vetted local trades have been notified. Expect to hear back within 2 hours.</p>
-          <div class="stl">
-            <div class="stl-item"><div class="stl-n">1</div><div>3 qualified local trades notified about your job right now.</div></div>
-            <div class="stl-item"><div class="stl-n">2</div><div>They'll contact you directly with their best quote.</div></div>
-            <div class="stl-item"><div class="stl-n">3</div><div>Pick who you want — no obligation, no charge, ever.</div></div>
-          </div>
-        </div>
-
       </div>
 
-      <div class="card-foot">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
-        Max 3 trades per job · Never sold on · No spam calls
+      <!-- SUCCESS -->
+      <div class="success-panel" id="successPanel">
+        <div class="success-ring">✅</div>
+        <div class="success-title">You're all sorted!</div>
+        <div class="success-sub">Thanks — we've got your job and we'll be in touch shortly with your quote.</div>
+        <div class="stl">
+          <div class="stl-item"><span class="stl-n">1</span><span>We review your job and match it to the right vetted trade — or trades.</span></div>
+          <div class="stl-item"><span class="stl-n">2</span><span>We come back to you with one clear, fixed price.</span></div>
+          <div class="stl-item"><span class="stl-n">3</span><span>Give the go-ahead and we coordinate the whole job — you deal with us, no one else.</span></div>
+        </div>
       </div>
+
+      <div class="card-foot" id="cardFoot">🔒 Details only shared with your matched trade · No spam</div>
     </div>
-
   </div>
 </section>
 
 <!-- TRUST BAR -->
 <div class="trust-bar">
   <div class="trust-bar-inner">
-    <div class="ti"><div class="ti-icon">⚡</div>NICEIC Registered Electricians</div>
-    <div class="ti"><div class="ti-icon">🔥</div>Gas Safe Plumbers</div>
-    <div class="ti"><div class="ti-icon">🛡</div>Fully Insured Trades</div>
-    <div class="ti"><div class="ti-icon">✓</div>ID Verified Before Listing</div>
-    <div class="ti"><div class="ti-icon">📦</div>Goods-in-Transit Insured Removals</div>
-    <div class="ti"><div class="ti-icon">📍</div>SK · WA · M Postcodes</div>
+    <div class="ti"><span class="ti-icon">🔥</span> Gas Safe registered engineers</div>
+    <div class="ti"><span class="ti-icon">⚡</span> NICEIC / NAPIT electricians</div>
+    <div class="ti"><span class="ti-icon">🛡</span> Min £1M public liability insured</div>
+    <div class="ti"><span class="ti-icon">✓</span> ID verified &amp; references checked</div>
+    <div class="ti"><span class="ti-icon">📍</span> SK · WA · M postcodes</div>
   </div>
 </div>
+
+<!-- GUARANTEE BAND -->
+<div class="guarantee">
+  <div class="guarantee-inner">
+    <div class="guarantee-shield">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-4z"/><path d="M9 12l2 2 4-4"/></svg>
+    </div>
+    <div class="guarantee-txt">
+      <h3>The SortMyTrade Promise</h3>
+      <p>Every job comes with one fixed price agreed upfront — and if anything isn't right, we put it right at our cost, not yours. One point of contact from start to finish. That's the deal.</p>
+    </div>
+  </div>
+</div>
+
+<!-- PROBLEM -->
+<section class="sec problem-bg reveal">
+  <div class="sec-inner">
+    <div class="eyebrow">The problem we solve</div>
+    <h2>Finding one good tradesperson is hard. Finding several — and getting them to turn up and finish properly — is a nightmare.</h2>
+    <p class="problem-lead">Most people don't have a "plumber problem." They have a house full of jobs and no time to find, vet and chase the right people for each one. <strong>That's what we take off your hands</strong> — you tell us the job, we coordinate the right trades, and give you one fixed price and one person to deal with. If something isn't right, we put it right.</p>
+  </div>
+</section>
 
 <!-- HOW IT WORKS -->
 <section class="sec" id="how">
   <div class="sec-inner">
-    <div class="eyebrow">How It Works</div>
-    <h2>Sorted in three steps</h2>
-    <p class="sec-sub">From request to confirmed quote in under 2 hours. No phone calls, no cold calls, no nonsense.</p>
+    <div class="reveal">
+      <div class="eyebrow">How it works</div>
+      <h2>Sorted in three steps</h2>
+      <p class="sec-sub">From first message to a job well done — with one point of contact the whole way. No cold calls, no chasing, no nonsense.</p>
+    </div>
     <div class="hiw-grid reveal">
       <div class="hiw-card">
         <div class="hiw-num">01</div>
         <h3>Tell us the job</h3>
-        <p>60-second form. Pick your service, describe what's needed, add your postcode. Or just WhatsApp us a photo — that works too.</p>
+        <p>A quick message with a photo and your postcode, or a 60-second form. Big job or small, one trade or several — just tell us what's needed.</p>
       </div>
       <div class="hiw-card">
         <div class="hiw-num">02</div>
-        <h3>We match 3 vetted trades</h3>
-        <p>We notify exactly 3 pre-vetted local tradespeople — never more. Real competition on price, without being bombarded by calls.</p>
+        <h3>We coordinate the right trades</h3>
+        <p>We match your job to vetted, insured professionals from our network and handle all the coordination — scheduling, scope and one clear quote.</p>
       </div>
       <div class="hiw-card">
         <div class="hiw-num">03</div>
-        <h3>Pick your trade, get it done</h3>
-        <p>Trades contact you directly with their quotes. You choose who to go with. Completely free, zero obligation, no pressure from us.</p>
+        <h3>We get it done, properly</h3>
+        <p>One point of contact throughout. One fixed price, agreed upfront. And if anything isn't right, we put it right — at our cost.</p>
       </div>
     </div>
   </div>
@@ -568,380 +617,221 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.05);padding:
 <!-- SERVICES -->
 <section class="sec svc-bg" id="services">
   <div class="sec-inner">
-    <div class="eyebrow">Services</div>
-    <h2>Five services. One platform.</h2>
-    <p class="sec-sub">All covered by locally-based, independently vetted professionals across South Manchester.</p>
+    <div class="reveal">
+      <div class="eyebrow">Services</div>
+      <h2>Every trade, one trusted point of contact.</h2>
+      <p class="sec-sub">Whether it's a single job or a full project, we coordinate vetted professionals across South Manchester &amp; Cheshire.</p>
+    </div>
     <div class="svc-grid reveal">
-      <div class="svc-card" onclick="scrollToSection('quote')">
-        <div class="svc-icon">🔧</div>
-        <h3>Plumbers</h3>
-        <p>Emergency leaks, boiler repairs, bathroom installs and general plumbing. Gas Safe registered.</p>
-        <div class="svc-tags"><span class="stag">Emergency</span><span class="stag">Boilers</span><span class="stag">Bathrooms</span><span class="stag">Gas Safe</span></div>
+      <div class="svc-card" onclick="scrollTo2('top')"><h3>Bathrooms &amp; Wet Rooms</h3><p>Full fits, refurbs and wet rooms, start to finish.</p></div>
+      <div class="svc-card" onclick="scrollTo2('top')"><h3>Kitchens</h3><p>Fitting, refurbishment and full replacements.</p></div>
+      <div class="svc-card" onclick="scrollTo2('top')"><h3>Extensions &amp; Renovations</h3><p>Whole-project coordination — every trade, every stage.</p></div>
+      <div class="svc-card" onclick="scrollTo2('top')"><h3>Plumbing &amp; Gas</h3><p>Leaks, boilers, servicing, Gas Safe certificates.</p></div>
+      <div class="svc-card" onclick="scrollTo2('top')"><h3>Electrics</h3><p>Rewires, fuse boards, EV chargers, EICR reports.</p></div>
+      <div class="svc-card" onclick="scrollTo2('top')"><h3>Plastering &amp; Decorating</h3><p>Skimming, patching, painting — rooms to full houses.</p></div>
+      <div class="svc-card" onclick="scrollTo2('top')"><h3>Flooring &amp; Joinery</h3><p>LVT, laminate, tiling, doors and fitted storage.</p></div>
+      <div class="svc-card" onclick="scrollTo2('top')"><h3>Gardens &amp; Driveways</h3><p>Landscaping, artificial grass, paving and decking.</p></div>
+      <div class="svc-card" onclick="scrollTo2('top')"><h3>Roofing &amp; Guttering</h3><p>Repairs, damp investigation, guttering, flat roofs.</p></div>
+      <div class="svc-card" onclick="scrollTo2('top')"><h3>Removals &amp; Man-and-Van</h3><p>Insured house moves and single-item transport.</p></div>
+      <div class="svc-card" onclick="scrollTo2('top')"><h3>Handyman</h3><p>Flat-pack, mounting, shelving and small repairs.</p></div>
+      <div class="svc-card" onclick="scrollTo2('top')"><h3>Something else?</h3><p>Just ask — if it's a home job, we can likely sort it.</p></div>
+    </div>
+    <p class="svc-note">Not sure who you need? <strong>That's the point</strong> — just tell us the job and we'll sort the rest.</p>
+  </div>
+</section>
+
+<!-- HOME SORT BUNDLE -->
+<section class="sec bundle-bg">
+  <div class="sec-inner">
+    <div class="bundle-inner">
+      <div class="bundle-left reveal">
+        <div class="eyebrow">The Home Sort</div>
+        <h2>Got a list of little jobs?</h2>
+        <p>The dripping tap. The door that won't close. The shelf that's been in a bag for months. The crack you keep meaning to fill. Individually, none of them are worth the hassle of finding a tradesperson. Together, they're doing your head in.</p>
+        <p><strong>The Home Sort fixes them all in one visit, for one fixed price.</strong> One vetted tradesperson, one trip, your whole list knocked out. No callout charge, no surprises.</p>
       </div>
-      <div class="svc-card" onclick="scrollToSection('quote')">
-        <div class="svc-icon">⚡</div>
-        <h3>Electricians</h3>
-        <p>EV chargers, rewires, fuse boxes, new sockets and emergency callouts. NICEIC registered.</p>
-        <div class="svc-tags"><span class="stag">EV Chargers</span><span class="stag">Rewiring</span><span class="stag">Fuse Boxes</span><span class="stag">NICEIC</span></div>
-      </div>
-      <div class="svc-card" onclick="scrollToSection('quote')">
-        <div class="svc-icon">🚛</div>
-        <h3>Removals</h3>
-        <p>Full house, office and flat moves with goods-in-transit insured removal teams.</p>
-        <div class="svc-tags"><span class="stag">House Moves</span><span class="stag">Office Moves</span><span class="stag">Insured</span><span class="stag">Packing</span></div>
-      </div>
-      <div class="svc-card" onclick="scrollToSection('quote')">
-        <div class="svc-icon">🚐</div>
-        <h3>Man & Van</h3>
-        <p>Same-day collections, student moves, single items and small local transport. Insured.</p>
-        <div class="svc-tags"><span class="stag">Same Day</span><span class="stag">Student Moves</span><span class="stag">Collections</span><span class="stag">Insured</span></div>
-      </div>
-      <div class="svc-card" onclick="scrollToSection('quote')">
-        <div class="svc-icon">🛠</div>
-        <h3>Handyman</h3>
-        <p>Flat-pack assembly, wall mounting, shelving, small repairs and general help around the home.</p>
-        <div class="svc-tags"><span class="stag">Flat-Pack</span><span class="stag">Mounting</span><span class="stag">Repairs</span><span class="stag">Small Jobs</span></div>
+      <div class="bundle-card reveal">
+        <div class="bundle-card-head">The Home Sort</div>
+        <h3>Your job list, sorted in one visit.</h3>
+        <ul class="bundle-list">
+          <li><span class="bundle-check">✓</span> One vetted, insured tradesperson</li>
+          <li><span class="bundle-check">✓</span> Multiple small jobs in a single visit</li>
+          <li><span class="bundle-check">✓</span> One fixed price agreed before we start</li>
+          <li><span class="bundle-check">✓</span> No callout charge, no surprises</li>
+          <li><span class="bundle-check">✓</span> Covered by the SortMyTrade Promise</li>
+        </ul>
+        <button class="bundle-btn" onclick="scrollTo2('top')">Send us your list →</button>
       </div>
     </div>
   </div>
 </section>
 
-<!-- URGENCY -->
+<!-- SERVICE TIERS -->
+<section class="sec">
+  <div class="sec-inner">
+    <div class="reveal">
+      <div class="eyebrow">One team, every size of job</div>
+      <h2>However big the job, we've got it.</h2>
+      <p class="sec-sub">From a single quick fix to a full home project — same vetted team, same fixed-price promise, same single point of contact.</p>
+    </div>
+    <div class="tiers-grid reveal">
+      <div class="tier">
+        <div class="tier-name">The Quick Fix</div>
+        <div class="tier-for">Single jobs</div>
+        <div class="tier-desc">One thing that needs sorting, done properly by a vetted trade. Fast, fixed price, no fuss.</div>
+        <div class="tier-eg"><strong>Typical:</strong> a leaking tap, a faulty socket, a door rehung, a radiator swapped.</div>
+      </div>
+      <div class="tier featured">
+        <div class="tier-tag">Most popular</div>
+        <div class="tier-name">The Home Sort</div>
+        <div class="tier-for">Multiple jobs, one visit</div>
+        <div class="tier-desc">A whole list of jobs knocked out in a single coordinated visit, for one fixed price.</div>
+        <div class="tier-eg"><strong>Typical:</strong> tap, shelf, TV bracket, touch-up paint and a dodgy door — all in one trip.</div>
+      </div>
+      <div class="tier">
+        <div class="tier-name">The Full Project</div>
+        <div class="tier-for">Renovations &amp; extensions</div>
+        <div class="tier-desc">Multiple trades coordinated across every stage — we manage the whole thing so you don't have to.</div>
+        <div class="tier-eg"><strong>Typical:</strong> a new bathroom, a kitchen, an extension, a full garden &amp; driveway.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- URGENCY STRIP -->
 <div class="urgency">
   <div class="urgency-inner">
     <div>
-      <div class="urgency-title">Trades available in your area this week</div>
+      <div class="urgency-title">Vetted trades available across your area this week</div>
       <div class="urgency-slots">
-        <div class="uslot"><span class="udot"></span>Plumbers in SK &amp; WA</div>
-        <div class="uslot"><span class="udot"></span>Connectric Electrical available</div>
-        <div class="uslot"><span class="udot"></span>Removals across Cheshire</div>
-        <div class="uslot"><span class="udot"></span>Handymen available</div>
+        <div class="uslot"><span class="udot"></span> Plumbers in SK &amp; WA</div>
+        <div class="uslot"><span class="udot"></span> Gas Safe engineers</div>
+        <div class="uslot"><span class="udot"></span> Electricians &amp; EICR</div>
+        <div class="uslot"><span class="udot"></span> Removals across Cheshire</div>
       </div>
     </div>
-    <button class="urgency-btn" onclick="scrollToSection('quote')">Get 3 Quotes Now →</button>
+    <button class="urgency-btn" onclick="scrollTo2('top')">Get a Quote →</button>
   </div>
 </div>
 
 <!-- REVIEWS -->
 <section class="sec" id="reviews">
   <div class="sec-inner">
-    <div class="eyebrow">Verified Reviews</div>
-    <h2>Real people. Real jobs. Real results.</h2>
-    <p class="sec-sub">Reviews from verified customers — collected from Bark.com, Nextdoor and Google.</p>
-
-
+    <div class="reveal">
+      <div class="eyebrow">Verified reviews</div>
+      <h2>Real people. Real jobs. Real results.</h2>
+      <p class="sec-sub">Verified 5-star reviews from customers across South Manchester &amp; Cheshire — collected from Google &amp; Bark.</p>
+    </div>
     <div class="rv-grid reveal">
 
-      <div class="rv-card">
-        <div class="rv-platform"><span class="rv-platform-dot"></span>Verified · Bark.com</div>
+      <div class="rv-card rv-featured">
+        <div class="rv-badge">Extension &amp; Kitchen</div>
+        <div class="rv-platform"><span class="rv-platform-dot"></span> Verified · Google</div>
         <div class="rv-stars">★★★★★</div>
-        <p class="rv-text">"Moise was fantastic. Nothing was too much trouble — he is reliable, timely and friendly. He helped me with two moves this year. I can't recommend him enough. He will do all he can to make moving as smooth as possible."</p>
-        <div class="rv-person">
-          <div class="rv-av">C</div>
-          <div>
-            <div class="rv-name">Craig</div>
-            <div class="rv-meta">South Manchester · House Move</div>
-            <div class="rv-verified">✓ Verified customer</div>
-          </div>
-        </div>
+        <div class="rv-text">"The team at SortMyTrade were fantastic from start to finish! I'm always apprehensive looking for a new builder, but I'm so happy I took a leap of faith. I'm now writing this review from my new kitchen in my new extension. Quality job from the friendliest and most professional team. Highly recommend!"</div>
+        <div class="rv-person"><div class="rv-av">A</div><div><div class="rv-name">Adam</div><div class="rv-meta">Google Review · Extension &amp; Kitchen</div><div class="rv-verified">✓ Verified customer</div></div></div>
+      </div>
+
+      <div class="rv-card rv-featured">
+        <div class="rv-badge">Multi-Trade</div>
+        <div class="rv-platform"><span class="rv-platform-dot"></span> Verified · Google</div>
+        <div class="rv-stars">★★★★★</div>
+        <div class="rv-text">"Moving house is stressful enough without finding reliable tradespeople! I needed a plumber and electrician and struggled to get anyone to even quote. I gave SortMyTrade a try and I'm really pleased I did — quotes without hassle, work done in a few days at a fair price. When a small leak appeared after, they came back the very next day with no fuss. I wouldn't hesitate to recommend them."</div>
+        <div class="rv-person"><div class="rv-av">S</div><div><div class="rv-name">Steve &amp; Kelly</div><div class="rv-meta">Google Review · Plumbing &amp; Electrical</div><div class="rv-verified">✓ Verified customer</div></div></div>
       </div>
 
       <div class="rv-card">
-        <div class="rv-platform"><span class="rv-platform-dot"></span>Verified · Bark.com</div>
+        <div class="rv-platform"><span class="rv-platform-dot"></span> Verified · Google</div>
         <div class="rv-stars">★★★★★</div>
-        <p class="rv-text">"Moise was great! We ended up having more things than intended and he got it done in time. Super professional, friendly, and overall a great experience. Cannot recommend enough!"</p>
-        <div class="rv-person">
-          <div class="rv-av">M</div>
-          <div>
-            <div class="rv-name">Mehvish</div>
-            <div class="rv-meta">South Manchester · Removal & Van</div>
-            <div class="rv-verified">✓ Verified customer</div>
-          </div>
-        </div>
+        <div class="rv-text">"Saved so much time and hassle — Zaino got back to me with local quotes and got my job sorted the next day! Amazing service, definitely recommend if you have a busy schedule."</div>
+        <div class="rv-person"><div class="rv-av">S</div><div><div class="rv-name">SANA</div><div class="rv-meta">Google Review · Quick Quote</div><div class="rv-verified">✓ Verified customer</div></div></div>
       </div>
 
       <div class="rv-card">
-        <div class="rv-platform"><span class="rv-platform-dot"></span>Verified · Bark.com</div>
+        <div class="rv-platform"><span class="rv-platform-dot"></span> Verified · Google</div>
         <div class="rv-stars">★★★★★</div>
-        <p class="rv-text">"Great guys to work with! Super affordable and just a blast to be around. These men are so friendly and helped make my moving process super easy and fast! 10/10 will recommend."</p>
-        <div class="rv-person">
-          <div class="rv-av">G</div>
-          <div>
-            <div class="rv-name">Gamondi</div>
-            <div class="rv-meta">South Manchester · House Move</div>
-            <div class="rv-verified">✓ Verified customer</div>
-          </div>
-        </div>
+        <div class="rv-text">"I recently used SortMyTrade and had a really smooth experience. Everything was well organised, communication was great, and the whole process felt easy and stress-free. Highly recommend!"</div>
+        <div class="rv-person"><div class="rv-av">V</div><div><div class="rv-name">Vanessa Rego</div><div class="rv-meta">Google Review</div><div class="rv-verified">✓ Verified customer</div></div></div>
+      </div>
+
+      <div class="rv-card rv-featured">
+        <div class="rv-badge">Roofing</div>
+        <div class="rv-platform"><span class="rv-platform-dot"></span> Verified · Google</div>
+        <div class="rv-stars">★★★★★</div>
+        <div class="rv-text">"We recently had roof repairs carried out on our three-storey home and couldn't be happier with the service. The whole job was organised exceptionally well by Zaino, who kept everything running smoothly from start to finish. The team were professional, hardworking, punctual and clearly took pride in their work. Second time using SortMyTrade and I would highly recommend."</div>
+        <div class="rv-person"><div class="rv-av">F</div><div><div class="rv-name">Felicity Whitelock</div><div class="rv-meta">Google Review · Roof Repairs</div><div class="rv-verified">✓ Verified customer</div></div></div>
       </div>
 
       <div class="rv-card">
-        <div class="rv-platform"><span class="rv-platform-dot"></span>Verified · Bark.com</div>
+        <div class="rv-platform"><span class="rv-platform-dot"></span> Verified · Bark</div>
         <div class="rv-stars">★★★★★</div>
-        <p class="rv-text">"Yellow removals customer service was exceptional! From start to finish they were punctual, personable, relatable and hard-working. La-Shauntae highly recommends."</p>
-        <div class="rv-person">
-          <div class="rv-av">L</div>
-          <div>
-            <div class="rv-name">La-Shauntae</div>
-            <div class="rv-meta">South Manchester · Removals</div>
-            <div class="rv-verified">✓ Verified customer</div>
-          </div>
-        </div>
+        <div class="rv-text">"Fantastic from start to finish — reliable, timely and friendly. Nothing was too much trouble. I can't recommend them enough; they did all they could to make the whole thing as smooth as possible."</div>
+        <div class="rv-person"><div class="rv-av">C</div><div><div class="rv-name">Craig</div><div class="rv-meta">Bark · South Manchester</div><div class="rv-verified">✓ Verified customer</div></div></div>
       </div>
 
       <div class="rv-card">
-        <div class="rv-platform"><span class="rv-platform-dot"></span>Verified · Bark.com</div>
+        <div class="rv-platform"><span class="rv-platform-dot"></span> Verified · Google</div>
         <div class="rv-stars">★★★★★</div>
-        <p class="rv-text">"Friendly and professional and I would recommend him again to friends and family. A really smooth move with no stress at all."</p>
-        <div class="rv-person">
-          <div class="rv-av">SI</div>
-          <div>
-            <div class="rv-name">Suzanne Icke</div>
-            <div class="rv-meta">South Manchester · House Move</div>
-            <div class="rv-verified">✓ Verified customer</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="rv-card">
-        <div class="rv-platform"><span class="rv-platform-dot"></span>Verified · Bark.com</div>
-        <div class="rv-stars">★★★★★</div>
-        <p class="rv-text">"Very efficient, helpful! Great service. Would definitely use again and recommend to anyone needing a reliable removal service in Manchester."</p>
-        <div class="rv-person">
-          <div class="rv-av">P</div>
-          <div>
-            <div class="rv-name">Penny</div>
-            <div class="rv-meta">South Manchester · Removal Job</div>
-            <div class="rv-verified">✓ Verified customer</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="rv-card" style="border:1.5px solid rgba(0,194,122,.3);position:relative;">
-        <div style="position:absolute;top:-1px;left:16px;background:var(--green);color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:0 0 6px 6px;letter-spacing:.08em;text-transform:uppercase;">⚡ Verified Electrician · Connectric</div>
-        <div class="rv-platform" style="margin-top:14px;"><span class="rv-platform-dot"></span>Verified · Nextdoor</div>
-        <div class="rv-stars">★★★★★</div>
-          <div class="rv-av" style="background:#1a3a5c;">JN</div>
-          <div>
-      <div class="rv-card" style="border:1.5px solid rgba(0,194,122,.2);position:relative;">
-        <div style="position:absolute;top:-1px;left:16px;background:var(--green);color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:0 0 6px 6px;letter-spacing:.08em;text-transform:uppercase;">⚡ Verified Electrician · Connectric</div>
-        <div class="rv-platform" style="margin-top:14px;"><span class="rv-platform-dot"></span>Verified · Nextdoor</div>
-        <div class="rv-stars">★★★★★</div
-          <div class="rv-av" style="background:#1a3a5c;">ED</div>
-          <div>
-          </div>
-        </div>
+        <div class="rv-text">"I had different jobs and all was sorted quickly and efficiently. I don't hesitate in recommending SortMyTrade. Fantastic work and great customer service."</div>
+        <div class="rv-person"><div class="rv-av">A</div><div><div class="rv-name">Alejandra Hernandez</div><div class="rv-meta">Google Review · Multiple Jobs</div><div class="rv-verified">✓ Verified customer</div></div></div>
       </div>
 
     </div>
   </div>
 </section>
 
-
-<!-- GOOGLE REVIEWS -->
-<section class="sec" style="background:var(--surface);padding-top:0;" id="google-reviews">
-  <div class="sec-inner">
-    <div style="display:flex;align-items:center;gap:14px;margin-bottom:32px;flex-wrap:wrap;">
-      <div style="display:flex;align-items:center;gap:10px;">
-        <svg width="22" height="22" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
-        <div>
-          <div style="font-size:15px;font-weight:800;color:var(--txt);">Google Reviews</div>
-          <div style="font-size:12px;color:var(--muted);">Verified · Google Business Profile</div>
-        </div>
+<!-- LEAD MAGNET -->
+<section class="magnet">
+  <div class="magnet-inner reveal">
+    <div class="magnet-left">
+      <div class="magnet-badge">Free guide</div>
+      <h3>Not ready yet? Don't get caught out.</h3>
+      <p>Before you hire anyone, grab our free homeowner's guide: <strong>5 questions to ask any tradesperson before you let them start</strong> — the simple checks that save people thousands and a lot of stress.</p>
+      <div class="magnet-form" id="magnetForm">
+        <input class="magnet-input" type="text" id="mgName" placeholder="First name">
+        <input class="magnet-input" type="email" id="mgEmail" placeholder="Your email address">
+        <button class="magnet-btn" onclick="submitMagnet()">Send me the free guide →</button>
+        <div class="magnet-note">No spam. Just the guide and the occasional useful tip. Unsubscribe anytime.</div>
       </div>
-      <div style="display:flex;align-items:center;gap:6px;background:#fff;border:1px solid var(--border);padding:8px 16px;border-radius:var(--r);">
-        <span style="font-size:20px;font-weight:900;color:var(--txt);">5.0</span>
-        <span style="color:#fbbc05;font-size:16px;letter-spacing:1px;">★★★★★</span>
-        <span style="font-size:12px;color:var(--muted);">13 reviews</span>
+      <div class="magnet-success" id="magnetSuccess">
+        <div class="ms-tick">✅</div>
+        <p>On its way! Check your inbox for the guide.</p>
       </div>
     </div>
-
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;" class="reveal">
-
-      <div class="rv-card">
-        <div class="rv-platform"><span class="rv-platform-dot"></span>Verified · Google</div>
-        <div class="rv-stars">★★★★★</div>
-        <p class="rv-text">"I recently used SortMyTrade and had a really smooth experience. Everything was well organised, communication was great, and the whole process felt easy and stress-free. Highly recommend!"</p>
-        <div class="rv-person">
-          <div class="rv-av" style="background:#1a73e8;">VR</div>
-          <div><div class="rv-name">Vanessa Rego</div><div class="rv-meta">Google Review · Removals</div><div class="rv-verified">✓ Verified · Google</div></div>
-        </div>
+    <div class="magnet-right">
+      <div class="magnet-guide">
+        <div class="magnet-guide-icon">The Homeowner's Guide</div>
+        <h4>5 Questions to Ask Before You Hire Any Tradesperson</h4>
       </div>
-
-      <div class="rv-card">
-        <div class="rv-platform"><span class="rv-platform-dot"></span>Verified · Google</div>
-        <div class="rv-stars">★★★★★</div>
-        <p class="rv-text">"Managed to sort out help with moving homes really quickly and efficiently — process was all extremely smooth and I would recommend to anyone."</p>
-        <div class="rv-person">
-          <div class="rv-av" style="background:#1a73e8;">MB</div>
-          <div><div class="rv-name">Matthew Banton</div><div class="rv-meta">Google Review · House Move</div><div class="rv-verified">✓ Verified · Google</div></div>
-        </div>
-      </div>
-
-      <div class="rv-card">
-        <div class="rv-platform"><span class="rv-platform-dot"></span>Verified · Google</div>
-        <div class="rv-stars">★★★★★</div>
-        <p class="rv-text">"Sort my trade helped me with my recent move, super professional and everything went so smoothly. Will definitely be using again, thank you!"</p>
-        <div class="rv-person">
-          <div class="rv-av" style="background:#1a73e8;">FW</div>
-          <div><div class="rv-name">Felicity Whitelock</div><div class="rv-meta">Google Review · House Move</div><div class="rv-verified">✓ Verified · Google</div></div>
-        </div>
-      </div>
-
-      <div class="rv-card">
-        <div class="rv-platform"><span class="rv-platform-dot"></span>Verified · Google</div>
-        <div class="rv-stars">★★★★★</div>
-        <p class="rv-text">"Used SortMyTrade recently to help organise a move and honestly it just made things a lot easier. Everything was handled really well."</p>
-        <div class="rv-person">
-          <div class="rv-av" style="background:#1a73e8;">RS</div>
-          <div><div class="rv-name">Raquel Silva</div><div class="rv-meta">Google Review · Removals</div><div class="rv-verified">✓ Verified · Google</div></div>
-        </div>
-      </div>
-
-      <div class="rv-card">
-        <div class="rv-platform"><span class="rv-platform-dot"></span>Verified · Google</div>
-        <div class="rv-stars">★★★★★</div>
-        <p class="rv-text">"They helped me move on short notice, and everything went smoothly. I would recommend SortMyTrade."</p>
-        <div class="rv-person">
-          <div class="rv-av" style="background:#1a73e8;">DS</div>
-          <div><div class="rv-name">D S</div><div class="rv-meta">Google Review · Short Notice Move</div><div class="rv-verified">✓ Verified · Google</div></div>
-        </div>
-      </div>
-
-      <div class="rv-card">
-        <div class="rv-platform"><span class="rv-platform-dot"></span>Verified · Google</div>
-        <div class="rv-stars">★★★★★</div>
-        <p class="rv-text">"Amazing service, quick and very efficient. Will definitely recommend to family and friends."</p>
-        <div class="rv-person">
-          <div class="rv-av" style="background:#1a73e8;">JP</div>
-          <div><div class="rv-name">John Phillip Ogwu</div><div class="rv-meta">Google Review · Removals</div><div class="rv-verified">✓ Verified · Google</div></div>
-        </div>
-      </div>
-
-      <div class="rv-card">
-        <div class="rv-platform"><span class="rv-platform-dot"></span>Verified · Google</div>
-        <div class="rv-stars">★★★★★</div>
-        <p class="rv-text">"I used SortMyTrade to help me move house. They were on time and so helpful — would definitely use them again."</p>
-        <div class="rv-person">
-          <div class="rv-av" style="background:#1a73e8;">JE</div>
-          <div><div class="rv-name">Jade Evans</div><div class="rv-meta">Google Review · House Move</div><div class="rv-verified">✓ Verified · Google</div></div>
-        </div>
-      </div>
-
-      <div class="rv-card">
-        <div class="rv-platform"><span class="rv-platform-dot"></span>Verified · Google</div>
-        <div class="rv-stars">★★★★★</div>
-        <p class="rv-text">"I am so pleased for helping me move my stuff. I will definitely recommend to my friends — good job!"</p>
-        <div class="rv-person">
-          <div class="rv-av" style="background:#1a73e8;">LK</div>
-          <div><div class="rv-name">Lesley Kofa</div><div class="rv-meta">Google Review · Removals</div><div class="rv-verified">✓ Verified · Google</div></div>
-        </div>
-      </div>
-
-      <div class="rv-card">
-        <div class="rv-platform"><span class="rv-platform-dot"></span>Verified · Google</div>
-        <div class="rv-stars">★★★★★</div>
-        <p class="rv-text">"I'm particularly amazed by the quality of services provided by this platform and I'm looking forward to using it again in the future."</p>
-        <div class="rv-person">
-          <div class="rv-av" style="background:#1a73e8;">MA</div>
-          <div><div class="rv-name">MdG Abreu</div><div class="rv-meta">Google Review · Removals</div><div class="rv-verified">✓ Verified · Google</div></div>
-        </div>
-      </div>
-
-      <div class="rv-card">
-        <div class="rv-platform"><span class="rv-platform-dot"></span>Verified · Google</div>
-        <div class="rv-stars">★★★★★</div>
-        <p class="rv-text">"Used SortMyTrade recently, no complaints — everything was smooth. Would definitely recommend and use them again."</p>
-        <div class="rv-person">
-          <div class="rv-av" style="background:#1a73e8;">CM</div>
-          <div><div class="rv-name">Craig Medford</div><div class="rv-meta">Google Review · Removals</div><div class="rv-verified">✓ Verified · Google</div></div>
-        </div>
-      </div>
-
-      <div class="rv-card">
-        <div class="rv-platform"><span class="rv-platform-dot"></span>Verified · Google</div>
-        <div class="rv-stars">★★★★★</div>
-        <p class="rv-text">"He helped organise a move and he was quick and smooth."</p>
-        <div class="rv-person">
-          <div class="rv-av" style="background:#1a73e8;">AA</div>
-          <div><div class="rv-name">Adeolu Adetona</div><div class="rv-meta">Google Review · Removals</div><div class="rv-verified">✓ Verified · Google</div></div>
-        </div>
-      </div>
-
-      <div class="rv-card">
-        <div class="rv-platform"><span class="rv-platform-dot"></span>Verified · Google</div>
-        <div class="rv-stars">★★★★★</div>
-        <p class="rv-text">"I would definitely use this service again. Was quick and I got a good quote from the removal company."</p>
-        <div class="rv-person">
-          <div class="rv-av" style="background:#1a73e8;">PV</div>
-          <div><div class="rv-name">Ped V</div><div class="rv-meta">Google Review · Removals</div><div class="rv-verified">✓ Verified · Google</div></div>
-        </div>
-      </div>
-
-      <div class="rv-card" style="border:1.5px solid rgba(0,194,122,.25);">
-        <div class="rv-platform"><span class="rv-platform-dot"></span>Verified · Google</div>
-        <div class="rv-stars">★★★★★</div>
-        <p class="rv-text">"Saved so much time and hassle — Zaino got back to me with 3 local quotes and got my job sorted the next day! Amazing service, definitely recommend if you have a busy schedule."</p>
-        <div class="rv-person">
-          <div class="rv-av" style="background:var(--green);">S</div>
-          <div><div class="rv-name">SANA</div><div class="rv-meta">Google Review · Quick Quote</div><div class="rv-verified">✓ Verified · Google</div></div>
-        </div>
-      </div>
-
     </div>
   </div>
 </section>
 
 <!-- AREAS -->
-<section class="sec areas-bg" id="areas">
-  <div class="sec-inner">
+<section class="sec areas-bg">
+  <div class="sec-inner reveal">
     <div class="eyebrow">Coverage</div>
-    <h2>Premium coverage across Cheshire & South Manchester</h2>
-    <p class="sec-sub">We focus on SK and WA postcodes — Didsbury, West Didsbury, Chorlton, Sale, Altrincham, Lymm, Cheadle, Warrington and surrounding premium areas. High-quality trades for discerning homeowners.</p>
-    <div class="areas-cloud reveal">
-      <div class="achip on">Didsbury</div><div class="achip">West Didsbury</div>
-      <div class="achip">Chorlton</div><div class="achip">Sale</div>
-      <div class="achip">Altrincham</div><div class="achip">Lymm</div>
-      <div class="achip">Cheadle</div><div class="achip">Warrington</div>
-      <div class="achip">Hale</div><div class="achip">Hale Barns</div>
-      <div class="achip">Bowdon</div><div class="achip">Wilmslow</div>
-      <div class="achip">Knutsford</div><div class="achip">Bramhall</div>
-      <div class="achip">Cheadle Hulme</div><div class="achip">Stockport</div>
-      <div class="achip">Wythenshawe</div><div class="achip">Northenden</div>
+    <h2>Premium coverage across Cheshire &amp; South Manchester</h2>
+    <p class="sec-sub">We focus on the areas we know best — high-quality trades for discerning homeowners across SK, WA and M postcodes.</p>
+    <div class="areas-cloud">
+      <div class="achip">Didsbury</div><div class="achip">West Didsbury</div><div class="achip">Chorlton</div><div class="achip">Sale</div><div class="achip">Altrincham</div><div class="achip">Hale</div><div class="achip">Hale Barns</div><div class="achip">Bowdon</div><div class="achip">Lymm</div><div class="achip">Cheadle</div><div class="achip">Cheadle Hulme</div><div class="achip">Bramhall</div><div class="achip">Wilmslow</div><div class="achip">Knutsford</div><div class="achip">Stockport</div><div class="achip">Heald Green</div><div class="achip">Manchester</div><div class="achip">Warrington</div>
     </div>
-    <p class="areas-note">📍 Premium coverage across SK and WA postcodes — Cheshire & South Manchester's most sought-after areas.</p>
+    <p class="areas-note">📍 Premium coverage across SK and WA postcodes — Cheshire &amp; South Manchester's most sought-after areas.</p>
   </div>
 </section>
 
 <!-- FAQ -->
 <section class="sec" id="faq">
-  <div class="sec-inner">
+  <div class="sec-inner reveal">
     <div class="eyebrow">FAQ</div>
     <h2>Common questions</h2>
-    <div class="faq-wrap reveal">
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Is it genuinely free for homeowners?<span class="faq-icon">+</span></button>
-        <div class="faq-a">100% free — always. Tradespeople pay a small fee to receive job leads. You will never be charged anything. There's also no obligation to accept any quote you receive.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">How do you vet the tradespeople?<span class="faq-icon">+</span></button>
-        <div class="faq-a">Every trade completes our full onboarding checklist before going live: photo ID verification, proof of public liability insurance (minimum £1M cover), relevant trade registrations (NICEIC for electricians, Gas Safe for plumbers), and a minimum of 5 verifiable reviews. We also test-call every trade before they're listed.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Why only 3 quotes?<span class="faq-icon">+</span></button>
-        <div class="faq-a">Most platforms send your details to 8–10 trades and you get bombarded with calls for days. We cap every job at exactly 3 quotes — giving you real choice without the harassment. Trades also give better prices when they know competition is fair and limited.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Can I send photos or video on WhatsApp?<span class="faq-icon">+</span></button>
-        <div class="faq-a">Yes — and we encourage it. Sending a photo or short video of the job on WhatsApp (07459 819603) is often the fastest way to get an accurate quote, especially for removals, visible damage or access issues. Just send a message and we'll get it matched.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">How quickly will trades contact me?<span class="faq-icon">+</span></button>
-        <div class="faq-a">Our trades operate to a 2-hour response target during working hours (8am–8pm, 7 days). For emergency plumbing or electrical callouts, the target is under 30 minutes. If no trade responds within 4 hours, you'll hear from us directly to resolve it.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Are removals and man & van providers insured?<span class="faq-icon">+</span></button>
-        <div class="faq-a">Yes. All removal and man & van providers on our platform carry public liability insurance and goods-in-transit cover. We verify this before listing any trade.</div>
-      </div>
+    <div class="faq-wrap">
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is it genuinely free to get a quote?<span class="faq-icon">+</span></button><div class="faq-a">Yes — getting a quote is free with no obligation. We give you one clear, fixed price for the job. No charge for the quote, ever, and no pressure to go ahead.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How does it actually work?<span class="faq-icon">+</span></button><div class="faq-a">You tell us the job. We match it to vetted, insured tradespeople from our network, coordinate everything, and give you one fixed price and one point of contact. You're never juggling multiple tradespeople or chasing anyone yourself.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How do you vet your tradespeople?<span class="faq-icon">+</span></button><div class="faq-a">Every trade completes our onboarding before any client work: ID verification, proof of public liability insurance (minimum £1M), relevant registrations (Gas Safe, NICEIC/NAPIT) and a signed partner agreement. We check references and see evidence of previous work.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What if something isn't right?<span class="faq-icon">+</span></button><div class="faq-a">We put it right. One point of contact means no finger-pointing — if there's an issue after the work, you come to us and we sort it at our cost.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Can I send photos or a video on WhatsApp?<span class="faq-icon">+</span></button><div class="faq-a">Yes, and we encourage it — a photo or short video (07459 819603) is the fastest way to an accurate quote, especially for bigger jobs, damage or access issues.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Do you cover big projects as well as small jobs?<span class="faq-icon">+</span></button><div class="faq-a">Absolutely. From a single tap to a full bathroom, kitchen or extension — we coordinate jobs of every size. Bigger projects usually start with a visit so we can scope and price them properly.</div></div>
     </div>
   </div>
 </section>
@@ -949,25 +839,25 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.05);padding:
 <!-- BOTTOM CTA -->
 <section class="cta-sec">
   <div class="cta-inner">
-    <div class="cta-eyebrow"><span class="pulse"></span>Ready to get sorted?</div>
-    <h2>Get your trade sorted today.</h2>
-    <p>60 seconds to submit. 3 vetted local quotes in under 2 hours. Free forever, no obligation.</p>
+    <div class="cta-eyebrow">★★★★★ Rated 5.0 on Google</div>
+    <h2>Get your home sorted — properly.</h2>
+    <p>One message. One trusted team. One fixed price. No juggling tradespeople, no chasing, no stress.</p>
     <div class="cta-btns">
-      <button class="cta-primary" onclick="scrollToSection('quote')">Get 3 Quotes Free →</button>
-      <a href="https://wa.me/447459819603?text=Hi%20SortMyTrade%2C%20I%20need%20a%20quote%20for%20my%20job." target="_blank" rel="noopener" class="cta-wa">
-        <svg style="width:20px;height:20px;flex-shrink:0;" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+      <button class="cta-primary" onclick="scrollTo2('top')">Get a Free Quote →</button>
+      <a class="cta-wa" href="https://wa.me/447459819603?text=Hi%20SortMyTrade%2C%20I%20need%20a%20quote%20for%20my%20job." target="_blank" rel="noopener">
+        <svg class="wa-icon" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
         WhatsApp Us
       </a>
     </div>
-    <p class="cta-note">★★★★★ Verified 5-star reviews · Max 3 trades per job · Free for homeowners</p>
+    <div class="cta-note">★★★★★ Verified 5-star reviews · Vetted &amp; insured trades · One point of contact</div>
   </div>
 </section>
 
 <!-- TRADE STRIP -->
 <div class="trade-strip">
   <div class="trade-strip-inner">
-    <p><strong>Are you a tradesperson?</strong> Join our network and receive pre-qualified job leads in South Manchester. Only 3 trades per job — your time is never wasted.</p>
-    <a href="#" class="trade-link">Join as a Trade →</a>
+    <p><strong>Are you a tradesperson?</strong> Join our network and receive coordinated, pre-qualified local work — we handle the client side, you get paid promptly.</p>
+    <a class="trade-link" href="https://wa.me/447459819603?text=Hi%20SortMyTrade%2C%20I%27m%20a%20tradesperson%20interested%20in%20joining%20your%20network." target="_blank" rel="noopener">Join as a Trade →</a>
   </div>
 </div>
 
@@ -975,200 +865,81 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.05);padding:
 <footer>
   <div class="footer-inner">
     <div>
-      <div class="f-logo">Sort<span>MyTrade</span></div>
-      <div class="f-tagline">Cheshire &amp; South Manchester's trusted trades platform</div>
+      <div class="f-logo">Sort<span>My</span>Trade</div>
+      <div class="f-tagline">Cheshire &amp; South Manchester's trusted trades coordinator</div>
     </div>
     <div>
       <div class="f-locs-label">Areas Served</div>
       <div class="f-locs">
-        <span class="floc">Didsbury</span><span class="floc">West Didsbury</span>
-        <span class="floc">Chorlton</span><span class="floc">Sale</span>
-        <span class="floc">Altrincham</span><span class="floc">Lymm</span>
-        <span class="floc">Cheadle</span><span class="floc">Warrington</span>
-        <span class="floc">Wilmslow</span><span class="floc">Knutsford</span>
+        <span class="floc">Didsbury</span><span class="floc">West Didsbury</span><span class="floc">Chorlton</span><span class="floc">Sale</span><span class="floc">Altrincham</span><span class="floc">Hale</span><span class="floc">Lymm</span><span class="floc">Cheadle</span><span class="floc">Bramhall</span><span class="floc">Wilmslow</span><span class="floc">Knutsford</span><span class="floc">Stockport</span>
       </div>
     </div>
     <div class="f-links">
-      <a href="#" class="f-link">Privacy</a>
-      <a href="#" class="f-link">Terms</a>
-      <a href="#" class="f-link">Contact</a>
-      <a href="#" class="f-link">For Trades</a>
+      <a class="f-link" href="#">Privacy</a>
+      <a class="f-link" href="#">Terms</a>
+      <a class="f-link" href="https://wa.me/447459819603" target="_blank" rel="noopener">Contact</a>
+      <a class="f-link" href="#">For Trades</a>
     </div>
   </div>
-  <div class="footer-legal">
-    © 2025 SortMyTrade · South Manchester · sortmytrade.com · All trades independently vetted
-  </div>
+  <div class="footer-legal">© 2026 SortMyTrade · South Manchester &amp; Cheshire · sortmytrade.com · All trades independently vetted</div>
 </footer>
 
 <!-- STICKY MOBILE CTA -->
 <div class="sticky-cta">
   <div class="sticky-cta-inner">
-    <button class="sticky-btn sticky-btn-main" onclick="scrollToSection('quote')">Get 3 Free Quotes →</button>
-    <a href="https://wa.me/447459819603?text=Hi%20SortMyTrade%2C%20I%20need%20a%20quote." target="_blank" rel="noopener" class="sticky-btn sticky-btn-wa">
-      <svg style="width:18px;height:18px;" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-      WhatsApp
+    <button class="sticky-btn sticky-btn-main" onclick="scrollTo2('top')">Get a Free Quote</button>
+    <a class="sticky-btn sticky-btn-wa" href="https://wa.me/447459819603?text=Hi%20SortMyTrade%2C%20I%20need%20a%20quote." target="_blank" rel="noopener">
+      <svg style="width:18px;height:18px" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
     </a>
   </div>
 </div>
 
 <script>
-/* SERVICE JOB TYPES */
-const jobTypes = {
-  plumber:['Emergency leak','Boiler repair or service','Boiler replacement','Bathroom installation','Shower installation','Radiator fitting','Pipe repair','Blocked drain','Outside tap','Other'],
-  electrician:['Emergency callout','EV charger installation','Full house rewire','Consumer unit upgrade','New sockets or lighting','EICR certificate','Electric shower','Other'],
-  removals:['1-bed flat move','2-bed house move','3-bed house move','4-bed+ house move','Office or commercial move','Packing service needed','Storage needed','Other'],
-  manvan:['Single item collection','Studio or 1-bed move','2-3 bed move','Student move','IKEA or flat-pack delivery','Rubbish removal','Other'],
-  handyman:['Flat-pack assembly','TV or picture mounting','Shelving installation','Door repair or fitting','Garden or outdoor work','General repairs','Other']
-};
-
-document.querySelectorAll('input[name="svc"]').forEach(r=>{
-  r.addEventListener('change',function(){
-    var sf=document.getElementById('sub-field'),sel=document.getElementById('job-type');
-    sf.style.display='block';
-    sel.innerHTML='<option value="">Select job type...</option>';
-    (jobTypes[this.value]||[]).forEach(t=>sel.innerHTML+=`<option>${t}</option>`);
-  });
-});
-
-/* NAVIGATION */
-function goNext(step){
-  if(step===1){
-    var svc=document.querySelector('input[name="svc"]:checked'),pc=document.getElementById('postcode').value.trim();
-    if(!svc){showToast('Please select a service');shake('fs1');return;}
-    if(!pc){showToast('Please enter your postcode');shake('fs1');return;}
+function scrollTo2(id){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});}
+function goStep(n){
+  document.querySelectorAll('.fstep').forEach(s=>s.classList.remove('active'));
+  document.getElementById('step'+n).classList.add('active');
+  for(let i=1;i<=3;i++){
+    const ps=document.getElementById('ps'+i);
+    ps.classList.remove('active','done');
+    if(i<n)ps.classList.add('done');
+    if(i===n)ps.classList.add('active');
   }
-  if(step===2){
-    var desc=document.getElementById('job-desc').value.trim();
-    if(desc.length<10){showToast('Please describe your job');shake('fs2');return;}
-  }
-  document.getElementById('fs'+step).classList.remove('active');
-  document.getElementById('fs'+(step+1)).classList.add('active');
-  setStep(step+1);
-  document.getElementById('quote').scrollIntoView({behavior:'smooth',block:'center'});
 }
-function goBack(step){
-  document.getElementById('fs'+step).classList.remove('active');
-  document.getElementById('fs'+(step-1)).classList.add('active');
-  setStep(step-1);
+function toggleFaq(btn){btn.parentElement.classList.toggle('open');}
+function submitForm(){
+  const svc=document.querySelector('input[name=svc]:checked');
+  const name=document.getElementById('fullname').value.trim();
+  const mobile=document.getElementById('mobile').value.trim();
+  const email=document.getElementById('email').value.trim();
+  if(!name||!mobile||!email){alert('Please fill in your name, mobile and email so we can send your quote.');return;}
+  // Build WhatsApp handoff so the lead reaches Zaino instantly
+  const job=document.getElementById('jobdesc').value.trim();
+  const pc=document.getElementById('postcode').value.trim();
+  const tl=document.getElementById('timeline').value;
+  const bd=document.getElementById('budget').value;
+  const msg='New quote request via SortMyTrade%0A%0AName: '+encodeURIComponent(name)+'%0AService: '+encodeURIComponent(svc?svc.value:'-')+'%0APostcode: '+encodeURIComponent(pc)+'%0AJob: '+encodeURIComponent(job)+'%0ATimeline: '+encodeURIComponent(tl)+'%0ABudget: '+encodeURIComponent(bd)+'%0AMobile: '+encodeURIComponent(mobile)+'%0AEmail: '+encodeURIComponent(email);
+  // Show success state
+  document.getElementById('cardBody').style.display='none';
+  document.getElementById('progressWrap').style.display='none';
+  document.getElementById('successPanel').style.display='block';
+  document.getElementById('cardFoot').style.display='none';
+  // Open WhatsApp with prefilled details
+  window.open('https://wa.me/447459819603?text='+msg,'_blank');
 }
-function setStep(n){
-  [1,2,3].forEach(i=>{
-    var el=document.getElementById('ps'+i);
-    el.classList.remove('active','done');
-    if(i<n)el.classList.add('done');
-    if(i===n)el.classList.add('active');
-  });
+function submitMagnet(){
+  const name=document.getElementById('mgName').value.trim();
+  const email=document.getElementById('mgEmail').value.trim();
+  if(!name||!email||!email.includes('@')){alert('Please pop in your first name and a valid email and we\u2019ll send the guide over.');return;}
+  // Hand off to WhatsApp so Zaino captures the lead + can send the guide
+  const msg='Free guide request via SortMyTrade%0A%0AName: '+encodeURIComponent(name)+'%0AEmail: '+encodeURIComponent(email)+'%0A%0A(Send the Homeowner\u2019s Guide + add to nurture list)';
+  document.getElementById('magnetForm').style.display='none';
+  document.getElementById('magnetSuccess').style.display='block';
+  window.open('https://wa.me/447459819603?text='+msg,'_blank');
 }
-
-/* SUBMIT + WHATSAPP NOTIFICATION */
-function doSubmit(){
-  var name=document.getElementById('fname').value.trim();
-  var phone=document.getElementById('fphone').value.trim();
-  var email=document.getElementById('femail').value.trim();
-  if(!name){showToast('Please enter your full name');return;}
-  if(phone.replace(/\s/g,'').length<10){showToast('Please enter a valid mobile number');return;}
-  if(!email.includes('@')){showToast('Please enter a valid email address');return;}
-
-  var svcEl=document.querySelector('input[name="svc"]:checked');
-  var svcLabels={plumber:'Plumber',electrician:'Electrician',removals:'Removals',manvan:'Man & Van',handyman:'Handyman'};
-  var tlLabels={asap:'ASAP / Today',week:'Within 1 week',month:'Within 1 month',flexible:'Flexible'};
-  var budLabels={unsure:'Not sure',u200:'Under £200','200-500':'£200-£500','500-2k':'£500-2k','2kplus':'£2k+'};
-
-  var payload={
-    service:svcEl?svcEl.value:'',
-    jobType:document.getElementById('job-type').value,
-    postcode:document.getElementById('postcode').value.trim(),
-    description:document.getElementById('job-desc').value.trim(),
-    timeline:document.getElementById('timeline').value,
-    budget:document.getElementById('budget').value,
-    name,phone,email,
-    submitted:new Date().toISOString(),
-    source:'sortmytrade.com'
-  };
-
-  /* WhatsApp notification to owner */
-  var msg=[
-    'NEW LEAD - SortMyTrade',
-    '',
-    'Service: '+(svcLabels[payload.service]||payload.service),
-    payload.jobType?'Job type: '+payload.jobType:null,
-    'Postcode: '+payload.postcode,
-    'Timeline: '+(tlLabels[payload.timeline]||payload.timeline),
-    'Budget: '+(budLabels[payload.budget]||payload.budget),
-    '',
-    'Name: '+payload.name,
-    'Phone: '+payload.phone,
-    'Email: '+payload.email,
-    '',
-    'Description:',
-    payload.description
-  ].filter(l=>l!==null).join('\n');
-
-  window.open('https://wa.me/447459819603?text='+encodeURIComponent(msg),'_blank');
-
-  document.getElementById('fs3').classList.remove('active');
-  document.querySelector('.progress-wrap').style.display='none';
-  document.getElementById('success-panel').style.display='block';
-  document.getElementById('quote').scrollIntoView({behavior:'smooth',block:'center'});
-}
-
-/* FAQ */
-function toggleFaq(btn){
-  var item=btn.parentElement,open=item.classList.contains('open');
-  document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
-  if(!open)item.classList.add('open');
-}
-
-/* AREA CHIPS */
-document.querySelectorAll('.achip').forEach(c=>{
-  c.addEventListener('click',function(){
-    document.querySelectorAll('.achip').forEach(x=>x.classList.remove('on'));
-    this.classList.add('on');
-  });
-});
-
-/* SMOOTH SCROLL */
-function scrollToSection(id){
-  var el=document.getElementById(id);
-  if(el)el.scrollIntoView({behavior:'smooth',block:'center'});
-}
-
-/* SCROLL REVEAL */
-var io=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});
-},{threshold:.08});
+// Scroll reveal
+const io=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-
-/* URL PARAM AUTO-FILL */
-(function(){
-  var p=new URLSearchParams(window.location.search);
-  var svcMap={'plumber':'plumber','plumbing':'plumber','electrician':'electrician','electric':'electrician','removals':'removals','removal':'removals','man & van':'manvan','manvan':'manvan','handyman':'handyman'};
-  var svc=(p.get('service')||'').toLowerCase().trim();
-  var mapped=svcMap[svc]||null;
-  if(mapped){var r=document.querySelector('input[name="svc"][value="'+mapped+'"]');if(r){r.checked=true;r.dispatchEvent(new Event('change'));}}
-  if(p.get('postcode'))document.getElementById('postcode').value=p.get('postcode');
-  if(p.get('name'))document.getElementById('fname').value=p.get('name');
-  if(p.get('phone'))document.getElementById('fphone').value=p.get('phone');
-  if(p.get('email'))document.getElementById('femail').value=p.get('email');
-  if(p.get('desc'))document.getElementById('job-desc').value=p.get('desc');
-  if(mapped||p.get('postcode')||p.get('name')){
-    setTimeout(()=>{var q=document.getElementById('quote');if(q)q.scrollIntoView({behavior:'smooth',block:'center'});},600);
-  }
-})();
-
-/* TOAST */
-function showToast(msg){
-  var t=document.getElementById('smt-toast');
-  if(!t){t=document.createElement('div');t.id='smt-toast';t.style.cssText='position:fixed;bottom:90px;left:50%;transform:translateX(-50%) translateY(20px);background:#ef4444;color:#fff;padding:12px 22px;border-radius:8px;font-family:Manrope,sans-serif;font-size:14px;font-weight:600;z-index:9999;opacity:0;transition:all .25s;pointer-events:none;white-space:nowrap;box-shadow:0 8px 32px rgba(0,0,0,.2);';document.body.appendChild(t);}
-  t.textContent=msg;t.style.opacity='1';t.style.transform='translateX(-50%) translateY(0)';
-  clearTimeout(t._t);t._t=setTimeout(()=>{t.style.opacity='0';t.style.transform='translateX(-50%) translateY(10px)';},3000);
-}
-
-/* SHAKE */
-function shake(id){
-  var el=document.getElementById(id),i=0;
-  function s(){el.style.transform=i%2?'translateX(-4px)':'translateX(4px)';i++;if(i<6)setTimeout(s,65);else el.style.transform='';}s();
-}
 </script>
 </body>
 </html>
