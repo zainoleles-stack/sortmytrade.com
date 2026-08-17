@@ -383,8 +383,12 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.05);padding:
   .cta-btns{flex-direction:column;}
   .sticky-cta{display:block;}
   body{padding-bottom:80px;}
-  .proof-strip{width:100%;justify-content:stretch;}
-  .ps-item{flex:1;}
+  .proof-strip{width:100%;justify-content:stretch;display:grid;grid-template-columns:1fr 1fr;border-radius:var(--r);}
+  .ps-item{flex:none;min-width:0;padding:12px 8px;border-right:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08);}
+  .ps-item:nth-child(2n){border-right:none;}
+  .ps-item:nth-child(3),.ps-item:nth-child(4){border-bottom:none;}
+  .ps-num{font-size:18px;}
+  .hero-left, .hero-eyebrow, .hero-h1, .hero-sub, .hero-areas{min-width:0;}
   .guarantee{padding:32px 24px;}
   .guarantee-inner{flex-direction:column;text-align:center;gap:18px;}
   .tiers-grid{grid-template-columns:1fr;}
@@ -795,7 +799,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.05);padding:
       </div>
       <div class="magnet-success" id="magnetSuccess">
         <div class="ms-tick">✅</div>
-        <p>On its way! Check your inbox for the guide.</p>
+        <p>Your guide is opening now — enjoy! If it doesn't appear, check your pop-up blocker.</p>
       </div>
     </div>
     <div class="magnet-right">
@@ -931,11 +935,14 @@ function submitMagnet(){
   const name=document.getElementById('mgName').value.trim();
   const email=document.getElementById('mgEmail').value.trim();
   if(!name||!email||!email.includes('@')){alert('Please pop in your first name and a valid email and we\u2019ll send the guide over.');return;}
-  // Hand off to WhatsApp so Zaino captures the lead + can send the guide
-  const msg='Free guide request via SortMyTrade%0A%0AName: '+encodeURIComponent(name)+'%0AEmail: '+encodeURIComponent(email)+'%0A%0A(Send the Homeowner\u2019s Guide + add to nurture list)';
+  // Capture the lead to Zaino via WhatsApp
+  const msg='Free guide request via SortMyTrade%0A%0AName: '+encodeURIComponent(name)+'%0AEmail: '+encodeURIComponent(email)+'%0A%0A(Add to nurture list \u2014 they\u2019ve downloaded the Homeowner\u2019s Guide)';
+  window.open('https://wa.me/447459819603?text='+msg,'_blank');
+  // Open the guide for the visitor automatically
+  window.open('https://sortmytrade.com/homeowners-guide.pdf','_blank');
+  // Show success state
   document.getElementById('magnetForm').style.display='none';
   document.getElementById('magnetSuccess').style.display='block';
-  window.open('https://wa.me/447459819603?text='+msg,'_blank');
 }
 // Scroll reveal
 const io=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:.12});
