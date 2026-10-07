@@ -630,17 +630,17 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.05);padding:
     </div>
     <div class="svc-grid reveal">
       <div class="svc-card" onclick="window.location.href='bathrooms.html'"><h3>Bathrooms &amp; Wet Rooms</h3><p>Full fits, refurbs and wet rooms, start to finish.</p></div>
-      <div class="svc-card" onclick="scrollTo2('top')"><h3>Kitchens</h3><p>Fitting, refurbishment and full replacements.</p></div>
-      <div class="svc-card" onclick="scrollTo2('top')"><h3>Extensions &amp; Renovations</h3><p>Whole-project coordination — every trade, every stage.</p></div>
-      <div class="svc-card" onclick="scrollTo2('top')"><h3>Plumbing &amp; Gas</h3><p>Leaks, boilers, servicing, Gas Safe certificates.</p></div>
-      <div class="svc-card" onclick="scrollTo2('top')"><h3>Electrics</h3><p>Rewires, fuse boards, EV chargers, EICR reports.</p></div>
-      <div class="svc-card" onclick="scrollTo2('top')"><h3>Plastering &amp; Decorating</h3><p>Skimming, patching, painting — rooms to full houses.</p></div>
-      <div class="svc-card" onclick="scrollTo2('top')"><h3>Flooring &amp; Joinery</h3><p>LVT, laminate, tiling, doors and fitted storage.</p></div>
-      <div class="svc-card" onclick="scrollTo2('top')"><h3>Gardens &amp; Driveways</h3><p>Landscaping, artificial grass, paving and decking.</p></div>
-      <div class="svc-card" onclick="scrollTo2('top')"><h3>Roofing &amp; Guttering</h3><p>Repairs, damp investigation, guttering, flat roofs.</p></div>
-      <div class="svc-card" onclick="scrollTo2('top')"><h3>Removals &amp; Man-and-Van</h3><p>Insured house moves and single-item transport.</p></div>
-      <div class="svc-card" onclick="scrollTo2('top')"><h3>Handyman</h3><p>Flat-pack, mounting, shelving and small repairs.</p></div>
-      <div class="svc-card" onclick="scrollTo2('top')"><h3>Something else?</h3><p>Just ask — if it's a home job, we can likely sort it.</p></div>
+      <div class="svc-card" onclick="selectService('Bathroom')"><h3>Kitchens</h3><p>Fitting, refurbishment and full replacements.</p></div>
+      <div class="svc-card" onclick="selectService('Renovation')"><h3>Extensions &amp; Renovations</h3><p>Whole-project coordination — every trade, every stage.</p></div>
+      <div class="svc-card" onclick="selectService('Plumber')"><h3>Plumbing &amp; Gas</h3><p>Leaks, boilers, servicing, Gas Safe certificates.</p></div>
+      <div class="svc-card" onclick="selectService('Electrician')"><h3>Electrics</h3><p>Rewires, fuse boards, EV chargers, EICR reports.</p></div>
+      <div class="svc-card" onclick="selectService('Plastering')"><h3>Plastering &amp; Decorating</h3><p>Skimming, patching, painting — rooms to full houses.</p></div>
+      <div class="svc-card" onclick="selectService('Flooring')"><h3>Flooring &amp; Joinery</h3><p>LVT, laminate, tiling, doors and fitted storage.</p></div>
+      <div class="svc-card" onclick="selectService('Garden')"><h3>Gardens &amp; Driveways</h3><p>Landscaping, artificial grass, paving and decking.</p></div>
+      <div class="svc-card" onclick="selectService('Roofing')"><h3>Roofing &amp; Guttering</h3><p>Repairs, damp investigation, guttering, flat roofs.</p></div>
+      <div class="svc-card" onclick="selectService('Removals')"><h3>Removals &amp; Man-and-Van</h3><p>Insured house moves and single-item transport.</p></div>
+      <div class="svc-card" onclick="selectService('Handyman')"><h3>Handyman</h3><p>Flat-pack, mounting, shelving and small repairs.</p></div>
+      <div class="svc-card" onclick="selectService('Handyman')"><h3>Something else?</h3><p>Just ask — if it's a home job, we can likely sort it.</p></div>
     </div>
     <p class="svc-note">Not sure who you need? <strong>That's the point</strong> — just tell us the job and we'll sort the rest.</p>
   </div>
@@ -902,6 +902,29 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.05);padding:
 
 <script>
 function scrollTo2(id){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});}
+
+/* Click a service anywhere on the page -> scroll to the quote form,
+   pre-select the matching service, and focus the postcode so the
+   client continues seamlessly. */
+function selectService(svcValue){
+  // scroll to the form
+  document.getElementById('top').scrollIntoView({behavior:'smooth',block:'start'});
+  // tick the matching radio chip (match loosely on the value text)
+  setTimeout(function(){
+    var radios = document.querySelectorAll('input[name="svc"]');
+    var matched = false;
+    radios.forEach(function(r){
+      if(!matched && svcValue && r.value.toLowerCase().indexOf(svcValue.toLowerCase().split(' ')[0]) !== -1){
+        r.checked = true; matched = true;
+      }
+    });
+    // if no match, default to Handyman/Other so something is selected
+    if(!matched && radios.length){ radios[radios.length-1].checked = true; }
+    // focus the postcode field to invite the next action
+    var pc = document.getElementById('postcode');
+    if(pc){ pc.focus(); }
+  }, 450);
+}
 function goStep(n){
   document.querySelectorAll('.fstep').forEach(s=>s.classList.remove('active'));
   document.getElementById('step'+n).classList.add('active');
