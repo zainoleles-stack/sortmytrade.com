@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -61,15 +60,19 @@
         <div style="font-size:12px;font-weight:700;color:var(--emerald-deep);letter-spacing:.02em;margin-bottom:6px">FREE — YOUR BATHROOM PROJECT PLAN</div>
         <h3 style="font-size:19px;line-height:1.2">See exactly what your bathroom needs — before you spend a penny.</h3>
         <p style="font-size:12.5px;color:var(--slate);margin:8px 0 18px;line-height:1.5">Tell us about it and we'll send back a clear plan: the trades involved, what to budget, and the right next step. No hard sell.</p>
-        <div style="margin-bottom:13px"><label for="postcode">Postcode</label><input id="postcode" type="text" placeholder="e.g. WA14"></div>
-        <div style="margin-bottom:13px"><label for="budget">Roughly what's your budget?</label>
+        <div style="margin-bottom:12px"><label for="name">Your name *</label><input id="name" type="text" placeholder="First name"></div>
+        <div style="margin-bottom:12px"><label for="phone">Phone number *</label><input id="phone" type="tel" placeholder="So we can reach you"></div>
+        <div style="margin-bottom:12px"><label for="postcode">Postcode *</label><input id="postcode" type="text" placeholder="e.g. WA14"></div>
+        <div style="margin-bottom:12px"><label for="budget">Roughly what's your budget?</label>
           <select id="budget"><option value="">Select a range</option><option value="Under £4,000">Under £4,000 (smaller update)</option><option value="£4,000–£7,000">£4,000–£7,000</option><option value="£7,000–£12,000">£7,000–£12,000</option><option value="£12,000+">£12,000+</option></select>
         </div>
-        <div style="margin-bottom:18px"><label for="timeline">When are you looking to start?</label>
+        <div style="margin-bottom:16px"><label for="timeline">When are you looking to start?</label>
           <select id="timeline"><option value="">Select a timeline</option><option value="ASAP">As soon as possible</option><option value="Within 3 months">Within 3 months</option><option value="3–6 months">3–6 months</option><option value="Just planning">Just planning for now</option></select>
         </div>
-        <button id="formCta" class="cta" style="width:100%;justify-content:center">Send &amp; get my plan →</button>
-        <div style="text-align:center;font-size:11px;color:var(--slate);margin-top:11px">Opens WhatsApp · We reply fast, usually within the hour</div>
+        <div id="form-error" style="display:none;font-size:12px;color:#c0392b;margin-bottom:10px">Please add your name, phone and postcode.</div>
+        <button id="formCta" class="cta" style="width:100%;justify-content:center">Get my free project plan →</button>
+        <button id="waCta" class="cta" style="width:100%;justify-content:center;margin-top:10px;background:#20232b;color:#fff;display:none">Or continue on WhatsApp →</button>
+        <div style="text-align:center;font-size:11px;color:var(--slate);margin-top:11px">We reply fast, usually within the hour · <a href="privacy.html" style="color:var(--slate);text-decoration:underline">Privacy</a></div>
       </div>
     </div>
   </div>
@@ -161,14 +164,57 @@
 <script>
   var WA_NUMBER='447459819603';
   function waLink(t){return 'https://wa.me/'+WA_NUMBER+'?text='+encodeURIComponent(t);}
+
+  function getVals(){
+    return {
+      name: document.getElementById('name').value.trim(),
+      phone: document.getElementById('phone').value.trim(),
+      postcode: document.getElementById('postcode').value.trim(),
+      budget: document.getElementById('budget').value,
+      timeline: document.getElementById('timeline').value
+    };
+  }
+  function buildMsg(v){
+    return ["Hi, I'd like my free bathroom project plan.",
+      'Name: '+(v.name||'—'),
+      'Phone: '+(v.phone||'—'),
+      'Postcode: '+(v.postcode||'—'),
+      'Budget: '+(v.budget||'—'),
+      'Timeline: '+(v.timeline||'—')].join('\n');
+  }
+
+  // STEP 1 — capture the lead (name+phone+postcode required). This fires FIRST,
+  // so you keep the lead even if they never open WhatsApp.
   document.getElementById('formCta').addEventListener('click',function(){
-    var p=document.getElementById('postcode').value.trim()||'not given';
-    var b=document.getElementById('budget').value||'not given';
-    var tl=document.getElementById('timeline').value||'not given';
-    var msg=["Hi, I'd like my free bathroom project plan.",'Postcode: '+p,'Budget: '+b,'Timeline: '+tl].join('\n');
-    window.open(waLink(msg),'_blank');
-    // Google Ads conversion (once set up):
-    // gtag('event','conversion',{'send_to':'AW-XXXXXXXXX/XXXXXXXXXXXX'});
+    var v=getVals();
+    if(!v.name || !v.phone || !v.postcode){
+      document.getElementById('form-error').style.display='block';
+      return;
+    }
+    document.getElementById('form-error').style.display='none';
+
+    // --- LEAD CAPTURE ---
+    // Replace this with your form endpoint (Formspree/Google Sheet/Zapier webhook)
+    // so the lead is saved server-side even if they don't continue to WhatsApp.
+    // Example: fetch('https://formspree.io/f/XXXX',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(v)});
+    try{ console.log('LEAD CAPTURED', v); }catch(e){}
+
+    // --- GOOGLE ADS CONVERSION: form submit ---
+    // gtag('event','conversion',{'send_to':'AW-XXXXXXXXX/FORM_SUBMIT_LABEL'});
+
+    // Confirm + reveal the WhatsApp option
+    var btn=this;
+    btn.textContent='✓ Got it — we\u2019ll be in touch';
+    btn.style.background='#1a7a3c'; btn.style.color='#fff';
+    document.getElementById('waCta').style.display='flex';
+  });
+
+  // STEP 2 — optional WhatsApp continue (tracked separately)
+  document.getElementById('waCta').addEventListener('click',function(){
+    var v=getVals();
+    // --- GOOGLE ADS CONVERSION: whatsapp click ---
+    // gtag('event','conversion',{'send_to':'AW-XXXXXXXXX/WHATSAPP_LABEL'});
+    window.open(waLink(buildMsg(v)),'_blank');
   });
 </script>
 </body>
