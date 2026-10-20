@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -193,11 +194,22 @@
     }
     document.getElementById('form-error').style.display='none';
 
-    // --- LEAD CAPTURE ---
-    // Replace this with your form endpoint (Formspree/Google Sheet/Zapier webhook)
-    // so the lead is saved server-side even if they don't continue to WhatsApp.
-    // Example: fetch('https://formspree.io/f/XXXX',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(v)});
-    try{ console.log('LEAD CAPTURED', v); }catch(e){}
+    // --- LEAD CAPTURE (Formspree) ---
+    // Posts the lead to your inbox instantly, even if they never open WhatsApp.
+    try{
+      fetch('https://formspree.io/f/xdeavvne', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+        body: JSON.stringify({
+          name: v.name,
+          phone: v.phone,
+          postcode: v.postcode,
+          budget: v.budget || 'not given',
+          timeline: v.timeline || 'not given',
+          source: 'Bathroom landing page'
+        })
+      }).catch(function(){ /* fail silently — user still gets the WhatsApp option */ });
+    }catch(e){}
 
     // --- GOOGLE ADS CONVERSION: form submit ---
     // gtag('event','conversion',{'send_to':'AW-XXXXXXXXX/FORM_SUBMIT_LABEL'});
