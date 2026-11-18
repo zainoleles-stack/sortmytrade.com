@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18396685081"></script>
+<!-- Google tag (gtag.js) with Consent Mode: ad cookies stay off until the visitor accepts (site-tracking.js) -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {ad_storage:'denied', ad_user_data:'denied', ad_personalization:'denied', analytics_storage:'denied', wait_for_update:500});
+  try { if (localStorage.getItem('smt_consent') === 'granted') { gtag('consent', 'update', {ad_storage:'granted', ad_user_data:'granted', ad_personalization:'granted', analytics_storage:'granted'}); } } catch (e) {}
+  gtag('set', 'url_passthrough', true);
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18396685081"></script>
+<script>
   gtag('js', new Date());
   gtag('config', 'AW-18396685081');
 </script>
@@ -191,10 +196,11 @@
   <div style="background:var(--ink);padding:22px 0;border-top:1px solid rgba(255,255,255,.1)">
     <div class="wrap" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px">
       <div style="font-size:12.5px;color:#5B6B78">SortMyTrade — South Manchester &amp; Cheshire</div>
-      <div style="font-size:12.5px;color:#5B6B78">sortmytrade.com · wa.me/447459819603</div>
+      <div style="font-size:12.5px;color:#5B6B78">sortmytrade.com · wa.me/447459819603 · <a href="privacy.html" style="text-decoration:underline">Privacy</a> · <a href="terms.html" style="text-decoration:underline">Terms</a> · <a href="#" data-cookie-settings style="text-decoration:underline">Cookie settings</a></div>
     </div>
   </div>
 </div>
+<script src="site-tracking.js"></script>
 <script>
   var WA_NUMBER='447459819603';
   function waLink(t){return 'https://wa.me/'+WA_NUMBER+'?text='+encodeURIComponent(t);}
@@ -229,6 +235,8 @@
 
     // --- LEAD CAPTURE (Formspree) ---
     // Posts the lead to your inbox instantly, even if they never open WhatsApp.
+    // gclid = the Google Ads click ID: keep it with the lead so a won job can be uploaded to Google Ads.
+    var ids = (window.smt && smt.clickIds()) || {};
     try{
       fetch('https://formspree.io/f/xdeavvne', {
         method: 'POST',
@@ -239,13 +247,17 @@
           postcode: v.postcode,
           budget: v.budget || 'not given',
           timeline: v.timeline || 'not given',
-          source: 'Bathroom landing page'
+          source: 'Bathroom landing page',
+          gclid: ids.gclid || '',
+          gbraid: ids.gbraid || '',
+          wbraid: ids.wbraid || '',
+          submitted_at: new Date().toISOString()
         })
       }).catch(function(){ /* fail silently — user still gets the WhatsApp option */ });
     }catch(e){}
 
-    // --- GOOGLE ADS CONVERSION: form submit ---
-    // gtag('event','conversion',{'send_to':'AW-XXXXXXXXX/FORM_SUBMIT_LABEL'});
+    // --- GOOGLE ADS CONVERSION: form submit ("Submit lead form") ---
+    if (window.smt) smt.conv('lead');
 
     // Confirm + reveal the WhatsApp option
     var btn=this;
@@ -257,8 +269,7 @@
   // STEP 2 — optional WhatsApp continue (tracked separately)
   document.getElementById('waCta').addEventListener('click',function(){
     var v=getVals();
-    // --- GOOGLE ADS CONVERSION: whatsapp click ---
-    // gtag('event','conversion',{'send_to':'AW-XXXXXXXXX/WHATSAPP_LABEL'});
+    // No conversion here: this person was already counted when the form was sent.
     window.open(waLink(buildMsg(v)),'_blank');
   });
 </script>

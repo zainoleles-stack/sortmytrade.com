@@ -2,11 +2,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18396685081"></script>
+<!-- Google tag (gtag.js) with Consent Mode: ad cookies stay off until the visitor accepts (site-tracking.js) -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {ad_storage:'denied', ad_user_data:'denied', ad_personalization:'denied', analytics_storage:'denied', wait_for_update:500});
+  try { if (localStorage.getItem('smt_consent') === 'granted') { gtag('consent', 'update', {ad_storage:'granted', ad_user_data:'granted', ad_personalization:'granted', analytics_storage:'granted'}); } } catch (e) {}
+  gtag('set', 'url_passthrough', true);
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18396685081"></script>
+<script>
   gtag('js', new Date());
   gtag('config', 'AW-18396685081');
 </script>
@@ -872,7 +877,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.05);padding:
 <div class="trade-strip">
   <div class="trade-strip-inner">
     <p><strong>Are you a tradesperson?</strong> Join our network and receive coordinated, pre-qualified local work — we handle the client side, you get paid promptly.</p>
-    <a class="trade-link" href="https://wa.me/447459819603?text=Hi%20SortMyTrade%2C%20I%27m%20a%20tradesperson%20interested%20in%20joining%20your%20network." target="_blank" rel="noopener">Join as a Trade →</a>
+    <a class="trade-link" data-no-track href="https://wa.me/447459819603?text=Hi%20SortMyTrade%2C%20I%27m%20a%20tradesperson%20interested%20in%20joining%20your%20network." target="_blank" rel="noopener">Join as a Trade →</a>
   </div>
 </div>
 
@@ -893,7 +898,8 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.05);padding:
       <a class="f-link" href="privacy.html">Privacy</a>
       <a class="f-link" href="terms.html">Terms</a>
       <a class="f-link" href="https://wa.me/447459819603" target="_blank" rel="noopener">Contact</a>
-      <a class="f-link" href="#">For Trades</a>
+      <a class="f-link" data-no-track href="https://wa.me/447459819603?text=Hi%20SortMyTrade%2C%20I%27m%20a%20tradesperson%20interested%20in%20joining%20your%20network." target="_blank" rel="noopener">For Trades</a>
+      <a class="f-link" href="#" data-cookie-settings>Cookie settings</a>
     </div>
   </div>
   <div class="footer-legal">© 2026 SortMyTrade · South Manchester &amp; Cheshire · sortmytrade.com · All trades independently vetted</div>
@@ -909,6 +915,7 @@ footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.05);padding:
   </div>
 </div>
 
+<script src="site-tracking.js"></script>
 <script>
 function scrollTo2(id){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});}
 
@@ -956,6 +963,17 @@ function submitForm(){
   const pc=document.getElementById('postcode').value.trim();
   const tl=document.getElementById('timeline').value;
   const bd=document.getElementById('budget').value;
+  // Save the lead first (Formspree -> inbox), so it isn't lost if they never press send in WhatsApp.
+  // gclid = the Google Ads click ID, kept so a won job can be uploaded to Google Ads.
+  const ids=(window.smt&&smt.clickIds())||{};
+  try{
+    fetch('https://formspree.io/f/xdeavvne',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify({name:name,phone:mobile,email:email,service:svc?svc.value:'not given',postcode:pc||'not given',job:job||'not given',
+        timeline:tl||'not given',budget:bd||'not given',source:'Homepage quote form',gclid:ids.gclid||'',gbraid:ids.gbraid||'',wbraid:ids.wbraid||'',
+        submitted_at:new Date().toISOString()})}).catch(function(){});
+  }catch(e){}
+  // Google Ads conversion: "Submit lead form"
+  if(window.smt) smt.conv('lead');
   const msg='New quote request via SortMyTrade%0A%0AName: '+encodeURIComponent(name)+'%0AService: '+encodeURIComponent(svc?svc.value:'-')+'%0APostcode: '+encodeURIComponent(pc)+'%0AJob: '+encodeURIComponent(job)+'%0ATimeline: '+encodeURIComponent(tl)+'%0ABudget: '+encodeURIComponent(bd)+'%0AMobile: '+encodeURIComponent(mobile)+'%0AEmail: '+encodeURIComponent(email);
   // Show success state
   document.getElementById('cardBody').style.display='none';
@@ -969,9 +987,11 @@ function submitMagnet(){
   const name=document.getElementById('mgName').value.trim();
   const email=document.getElementById('mgEmail').value.trim();
   if(!name||!email||!email.includes('@')){alert('Please pop in your first name and a valid email and we\u2019ll send the guide over.');return;}
-  // Capture the lead to Zaino via WhatsApp
-  const msg='Free guide request via SortMyTrade%0A%0AName: '+encodeURIComponent(name)+'%0AEmail: '+encodeURIComponent(email)+'%0A%0A(Add to nurture list \u2014 they\u2019ve downloaded the Homeowner\u2019s Guide)';
-  window.open('https://wa.me/447459819603?text='+msg,'_blank');
+  // Capture the lead to Zaino's inbox (Formspree). Not counted as a Google Ads conversion: it's a guide download, not a job enquiry.
+  try{
+    fetch('https://formspree.io/f/xdeavvne',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify({name:name,email:email,source:'Homeowner guide download',submitted_at:new Date().toISOString()})}).catch(function(){});
+  }catch(e){}
   // Open the guide for the visitor automatically
   window.open('https://sortmytrade.com/homeowners-guide.pdf','_blank');
   // Show success state
